@@ -1,1 +1,1 @@
-# projeto-pi-srint-1
+# projeto-pi-sprint-1
