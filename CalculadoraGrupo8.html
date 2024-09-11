@@ -48,12 +48,12 @@
     var diferencaLucro = receitaMensalComSistema - receitaMensalSemSistema;
     var lucroPorcentagem = (ValorMensal / receitaMensalSemSistema) * 100;
 
-    resultado.innerHTML = `Sem o nosso sistema, sua receita mensal estimada será de R$ ${receitaMensalSemSistema}.<br><br>
+    resultado.innerHTML = `Sem o nosso sistema, sua receita mensal estimada será de ${receitaMensalSemSistema.toLocaleString("pt-br", {style: 'currency', currency: 'BRL'})}.<br><br>
             Com nosso sistema, sua oficina pode fazer uma melhor gestão dos boxes, podendo atender mais clientes.<br>
-            Resultando em um aumento de até R$ ${ValorMensal} por mês na sua receita, ou seja, uma melhora de ${lucroPorcentagem.toFixed(2)}% nos seus lucros totais !!!<br><br><br>
+            Resultando em um aumento de até R$ ${ValorMensal.toLocaleString("pt-br", {style: 'currency', currency: 'BRL'})} por mês na sua receita, ou seja, uma melhora de ${lucroPorcentagem.toFixed(2)}% nos seus lucros totais !!!<br><br><br>
             <strong>Benefícios do Nosso Sistema</strong><br>
             <strong>Aumento da Receita:</strong> 
-            Potencial de aumento de até R$ ${ValorMensal} por mês.<br>
+            Potencial de aumento de até R$ ${ValorMensal.toLocaleString("pt-br", {style: 'currency', currency: 'BRL'})} por mês.<br>
             <strong>Eficiência Operacional:</strong> Melhoria na gestão dos boxes e redução de tempos de espera.<br>
             Para mais informações e uma demonstração personalizada, entre em contato conosco!<br><br><br><br>
             <strong>Nota:</strong> A porcentagem de lucro projetada é apenas uma estimativa, sem garantias de resultados exatos. Nosso compromisso é fornecer dashboards e relatórios diários, oferecendo aos gestores uma visão clara e atualizada para que possam ajustar seus processos e aprimorar a gestão de forma contínua.
