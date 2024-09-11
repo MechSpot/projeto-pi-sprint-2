@@ -56,7 +56,20 @@ insert into sensor (status_sensor, local_sensor, instalacao_boxe) values
 ('operante', 1, 1);
 
 insert into registro (sensor_origem, resultado, dt_hora) values
-(1, 1, '2024-09-07 16:34:05');
+(1, 1, '2024-09-07 16:34:05'),
+(1, 0, '2024-09-07 16:35:05');
+
+-- visualização das oficinas
+select id_oficina as 'oficina', nome_fantasia as 'nome', cnpj, email, cep, num_endereco, celular, telefone, total_boxes as 'boxes totais' from oficina_concessonaria;
+
+-- visualização dos boxes
+select id_boxe as 'boxe', local_boxe as 'oficina' from boxe;
+
+-- visualização dos usuarios
+select id_usuario as 'usuario', oficina, nome, email, senha from usuario;
+
+-- visualização dos sensores
+select id_sensor as 'sensor', status_sensor as 'status', local_sensor as 'oficina', instalacao_boxe as 'boxe' from sensor;
 
 -- visualização dos registros
-select sensor_origem as sensor, resultado, dt_hora as 'Data e Hora' from registro;
+select id_registro as 'registro', sensor_origem as 'sensor', resultado, dt_hora as 'Data e Hora' from registro;
