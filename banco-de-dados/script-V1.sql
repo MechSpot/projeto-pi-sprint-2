@@ -21,7 +21,7 @@ local_boxe int not null
 
 create table usuario (
 id_usuario int primary key auto_increment,
-oficina int not null,
+oficina int not null,	
 nome varchar(45) not null,
 email varchar(50) not null,
 senha varchar(20) not null
@@ -72,4 +72,6 @@ select id_usuario as 'usuario', oficina, nome, email, senha from usuario;
 select id_sensor as 'sensor', status_sensor as 'status', local_sensor as 'oficina', instalacao_boxe as 'boxe' from sensor;
 
 -- visualização dos registros
-select id_registro as 'registro', sensor_origem as 'sensor', resultado, dt_hora as 'Data e Hora' from registro;
+select id_registro as 'registro', sensor_origem as 'sensor', resultado, dt_hora as 'Data e Hora' from registro where dt_hora like '_____09%';
+
+select * from registro where dt_hora like '___________16%';
