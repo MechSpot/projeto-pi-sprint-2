@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="div_heather">
+        <button onclick="ExibirHome()">Home</button>
+        <button onclick="exibirSolucoes()">Soluções</button>
+        <button onclick="exibirSobreNos()">Sobre Nós</button>
+        <button onclick="loginUsuario()">Entrar</button>
+        <button onclick="cadastroUsuario()">Cadastrar-se</button>
+    </div>
+    <div id="div_home">
+        <div id="div_slider">
+            <div id="div_imagem_slider"><img src=""></div>
+            <input onclick="verificarImagemSlider()" type="radio" id="input_imagem1" name="imagem_atual "
+                value="imagem1">
+            <input onclick="verificarImagemSlider()" type="radio" id="input_imagem2" name="imagem_atual "
+                value="imagem2">
+            <input onclick="verificarImagemSlider()" type="radio" id="input_imagem3" name="imagem_atual "
+                value="imagem3">
+            <input onclick="verificarImagemSlider()" type="radio" id="input_imagem4" name="imagem_atual "
+                value="imagem4">
+        </div>
+        <div id="div_home_simulador_financeiro"></div>
+        <div id="div_home_sobre"></div>
+        <div id="div_home_solucoes"></div>
+        <div id="div_home_fale_conosco"></div>
+    </div>
+    <script src="script.js"></script>
+   
+</body>
+
+</html>
