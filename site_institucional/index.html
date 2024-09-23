@@ -10,31 +10,50 @@
 
 <body>
     <div id="div_heather">
-        <button onclick="ExibirHome()">Home</button>
-        <button onclick="exibirSolucoes()">Soluções</button>
-        <button onclick="exibirSobreNos()">Sobre Nós</button>
-        <button onclick="loginUsuario()">Entrar</button>
-        <button onclick="cadastroUsuario()">Cadastrar-se</button>
+        <header>
+
+            <div id="div_abas">
+                *logo*
+                <button><a href="index.html">Home</a></button>
+                <button onclick="exibirSolucoes()">Soluções</button>
+                <button onclick="exibirSobreNos()">Sobre Nós</button>
+                <button onclick="exibirFaleConosco()">Fale conosco</button>
+                <button><a href="telaLogin.html">Entrar</a></button>
+                <button><a href="telaCadastro.html">Cadastrar-se</a></button>
+            </div>
+        </header>
     </div>
-    <div id="div_home">
-        <div id="div_slider">
-            <div id="div_imagem_slider"><img src=""></div>
-            <input onclick="verificarImagemSlider()" type="radio" id="input_imagem1" name="imagem_atual "
-                value="imagem1">
-            <input onclick="verificarImagemSlider()" type="radio" id="input_imagem2" name="imagem_atual "
-                value="imagem2">
-            <input onclick="verificarImagemSlider()" type="radio" id="input_imagem3" name="imagem_atual "
-                value="imagem3">
-            <input onclick="verificarImagemSlider()" type="radio" id="input_imagem4" name="imagem_atual "
-                value="imagem4">
+    <div id="div_pagina_rotativa">
+        <div id="div_home">
+            <div id="div_home_slider">
+                *slider*
+                <div id="div_imagem_slider"><img src=""></div>
+                <input onclick="verificarImagemSlider()" type="radio" id="input_imagem1" name="imagem_atual "
+                    value="imagem1">
+                <input onclick="verificarImagemSlider()" type="radio" id="input_imagem2" name="imagem_atual "
+                    value="imagem2">
+                <input onclick="verificarImagemSlider()" type="radio" id="input_imagem3" name="imagem_atual "
+                    value="imagem3">
+                <input onclick="verificarImagemSlider()" type="radio" id="input_imagem4" name="imagem_atual "
+                    value="imagem4">
+            </div>
+            <div id="div_home_simulador_financeiro">
+                *Texto simulador Financeiro* <br>
+                <button><a href="telaCalculadora.html">Simule Já!</a></button>
+            </div>
+            <div id="div_home_sobre"><span>*Texto resumo sobre nós*</span> <br>
+                <button onclick="exibirSobreNos()">Serviços</button>
+            </div>
+            <div id="div_home_solucoes"><span>*Texto resumo soluções*</span><br>
+                <button onclick="exibirSolucoes()">Soluções</button>
+            </div>
+            <div id="div_home_fale_conosco"><span>*Texto resumo fale conosco*</span> <br>
+                <button onclick="exibirFaleConosco()">Fale conosco</button>
+            </div>
         </div>
-        <div id="div_home_simulador_financeiro"></div>
-        <div id="div_home_sobre"></div>
-        <div id="div_home_solucoes"></div>
-        <div id="div_home_fale_conosco"></div>
     </div>
     <script src="script.js"></script>
-   
+
 </body>
 
 </html>

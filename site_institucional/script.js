@@ -13,4 +13,4 @@ function verificarImagemSlider() {
     } else if (imagem4.checked) {
         div_imagem_slider.innerHTML = `<img src="">`
     }
-}
+}  
