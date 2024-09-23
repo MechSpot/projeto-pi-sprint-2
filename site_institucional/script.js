@@ -7,10 +7,20 @@ function verificarImagemSlider() {
     if (imagem1.checked) {
         div_imagem_slider.innerHTML = `<img src="">`
     } else if (imagem2.checked) {
-        div_imagem_slider.innerHTML = `<img src="">`  
+        div_imagem_slider.innerHTML = `<img src="">`
     } else if (imagem3.checked) {
         div_imagem_slider.innerHTML = `<img src="">`
     } else if (imagem4.checked) {
         div_imagem_slider.innerHTML = `<img src="">`
     }
-}  
+} function exibirSolucoes() {
+    div_pagina_rotativa.innerHTML = `
+    <div id="div_solucoes_sessao_incial">
+        <h1>Soluções</h1>
+        *Texto apresentação soluções*
+        *Imagens*
+    </div>
+    <div id="div_solucoes_sessao_explicacao">
+        *Texto de explicação detalhada da solução*
+        *Imagens*`
+}
