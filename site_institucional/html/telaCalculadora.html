@@ -4,9 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora Financeira</title>
+    <link rel="stylesheet" href="../css/header.css">
   </head>
 
   <body>
+    <div class="header">
+      <div class="logo">
+        <img src="../assets/img/logo.png" />
+        <h1>MechSpot</h1>
+      </div>
+
+      <div id="opcao_1" class="opcao_header">
+        <span id="opcao_home">Home</span>
+      </div>
+
+      <div id="opcao_2" class="opcao_header">
+        <span id="opcao_solucoes">Soluções</span>
+      </div>
+
+      <div id="opcao_3" class="opcao_header">
+        <span id="opcao_sobre_nos">Sobre nós</span>
+      </div>
+
+      <div id="opcao_4" class="opcao_header">
+        <span id="opcao_fale_conosco">Fale Conosco</span>
+      </div>
+
+      <div id="opcao_5" class="opcao_header">
+        <span id="opcao_login">Login</span>
+      </div>
+    </div>
     <h1>Calculadora Financeira</h1>
     <h3>Monitoramento de boxes de serviço em oficinas de concessionárias</h3>
 
@@ -23,7 +50,11 @@
     <br /><br />
 
     Dias de operação por mês:
-    <input type="number" id="input_dias_operacao_mes" placeholder="Ex: 22 dias" />
+    <input
+      type="number"
+      id="input_dias_operacao_mes"
+      placeholder="Ex: 22 dias"
+    />
     <br /><br />
 
     <button onclick="calcularFinanceiro()">Calcular</button>
@@ -42,18 +73,31 @@
     var ValorClientesPerdidos = ClientesPerdidos * valServico;
     var ValorMensal = ValorClientesPerdidos * diasOperacaoMes;
 
-    var receitaMensalSemSistema = valServico * clientesDiarios * diasOperacaoMes;
-    var receitaMensalComSistema = receitaMensalSemSistema + ValorClientesPerdidos;
+    var receitaMensalSemSistema =
+      valServico * clientesDiarios * diasOperacaoMes;
+    var receitaMensalComSistema =
+      receitaMensalSemSistema + ValorClientesPerdidos;
 
     var diferencaLucro = receitaMensalComSistema - receitaMensalSemSistema;
     var lucroPorcentagem = (ValorMensal / receitaMensalSemSistema) * 100;
 
-    resultado.innerHTML = `Sem o nosso sistema, sua receita mensal estimada será de ${receitaMensalSemSistema.toLocaleString("pt-br", {style: 'currency', currency: 'BRL'})}.<br><br>
+    resultado.innerHTML = `Sem o nosso sistema, sua receita mensal estimada será de ${receitaMensalSemSistema.toLocaleString(
+      "pt-br",
+      { style: "currency", currency: "BRL" }
+    )}.<br><br>
             Com nosso sistema, sua oficina pode fazer uma melhor gestão dos boxes, podendo atender mais clientes.<br>
-            Resultando em um aumento de até R$ ${ValorMensal.toLocaleString("pt-br", {style: 'currency', currency: 'BRL'})} por mês na sua receita, ou seja, uma melhora de ${lucroPorcentagem.toFixed(2)}% nos seus lucros totais !!!<br><br><br>
+            Resultando em um aumento de até R$ ${ValorMensal.toLocaleString(
+              "pt-br",
+              { style: "currency", currency: "BRL" }
+            )} por mês na sua receita, ou seja, uma melhora de ${lucroPorcentagem.toFixed(
+      2
+    )}% nos seus lucros totais !!!<br><br><br>
             <strong>Benefícios do Nosso Sistema</strong><br>
             <strong>Aumento da Receita:</strong> 
-            Potencial de aumento de até R$ ${ValorMensal.toLocaleString("pt-br", {style: 'currency', currency: 'BRL'})} por mês.<br>
+            Potencial de aumento de até R$ ${ValorMensal.toLocaleString(
+              "pt-br",
+              { style: "currency", currency: "BRL" }
+            )} por mês.<br>
             <strong>Eficiência Operacional:</strong> Melhoria na gestão dos boxes e redução de tempos de espera.<br>
             Para mais informações e uma demonstração personalizada, entre em contato conosco!<br><br><br><br>
             <strong>Nota:</strong> A porcentagem de lucro projetada é apenas uma estimativa, sem garantias de resultados exatos. Nosso compromisso é fornecer dashboards e relatórios diários, oferecendo aos gestores uma visão clara e atualizada para que possam ajustar seus processos e aprimorar a gestão de forma contínua.

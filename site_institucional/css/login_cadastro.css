@@ -1,0 +1,105 @@
+.tela_login_cadastro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  background-color: #eef0eb;
+}
+
+.card {
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  height: 80%;
+  border-radius: 15px;
+  background-color: #FFF;
+}
+
+.tela_login {
+  display: flex;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.primeira_coluna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 35%;
+  height: 100%;
+  background-color: #284B63;
+  border-radius: 15px 0 0 15px;
+}
+
+.tela_cadastro {
+  position: absolute;
+  display: none;
+}
+
+.segunda_coluna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+  height: 100%;
+}
+
+input {
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 16px;
+}
+
+.nome {
+  background-image: url(../assets/icon/person.png);
+}
+
+.email {
+  background-image: url(../assets/icon/mail.png);
+}
+
+.senha {
+  background-image: url(../assets/icon/lock.png);
+}
+
+.titulo {
+    font-size: 28px;
+    font-weight: bold;  
+}
+
+.titulo_bem_vindo {
+    color: #FFF;
+}
+
+.descricao {
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 30px;
+}
+
+.btn {
+    border-radius: 15px;
+    color: #FFF;
+    font-size: 10px;
+    padding: 10px 50px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn_cadastre-se {
+    background-color: transparent;
+    border: 1px solid #FFF;
+}
+
+.btn_cadastre-se:hover {
+    background-color: #FFF;
+    color: #284B63;
+}
