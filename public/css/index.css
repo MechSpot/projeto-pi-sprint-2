@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+
+}
+
+.simulador {
+    width: 100%;
+    height: 500px;
+    background-color: aqua;
+}
+
+.simulador .container {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container h1 {
+    margin: 0;
+    color: white;
+    justify-self: flex-start;
+}
+
+.simulador .container .card {
+    width: 80%;
+    height: 80%;
+    border-radius: 15px;
+    background-color: aliceblue;
+}
+
+.simulador .container .card-simulador {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .campo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
