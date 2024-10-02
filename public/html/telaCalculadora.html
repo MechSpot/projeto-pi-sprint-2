@@ -6,9 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculadora Financeira</title>
   <link rel="stylesheet" href="../css/header.css">
-  <link rel="stylesheet" href="../css/index.css">
+  
+.pergunta {
+display: none;
+}
 </head>
-
+<style>
+</style>
 <body>
   <div class="header">
     <div class="logo">
@@ -45,22 +49,22 @@
 
       <div class="card card-simulador">
         <div class="campo">
-          <div id="div_pergunta1">
+          <div id="div_pergunta1" class="pergunta">
           Valor de um serviço de revisão básica (R$):
           <input type="number" id="input_valor_servico" placeholder="Ex: 400" />
           <br /><br />
         </div>
-        <div id="div_pergunta2">
+        <div id="div_pergunta2" class="pergunta">
           Quantidade de clientes (por dia):
           <input type="number" id="input_clientes_diarios" placeholder="Ex: 20" />
           <br /><br />
         </div>
-        <div id="div_pergunta3">
+        <div id="div_pergunta3" class="pergunta">
           Quantidade de boxes que sua oficina tem:
           <input type="number" id="input_boxes" placeholder="Ex: 20" />
           <br /><br />
         </div>
-        <div id="div_pergunta4">
+        <div id="div_pergunta4" class="pergunta">
           Dias de operação por mês:
           <input type="number" id="input_dias_operacao_mes" placeholder="Ex: 22 dias" />
           <br /><br />
@@ -78,7 +82,9 @@
 
 </html>
 <script>
+  document.getElementById('div_pergunta1').style.display = 'block';
   function calcularFinanceiro() {
+    
     const valServico = Number(input_valor_servico.value);
     const clientesDiarios = Number(input_clientes_diarios.value);
     const diasOperacaoMes = Number(input_dias_operacao_mes.value);
