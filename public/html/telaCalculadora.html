@@ -6,13 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculadora Financeira</title>
   <link rel="stylesheet" href="../css/header.css">
-  
-.pergunta {
-display: none;
-}
+  <link rel="stylesheet" href="../css/index.css">
 </head>
-<style>
-</style>
+
 <body>
   <div class="header">
     <div class="logo">
@@ -46,35 +42,6 @@ display: none;
       <h3>Monitoramento de boxes de serviço em oficinas de concessionárias</h3>
       <div class="posicao-cards">
 
-<<<<<<< HEAD
-      <div class="card card-simulador">
-        <div class="campo">
-          <div id="div_pergunta1" class="pergunta">
-          Valor de um serviço de revisão básica (R$):
-          <input type="number" id="input_valor_servico" placeholder="Ex: 400" />
-          <br /><br />
-        </div>
-        <div id="div_pergunta2" class="pergunta">
-          Quantidade de clientes (por dia):
-          <input type="number" id="input_clientes_diarios" placeholder="Ex: 20" />
-          <br /><br />
-        </div>
-        <div id="div_pergunta3" class="pergunta">
-          Quantidade de boxes que sua oficina tem:
-          <input type="number" id="input_boxes" placeholder="Ex: 20" />
-          <br /><br />
-        </div>
-        <div id="div_pergunta4" class="pergunta">
-          Dias de operação por mês:
-          <input type="number" id="input_dias_operacao_mes" placeholder="Ex: 22 dias" />
-          <br /><br />
-        </div>
-
-          <button onclick="calcularFinanceiro()">Calcular</button>
-          <br /><br />
-
-          <div id="resultado"></div>
-=======
         <div class="card card-simulador">
           <div id="pergunta1" class="campo">
             <label for="valor_lucro_hora">Valor de lucro médio por hora (R$):</label>
@@ -95,7 +62,6 @@ display: none;
           <div class="campo">
             <button onclick="calcular()">Calcular</button>
           </div>
->>>>>>> 60b92963ac39bbaf0408a10983141dc4ebe14dfb
         </div>
         <div id="resultado" class="card-resultado"></div>
       </div>
@@ -105,17 +71,7 @@ display: none;
 
 </html>
 <script>
-<<<<<<< HEAD
-  document.getElementById('div_pergunta1').style.display = 'block';
-  function calcularFinanceiro() {
-    
-    const valServico = Number(input_valor_servico.value);
-    const clientesDiarios = Number(input_clientes_diarios.value);
-    const diasOperacaoMes = Number(input_dias_operacao_mes.value);
-    const ClientesPerdidos = Number(input_clientes_perdidos.value);
-=======
   // div_pergunta1.style.display = 'block'
->>>>>>> 60b92963ac39bbaf0408a10983141dc4ebe14dfb
 
   // function exibirPergunta1() {
   //   div_pergunta2.style.display = 'none'

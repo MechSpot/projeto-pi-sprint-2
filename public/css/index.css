@@ -55,24 +55,15 @@ body {
 .simulador .container .card-simulador {
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-    justify-content: center;
-    align-items: center;
-=======
     align-items: flex-start;
     justify-content: space-around;
 
->>>>>>> 60b92963ac39bbaf0408a10983141dc4ebe14dfb
 }
 
 .container .campo {
     width: 84%;
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-}
-
-=======
     padding-left: 30px;
     padding-right: 30px;
 }
@@ -109,10 +100,3 @@ p {
     padding: 10px;
     border-radius: 15px;
 }
-
-
-
-
-
-
->>>>>>> 60b92963ac39bbaf0408a10983141dc4ebe14dfb
