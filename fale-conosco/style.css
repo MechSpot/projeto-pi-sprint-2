@@ -1,0 +1,91 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: white;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 35px;
+    padding-bottom: 40px;
+    padding-left: 45px;
+    padding-right: 45px;
+    background: #d8d8d8;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #104F55;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 70px;
+}
+img {
+    width: 160px; 
+    height: auto; 
+    margin-bottom: 5px; 
+}
+
+section h1 {
+    font-size: 1.7rem;
+    margin: 2rem;
+    margin-bottom: 22px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+section form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+form label {
+    margin: 6px 6px;
+}
+
+form input {
+    padding: 15px;
+    outline: none;
+    border: 0;
+    margin-bottom: 8px;
+    font-size: 15px;
+    border-radius: 20px;
+}
+
+form textarea {
+    padding: 10px;
+    outline: none;
+    border: 0;
+    font-size: 15px;
+    margin-top: 12px;
+    margin-bottom: 47px;
+    transition: all 0.5s;
+    box-shadow: rgba(12, 69, 27, 0.4) 5px 5px, rgba(12, 76, 59, 0.3) 10px 10px, rgba(17, 57, 78, 0.2) 15px 15px, rgba(0, 71, 28, 0.1) 20px 20px, rgba(22, 71, 51, 0.05) 25px 25px;
+}
+
+form textarea:focus {
+    border-radius: 20px;
+}
+
+form button {
+    padding: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    background: #104F55;
+    color: whitesmoke;
+    border: 2px solid #104F55;
+    transition: all 1s;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    font-family: monospace;
+}
+
+form button:hover {
+    background: transparent;
+    color: #104F55;
+
+}
