@@ -38,39 +38,32 @@
   </div>
   <div class="simulador">
     <div class="container">
-
-
-      <h1>Calculadora Financeira</h1>
+      <h1>Simulador Financeiro</h1>
       <h3>Monitoramento de boxes de serviço em oficinas de concessionárias</h3>
+      <div class="posicao-cards">
 
-      <div class="card card-simulador">
-        <div class="campo">
-          <div id="div_pergunta1">
-          Valor de um serviço de revisão básica (R$):
-          <input type="number" id="input_valor_servico" placeholder="Ex: 400" />
-          <br /><br />
+        <div class="card card-simulador">
+          <div id="pergunta1" class="campo">
+            <label for="valor_lucro_hora">Valor de lucro médio por hora (R$):</label>
+            <input type="number" id="valor_lucro_hora" placeholder="Ex: 100" />
+          </div>
+          <div id="pergunta2" class="campo">
+            <label for="horas_operacao_dia">Horas de Operação (por dia):</label>
+            <input type="number" id="horas_operacao_dia" placeholder="Ex: 8" />
+          </div>
+          <div id="pergunta3" class="campo">
+            <label for="boxes">Quantidade de boxes que sua oficina tem:</label>
+            <input type="number" id="boxes" placeholder="Ex: 20" />
+          </div>
+          <div id="pergunta4" class="campo">
+            <label for="dias_operacao_mes">Dias de operação por mês:</label>
+            <input type="number" id="dias_operacao_mes" placeholder="Ex: 22 dias" />
+          </div>
+          <div class="campo">
+            <button onclick="calcular()">Calcular</button>
+          </div>
         </div>
-        <div id="div_pergunta2">
-          Quantidade de clientes (por dia):
-          <input type="number" id="input_clientes_diarios" placeholder="Ex: 20" />
-          <br /><br />
-        </div>
-        <div id="div_pergunta3">
-          Quantidade de boxes que sua oficina tem:
-          <input type="number" id="input_boxes" placeholder="Ex: 20" />
-          <br /><br />
-        </div>
-        <div id="div_pergunta4">
-          Dias de operação por mês:
-          <input type="number" id="input_dias_operacao_mes" placeholder="Ex: 22 dias" />
-          <br /><br />
-        </div>
-
-          <button onclick="calcularFinanceiro()">Calcular</button>
-          <br /><br />
-
-          <div id="resultado"></div>
-        </div>
+        <div id="resultado" class="card-resultado"></div>
       </div>
     </div>
   </div>
@@ -78,43 +71,69 @@
 
 </html>
 <script>
-  function calcularFinanceiro() {
-    const valServico = Number(input_valor_servico.value);
-    const clientesDiarios = Number(input_clientes_diarios.value);
-    const diasOperacaoMes = Number(input_dias_operacao_mes.value);
-    const ClientesPerdidos = Number(input_clientes_perdidos.value);
+  // div_pergunta1.style.display = 'block'
 
-    var ValorClientesPerdidos = ClientesPerdidos * valServico;
-    var ValorMensal = ValorClientesPerdidos * diasOperacaoMes;
+  // function exibirPergunta1() {
+  //   div_pergunta2.style.display = 'none'
+  //   div_pergunta1.style.display = 'block'
+  // }
 
-    var receitaMensalSemSistema =
-      valServico * clientesDiarios * diasOperacaoMes;
-    var receitaMensalComSistema =
-      receitaMensalSemSistema + ValorClientesPerdidos;
+  // function exibirPergunta2() {
+  //   div_pergunta1.style.display = 'none'
+  //   div_pergunta2.style.display = 'block'
+  //   if (div_pergunta3.style.display == 'block') {
+  //   div_pergunta3.style.display = 'none'
+  //   }
+  // }
 
-    var diferencaLucro = receitaMensalComSistema - receitaMensalSemSistema;
-    var lucroPorcentagem = (ValorMensal / receitaMensalSemSistema) * 100;
+  // function exibirPergunta3() {
+  //   div_pergunta2.style.display = 'none'
+  //   div_pergunta3.style.display = 'block'
+  //   if (div_pergunta4.style.display == 'block') {
+  //   div_pergunta4.style.display = 'none'
+  //   }
+  // }
 
-    resultado.innerHTML = `Sem o nosso sistema, sua receita mensal estimada será de ${receitaMensalSemSistema.toLocaleString(
-      "pt-br",
-      { style: "currency", currency: "BRL" }
-    )}.<br><br>
-            Com nosso sistema, sua oficina pode fazer uma melhor gestão dos boxes, podendo atender mais clientes.<br>
-            Resultando em um aumento de até R$ ${ValorMensal.toLocaleString(
-      "pt-br",
-      { style: "currency", currency: "BRL" }
-    )} por mês na sua receita, ou seja, uma melhora de ${lucroPorcentagem.toFixed(
-      2
-    )}% nos seus lucros totais !!!<br><br><br>
-            <strong>Benefícios do Nosso Sistema</strong><br>
-            <strong>Aumento da Receita:</strong> 
-            Potencial de aumento de até R$ ${ValorMensal.toLocaleString(
-      "pt-br",
-      { style: "currency", currency: "BRL" }
-    )} por mês.<br>
-            <strong>Eficiência Operacional:</strong> Melhoria na gestão dos boxes e redução de tempos de espera.<br>
-            Para mais informações e uma demonstração personalizada, entre em contato conosco!<br><br><br><br>
-            <strong>Nota:</strong> A porcentagem de lucro projetada é apenas uma estimativa, sem garantias de resultados exatos. Nosso compromisso é fornecer dashboards e relatórios diários, oferecendo aos gestores uma visão clara e atualizada para que possam ajustar seus processos e aprimorar a gestão de forma contínua.
-            `;
+  // function exibirPergunta4() {
+  //   div_pergunta3.style.display = 'none'
+  //   div_pergunta4.style.display = 'block'
+  // }
+  resultado.style.display = 'none'
+
+  function calcular() {
+    resultado.style.display = 'block'
+    const valorLucroHora = Number(valor_lucro_hora.value);
+    // const clientesDiarios = Number(clientes_diarios.value);
+    const horasOperacaoDia = Number(horas_operacao_dia.value)
+    const diasOperacaoMes = Number(dias_operacao_mes.value);
+    const qtdBoxes = Number(boxes.value);
+
+    var lucroDiario = valorLucroHora * horasOperacaoDia
+    var tempoOcioso = 0.3 * (horasOperacaoDia * qtdBoxes)
+    var tempoOciosoSoftware = 0.1 * (horasOperacaoDia * qtdBoxes)
+    var horasRecuperadas = tempoOcioso - tempoOciosoSoftware
+    var ganhoRecuperado = tempoOciosoSoftware * valorLucroHora
+    var ganhoRecuperadoMes = ganhoRecuperado * diasOperacaoMes
+    var ganhoRecuperadoAno =  ganhoRecuperado * diasOperacaoMes * 11
+
+    resultado.innerHTML = `<div class="campo-p"><p>Com o nosso software de gestão vamos te fornecer informações em tempo real 
+    sobre o uso dos boxes e a produtividade da equipe. <br>
+    Com dashboards de fácil visualização, é possível ver imediatamente quais boxes estão ociosos e 
+    reorganizar tarefas ou redistribuir os serviços de forma dinâmica. <br>
+    Esse monitoramento garante uma rápida resposta a imprevistos, como cancelamentos ou atrasos.</p></div>
+    <div class="campo-p"><p>Você irá reduzir sua ociosidade em 10%. <br>
+    assim recuperando ${horasRecuperadas.toLocaleString()} horas por dia, ${(horasRecuperadas * diasOperacaoMes)
+    .toLocaleString()} horas 
+    por mês e totalizando em ${(horasRecuperadas * diasOperacaoMes * 11).toLocaleString()}
+    horas por ano. </p></div>
+    <div class="campo-p"><p>Além também de aumentar o lucro em ${ganhoRecuperado.toLocaleString
+    ('pt-br',{style: 'currency', currency: 'BRL'})} por dia, 
+    ${(ganhoRecuperado * diasOperacaoMes).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} 
+    por mês e tolizando em ${(ganhoRecuperado * diasOperacaoMes * 11).toLocaleString
+    ('pt-br',{style: 'currency', currency: 'BRL'})} por ano. </p></div>
+    `
+
+
+
   }
 </script>
