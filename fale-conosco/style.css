@@ -1,12 +1,15 @@
 body {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     min-height: 100vh;
+    margin: 0;
     background: white;
 }
 
 section {
+    flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,4 +91,65 @@ form button:hover {
     background: transparent;
     color: #104F55;
 
+}
+.footer {
+    background: #22868f;
+    padding: 20px 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+    justify-items: center;
+    margin: 0 auto;
+
+}
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+ul {
+    list-style: none;
+}
+.footer-col {
+width: 25%;
+padding: 0 15px;
+}
+.footer-col h4 {
+    font-size: 22px;
+    color: aliceblue;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    font-weight: bold;
+    position: relative;
+}
+.footer-col h4::before {
+content: '';
+position: absolute;
+left: 3;
+bottom: -15px;
+background: #104F55;
+height: 4px;
+box-sizing: border-box;
+width: 50px;
+}
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+    color: #104F55;
+    padding-left: 10px;
 }
