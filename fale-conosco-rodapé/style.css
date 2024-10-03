@@ -26,6 +26,7 @@ section {
     font-weight: bold;
     font-size: 15px;
     border-radius: 70px;
+    margin-bottom: 50px;
 }
 img {
     width: 160px; 
@@ -98,9 +99,9 @@ form button:hover {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     width: 100%;
     text-align: center;
-    margin-top: auto;
     justify-items: center;
     margin: 0 auto;
+    
 
 }
 .container {
