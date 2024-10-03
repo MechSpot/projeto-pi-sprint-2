@@ -1,6 +1,51 @@
 body {
     margin: 0;
+    background-color: #32746D;
 
+}
+
+.header {
+    background-color: #104F55;
+    width: 98%;
+    height: 85px;
+    border-radius: 80px;
+    margin: 1%;
+}
+
+.header .container {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+       
+}
+
+
+.header .container .titulo {
+    color: #f7f7f7;
+    
+}
+
+.header .container .navbar {
+    display: flex;
+    list-style: none;
+    width: 50%;
+    justify-content: space-between;
+    font-size: 20px;
+    align-items: center;
+   
+}
+
+.header .container .navbar .login a{
+    padding: 30%;
+    background-color: #32746D;
+    
+}
+
+.header .container .navbar a {
+    color: #f7f7f7;
+    text-decoration: none;
+   
 }
 
 .simulador {
@@ -10,8 +55,6 @@ body {
 
 }
 
-
-
 .simulador .container {
     width: 100%;
     height: 500px;
@@ -19,37 +62,47 @@ body {
     flex-direction: column;
     
 }
-
-.simulador .posicao-cards {
-    width: 80%;
-    height: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
-.container h1,h3 {
+.simulador .container h1,h3 {
     margin: 0;
-    color: white;
+    color: #f7f7f7;
     align-self: center;
 }
 
-.simulador .card {
-    width: 40%;
+.simulador .container .posicao-cards {
+    width: 86%;
     height: 90%;
-    margin: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+.simulador .card {
+    width: 28%;
+    height: 90%;
+    margin: 2%;
     border-radius: 15px;
-    background-color: aliceblue;
+    background-color: #f7f7f7;
+    align-self: flex-start;
 }
 
 .simulador .card-resultado {
-    width: 50%;
+    width: 34%;
     height: 90%;
-    margin: 3%;
+    margin: 2%;
     border-radius: 15px;
-    background-color: aliceblue;
+    background-color: #f7f7f7;
+    display: none;
+}
+
+.simulador .card-resultado2 {
+    width: 26%;
+    height: 90%;
+    margin: 2%;
+    border-radius: 15px;
+    background-color: #f7f7f7;
+    display: none;
 }
 
 .simulador .container .card-simulador {
@@ -61,24 +114,30 @@ body {
 }
 
 .container .campo {
-    width: 84%;
+    width: 88%;
     display: flex;
     flex-direction: column;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 6%;
+    padding-right: 6%;
 }
 
 .campo input {
     width: 100%;
-    height: 30px;
+    height: 27px;
     align-self: center;
     border-radius: 5px;
-    border: 1px solid;
+    border: 1px solid #104F55;
     text-align: center;
+}
+
+.campo label {
+    color: #104F55;;
 }
 
 .campo span {
     align-self: flex-start;
+    text-align: justify;
+    color: #104F55;
 }
 
 .campo button {
@@ -87,15 +146,17 @@ body {
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid;
-    background-color: rgb(21, 53, 53);
-    color: white;
-    align-self: center;
-    
+    background-color: #104F55;
+    color: #f7f7f7;
+    align-self: center; 
 }
 
 p {
-    background-color: rgb(25, 148, 148);
-    color: white;
+    align-self: flex-start;
+    text-align: justify;
+    background-color: #104F55;
+    color: #f7f7f7;
+    font-size: 15px;
     margin: 10px;
     padding: 10px;
     border-radius: 15px;
