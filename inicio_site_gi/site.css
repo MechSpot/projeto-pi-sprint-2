@@ -5,46 +5,51 @@ body{
    
 }
 
+
 .header {
     background-color: #104F55;
-    width: 80%;
+    width: 98%;
+    height: 85px;
     border-radius: 80px;
-    margin-left: auto; 
-    margin-right: 0;    
+    margin-left: 1%;
+    margin-right: 1%;    
+    margin-top: 1%;
   
-    
 }
-
 
 .header .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding-left: 120px;
-    padding-right: 120px ;
-    
-  
+       
 }
 
-.titulo {
+
+.header .container .titulo {
     color: #f7f7f7;
     
 }
 
-.navbar {
+.header .container .navbar {
     display: flex;
     list-style: none;
-    width: 430px;
+    width: 50%;
     justify-content: space-between;
+    font-size: 20px;
+    align-items: center;
    
-
 }
 
-.navbar a {
+.header .container .navbar .login a{
+    padding: 30%;
+    background-color: #32746D;
+    
+}
+
+.header .container .navbar a {
     color: #f7f7f7;
     text-decoration: none;
    
-
 }
 
 .banner{
@@ -57,41 +62,103 @@ body{
 .banner .container{
     width: 100%;
     height: 100%;
-    font-size: 30px;
+    
     display: flex;
     align-items: center;
-    color: #f7f7f7;
- 
+    justify-content: center;
   
 }
 
-.banner .container h1{
+.banner .container .campo {
+    width: 45%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.banner .campo h1{
     font-weight: bold;
-    padding: 80px;
-
-
-}
-
-.banner h4{
+    font-size: 50px;
     color: #f7f7f7;
-    font-size: 30px;
-    position: relative;
-    top: -70px; 
-    margin-left: 80px; 
-   
-
 
 }
 
-.social {
-    height: 300px;
+.banner .campo h4{
+    color: #f7f7f7;
+    font-size: 25px; 
+}
+
+.banner .campo img{
+    width: 80%;
+    height: 120%;
+
+}
+
+.sobre-nos{
     width: 100%;
-    background-color: #dcdcdc;
-    margin-top: 70px;
-   
+    height: 500px;
+    background-color: #f7f7f7;
+    
 }
 
-.banner .container img{
-    width: 450px;
-    height: 450px;
+.sobre-nos h1{
+        color: #104F55;
+}
+
+.sobre-nos .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.sobre-nos .container .campo{
+    width: 45%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+    
+
+}
+
+.sobre-nos .container .campo img{
+    width: 80%;
+    height: 100%;
+   
+    
+}
+
+.sobre-nos .container .campo span{
+    width: 65%;
+    font-size: 20px;
+    text-align: justify;
+    
+
+
+}
+
+.sobre-nos .container .campo a {
+    text-decoration: none;
+    color: #f7f7f7;
+    align-self: flex-start;
+    margin-left: 17.5%;
+    padding: 3%;
+    background-color: #104F55;
+    border-radius: 10px;
+    margin-top: 2%;
+
+
+}
+
+.sobre-nos .container .campo h1{
+    align-self: flex-start;
+    padding-left: 17.5%;
 }
