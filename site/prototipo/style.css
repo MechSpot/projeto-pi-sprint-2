@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.section-mvv {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+    background-color: #EEF2F5;
+}
+.image-card {
+    width: 190px; 
+    height: auto; 
+}
+
+.card {
+    width:30%;
+    background-color: #5ec2ac7e;
+    padding: 5px;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.card2 {
+    width:30%;
+    background-color: #5ec2ac7e;
+    padding: 5px;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.card3 {
+    width:30%;
+    background-color: #5ec2ac7e;
+    padding: 5px;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card h2 {
+    color: black;
+    
+}
+.card2 h2 {
+    color: black;
+}
+.card3 h2 {
+    color: black;
+}
+
+.card p {
+    color: #0a0a0a;
+}
+
+.center-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#toPlatform {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #335D92;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#toPlatform:hover {
+    background-color: #294874;
+}
+
+
+
+/* Estilização geral para a seção da plataforma */
+.section-plataforma {
+    padding: 40px;
+    background-color: #EEF2F5;
+    margin-bottom: 20px;
+}
+
+.plataforma-content {
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+.image-plataforma {
+    width: 300px; 
+    height: auto; 
+    margin-bottom: 10px;
+}
+
+.plataforma-text {
+    max-width: 400px;
+    flex-direction: column; 
+    margin-top: 0;
+}
+
+.plataforma-text h2 {
+    color: #335D92;
+    margin-bottom: 10px;
+}
+
+.plataforma-text p {
+    color: #555;
+    line-height: 1,6;
+}
