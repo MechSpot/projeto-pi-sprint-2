@@ -2,28 +2,36 @@ create database group1;
 use group1;
 
 -- criar tabela oficina
--- Tabela de oficinas
 create table oficina_concessonaria (
     id_oficina int primary key auto_increment,
     nome_fantasia varchar(70) not null,
     cnpj char(18) not null unique,
     email varchar(50) not null,
-    cep char(9) not null,
-    num_endereco int not null,
     celular char(12) not null,
     telefone char(11),
-    total_boxes int not null
+    total_boxes int not null,
+    razao_social varchar(100), -- nova coluna adicionada
+    representante_legal varchar(100) -- nova coluna adicionada
 );
-desc oficina_concessonaria;
+
+-- criar tabela endereco
+create table endereco (
+    idEndereco int primary key auto_increment,
+    cep char(9) not null,
+    numero int not null,
+    complemento varchar(45),
+    fkOficina int,
+    foreign key (fkOficina) 
+    references oficina_concessonaria(id_oficina)
+);
 
 -- Tabela de boxes
 create table boxe (
     id_boxe int primary key auto_increment,
     local_boxe int not null,
     foreign key (local_boxe) 
-    references oficina_concessonaria(id_oficina) on delete cascade
+    references oficina_concessonaria(id_oficina)
 );
-desc boxe;
 
 -- Tabela de usuários
 CREATE TABLE usuario (
@@ -33,20 +41,20 @@ CREATE TABLE usuario (
     email varchar(50) not null unique,
     senha varchar(20) not null,
     foreign key (oficina) 
-    references oficina_concessonaria(id_oficina) on delete cascade
+    references oficina_concessonaria(id_oficina)
 );
-desc usuario;
 
 -- Tabela de sensores
 create table sensor (
     id_sensor int primary key auto_increment,
-    status_sensor enum('operante', 'inoperante') not null,
+    status_sensor varchar(15) not null, -- substituindo enum por varchar
     local_sensor int,
     instalacao_boxe INT,
-    foreign key (local_sensor) references oficina_concessonaria(id_oficina),
-    foreign key (instalacao_boxe) references boxe(id_boxe)
+    foreign key (local_sensor) 
+    references oficina_concessonaria(id_oficina),
+    foreign key (instalacao_boxe) 
+    references boxe(id_boxe)
 );
-desc sensor;
 
 -- Tabela de registros
 create table registro (
@@ -54,20 +62,27 @@ create table registro (
     sensor_origem int not null,
     resultado int not null,
     dt_hora datetime not null,
-    foreign key (sensor_origem) references sensor(id_sensor) on delete cascade
+    foreign key (sensor_origem) 
+    references sensor(id_sensor)
 );
-desc registro;
 
--- inserção de registros /Inserindo oficinas
-INSERT INTO oficina_concessonaria (nome_fantasia, cnpj, email, cep, num_endereco, celular, telefone, total_boxes) 
+-- Inserção de registros /Inserindo oficinas
+INSERT INTO oficina_concessonaria (nome_fantasia, cnpj, email, celular, telefone, total_boxes, razao_social, representante_legal) 
 VALUES
-('Hyundai', '12.345.678/0001-90', 'hyundai@gmail.com', '12345-678', 100, '99 999999999', '31 34455666', 10),
-('Fiat', '98.765.432/0001-10', 'fiat@gmail.com', '23456-789', 200, '99 88888888', '31 11112222', 5),
-('Toyota', '11.223.344/0001-20', 'toyota@gmail.com', '34567-890', 300, '99 77777777', '31 22223333', 15),
-('Ford', '22.334.455/0001-30', 'ford@gmail.com', '45678-901', 400, '99 66666666', '31 33334444', 20),
-('Volkswagen', '33.445.566/0001-40', 'vw@gmail.com', '56789-012', 500, '99 55555555', '31 44445555', 12);
+('Hyundai', '12.345.678/0001-90', 'hyundai@gmail.com', '99 999999999', '31 34455666', 10, 'Hyundai Motors', 'João Silva'),
+('Fiat', '98.765.432/0001-10', 'fiat@gmail.com', '99 88888888', '31 11112222', 5, 'Fiat Automóveis', 'Maria Souza'),
+('Toyota', '11.223.344/0001-20', 'toyota@gmail.com', '99 77777777', '31 22223333', 15, 'Toyota do Brasil', 'Carlos Pereira'),
+('Ford', '22.334.455/0001-30', 'ford@gmail.com', '99 66666666', '31 33334444', 20, 'Ford Company', 'Ana Lima'),
+('Volkswagen', '33.445.566/0001-40', 'vw@gmail.com', '99 55555555', '31 44445555', 12, 'Volkswagen Brasil', 'Rafael Costa');
 
-select * from oficina_concessonaria;
+-- Inserindo endereços
+INSERT INTO endereco (cep, numero, complemento, fkOficina) 
+VALUES
+('12345-678', 100, 'Apto 1', 1),
+('23456-789', 200, NULL, 2),
+('34567-890', 300, 'Casa 5', 3),
+('45678-901', 400, NULL, 4),
+('56789-012', 500, 'Ponto Comercial', 5);
 
 -- Inserindo boxes
 insert into boxe (local_boxe) 
@@ -83,8 +98,6 @@ values
 (4, 'Rocket', 'rocket@gmail.com', 'senhaSegura101'),
 (5, 'Groot', 'groot@gmail.com', 'senhaSegura202');
 
-select * from usuario;
-
 -- Inserindo sensores
 insert into sensor (status_sensor, local_sensor, instalacao_boxe) 
 values
@@ -93,7 +106,6 @@ values
 ('operante', 3, 3),
 ('inoperante', 4, 4),
 ('operante', 5, 1);
-select * from sensor;
 
 -- Inserindo registros
 insert into registro (sensor_origem, resultado, dt_hora) 
@@ -103,6 +115,12 @@ values
 (3, 1, '2024-09-07 16:36:05'),
 (4, 0, '2024-09-07 16:37:05'),
 (5, 1, '2024-09-07 16:38:05');
+
+-- Consultas
+select * from oficina_concessonaria;
+select * from endereco;
+select * from usuario;
+select * from sensor;
 select * from registro;
 
 -- Exibir todos os dados com alias (AS)
@@ -115,8 +133,8 @@ s.status_sensor AS 'Status do Sensor'
 from oficina_concessonaria o
 join usuario u ON o.id_oficina = u.oficina
 join sensor s ON o.id_oficina = s.local_sensor;
-    
-    -- exibir dados com CASE
+
+-- exibir dados com CASE
 select
 o.id_oficina,
 o.nome_fantasia,
@@ -134,10 +152,3 @@ o.nome_fantasia,
 IFNULL(u.nome, 'Nenhum usuário') AS 'Nome Usuário'
 from oficina_concessonaria o
 left join usuario u ON o.id_oficina = u.oficina;
-
-
-
-
-
-
-
