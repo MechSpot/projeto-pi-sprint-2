@@ -61,7 +61,7 @@ create table registro (
     id_registro int primary key auto_increment,
     sensor_origem int not null,
     resultado int not null,
-    dt_hora datetime not null,
+    dt_hora datetime default current_timestamp not null,
     foreign key (sensor_origem) 
     references sensor(id_sensor)
 );
