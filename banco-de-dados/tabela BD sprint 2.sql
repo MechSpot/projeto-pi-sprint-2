@@ -107,22 +107,6 @@ values
 ('inoperante', 4, 4),
 ('operante', 5, 1);
 
--- Inserindo registros
-insert into registro (sensor_origem, resultado, dt_hora) 
-values
-(1, 1, '2024-09-07 16:34:05'),
-(2, 0, '2024-09-07 16:35:05'),
-(3, 1, '2024-09-07 16:36:05'),
-(4, 0, '2024-09-07 16:37:05'),
-(5, 1, '2024-09-07 16:38:05');
-
--- Consultas
-select * from oficina_concessonaria;
-select * from endereco;
-select * from usuario;
-select * from sensor;
-select * from registro;
-
 -- Exibir todos os dados com alias (AS)
 select 
 o.id_oficina AS 'ID Oficina',
