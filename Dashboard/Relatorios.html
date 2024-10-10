@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Relatorios</title>
     <link rel="stylesheet" href="folhasdeEstilo.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <div class="barraLateral">
-        
+
         <div class="logo">
             <img src="images/MechSpot.png" alt="">
             <h3>Mechspot</h3>
@@ -33,5 +36,61 @@
             <a href="">Sair</a>
         </div>
     </div>
+
+    <div class="Content" style="display: flex;">
+        <div class="graficos"
+            style="background-color: rgba(255, 255, 255, 0.281); width: 35%; height: 80vh; justify-content: center; border-radius: 10px; display: flex; flex-direction: column; margin-top: 4%;">
+
+            <canvas id="chartpizza" style="padding: 5px; border-radius: 10px;"></canvas>
+            <canvas id="chartBarra" style="padding: 5px;"></canvas>
+        </div>
+        <div class="relatorio">
+            <div class="barraSuperior"><span>Histórico</span></div>
+            <div class="dados_relatorio">17:37 - Um carro<span id="entrada">entrou</span>na vaga 14</div>
+            <div class="dados_relatorio">16:21 - Um carro<span id="saida"> saiu </span>na vaga 7</div>
+            <div class="dados_relatorio">16:02 - Um carro<span id="entrada"> entrou </span>na vaga 7</div>
+            <div class="dados_relatorio">14:49 - Um carro<span id="entrada"> entrou </span>na vaga 2</div>
+            <div class="dados_relatorio">12:37 - Um carro<span id="saida"> saiu </span>na vaga 1</div>
+            <div class="dados_relatorio">10:12 - Um carro<span id="saida"> saiu </span>na vaga 6</div>
+        </div>
+    </div>
 </body>
+
 </html>
+
+<script>
+    const chartBarra = document.getElementById('chartpizza');
+
+    new Chart(chartBarra, {
+        type: 'pie',
+        data: {
+            labels: ['Vagas Ocupadas', 'Vagas Vazias'],
+            datasets: [{
+                label: 'Movimento Diário',
+                data: [8, 6],
+                borderColor: '#01200F',
+                backgroundColor: ['#9EC5AB', '#01200F'],
+            },
+            ]
+        }
+    })
+
+    const chartLinha = document.getElementById('chartBarra')
+
+    new Chart(chartLinha, {
+        type: 'bar',
+        data: {
+            labels: ['Entrada de Carros', 'Saída de Carros'],
+            datasets: [{
+                label: 'Entrada/Saída',
+                data: [412, 272],
+                backgroundColor: ['#9EC5AB', '#01200F'],
+            }]
+        },
+        options: {
+            indexAxis: 'y'
+        }
+    });
+
+
+</script>

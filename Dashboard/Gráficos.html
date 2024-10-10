@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Gráficos</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="folhasdeEstilo.css">
 </head>
@@ -31,18 +31,18 @@
             </div>
         </nav>
         <div id="Sair">
-            <img src="images/Door_icon.png" alt="">
-            <a href="">Sair</a>
+
+            <a href=""> <img src="images/Door_icon.png" alt="">Sair</a>
         </div>
     </div>
     <div class="Content">
         <h2>Informações Gráficos</h2>
         <div class="graficos">
             <div>
-                <canvas id="chartBarras"></canvas>
+                <canvas id="chartLinha" style="padding: 5px;"></canvas>
             </div>
             <div>
-                <canvas id="chartLinha"></canvas>
+                <canvas id="chartBarra" style="padding: 5px;"></canvas>
             </div>
         </div>
 
@@ -62,12 +62,6 @@
                 </ul>
             </div>
 
-            <div class="div_KPI">
-                <p>Horario de Pico:<br><span>15hr</span></p>
-            </div>
-            <div class="div_KPI">
-                <p>Semana Menos Produtiva:<br><span>Week 5</span></p>
-            </div>
         </div>
     </div>
 
@@ -78,7 +72,7 @@
 </html>
 
 <script>
-    const chartBarra = document.getElementById('chartBarras');
+    const chartBarra = document.getElementById('chartLinha');
 
     new Chart(chartBarra, {
         type: 'line',
@@ -95,7 +89,7 @@
         }
     })
 
-    const chartLinha = document.getElementById('chartLinha')
+    const chartLinha = document.getElementById('chartBarra')
 
     new Chart(chartLinha, {
         type: 'bar',
@@ -106,6 +100,7 @@
                 data: [412, 272, 297, 357, 152],
                 backgroundColor: '#9EC5AB',
             }]
-        }
+        },
     })
+    
 </script>
