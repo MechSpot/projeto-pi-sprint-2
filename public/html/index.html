@@ -1,84 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MechSpot</title>
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="../css/header.css">
-</head>
-
-<body>
-    <div class="header">
-            <div class="logo">
-                <img src="../assets/img/logo.png" /> 
-            <h1>
-                MechSpot
-            </h1>
-            </div>
-
-            <div id="opcao_1" class="opcao_header">
-                <span id="opcao_home">Home</span>
-            </div>
-
-            <div id="opcao_2" class="opcao_header">
-                <span id="opcao_solucoes">Soluções</span>
-            </div>
-
-            <div id="opcao_3" class="opcao_header">
-                <span id="opcao_sobre_nos">Sobre nós</span>
-            </div>
-
-            <div id="opcao_4" class="opcao_header">
-                <span id="opcao_fale_conosco">Fale Conosco</span>
-            </div>
-
-            <div id="opcao_5" class="opcao_header">
-                <span id="opcao_login">Login</span>
-            </div>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="container">
+          <div class="logo">
+            <img src="../assets/img/MechSpot.png" />
+            <h1 class="titulo">MechSpot</h1>
+          </div>
+          <ul class="navbar">
+            <li class="agora">
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="#sobre_nos">Sobre Nós</a>
+            </li>
+            <li>
+              <a href="#fale_conosco">Fale Conosco</a>
+            </li>
+            <li>
+              <a href="telaSimulador.html">Simulador</a>
+            </li>
+            <li>
+              <a href="telaLogin.html">Login</a>
+            </li>
+          </ul>
         </div>
-        
-    <div id="div_pagina_rotativa">
-        <div id="div_home">
-            <div id="div_home_slider">
-                *slider*
-                <div id="div_imagem_slider"><img src=""></div>
-                <input onclick="verificarImagemSlider()" type="radio" id="input_imagem1" name="imagem_atual "
-                    value="imagem1">
-                <input onclick="verificarImagemSlider()" type="radio" id="input_imagem2" name="imagem_atual "
-                    value="imagem2">
-                <input onclick="verificarImagemSlider()" type="radio" id="input_imagem3" name="imagem_atual "
-                    value="imagem3">
-                <input onclick="verificarImagemSlider()" type="radio" id="input_imagem4" name="imagem_atual "
-                    value="imagem4">
-            </div>
+      </div>
 
-            <div id="div_home_simulador_financeiro">
-                *Texto simulador Financeiro* <br>
-                <button><a href="telaCalculadora.html">Simule Já!</a></button>
-            </div>
-            <div id="div_home_sobre"><span>*Texto resumo sobre nós*</span> <br>
-                <button onclick="exibirSobreNos()">Serviços</button>
-            </div>
-            <div id="div_home_solucoes"><span>*Texto resumo soluções*</span><br>
-                <button onclick="exibirSolucoes()">Soluções</button>
-            </div>
-            <div id="div_home_fale_conosco"><span>*Texto resumo fale conosco*</span> <br>
-                <button onclick="exibirFaleConosco()">Fale conosco</button>
-            </div>
+      <div class="banner">
+        <div class="container">
+          <div class="campo">
+            <h1>Bem-vindo a revolução na gestão de espaços automotivos!</h1>
+            <h4>
+              Aproveite a tecnologia de ponta para otimizar a sua
+              concessionária!
+            </h4>
+          </div>
+          <div class="campo">
+            <img src="../assets/img/Front car-pana.png" alt="" />
+          </div>
         </div>
-    </div>
-    <div id="div_rodape">
-        <a href="index.html">Home</a> <br>
-        <a href="telaLogin.html">Login</a> <br>
-        <a href="telaCadastro.html">Cadastrar-se</a> <br>
-        <a href="telaCalculadora.html">Simulação Financeira</a> <br>
-        <button onclick="exibirSobreNos()">Sobre Nós</button> <br>
-        <button onclick="exibirSolucoes()">Soluções</button> 
-    </div>
-    <script src="script.js"></script>
+      </div>
 
-</body>
+      <div id="sobre_nos" class="sobre-nos">
+        <div class="container">
+          <div class="campo">
+            <h1>Sobre Nós</h1>
+            <span>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Praesentium laboriosam temporibus, vero voluptate animi nemo ea
+              voluptates veritatis iste alias minima asperiores provident harum
+              omnis nihil repellendus ut debitis iusto. Lorem ipsum dolor sit
+              amet consectetur adipisicing elit. Nostrum facere facilis eos
+              perferendis quibusdam blanditiis similique eum maiores quisquam
+              repellendus enim sit ab omnis, amet reiciendis natus nemo porro
+              nulla?
+            </span>
 
+            <a href="./telaSimulador.html">Simule seu Prejuízo</a>
+          </div>
+
+          <div class="campo">
+            <img src="../assets/img/Visual data-bro.png" />
+          </div>
+        </div>
+      </div>
+
+      <section class="section-mvv">
+        <div class="card">
+          <img
+            src="../assets/img/Business mission-pana.png"
+            alt="Imagem Missão"
+            class="image-card"
+          />
+          <h2>Missão</h2>
+          <p>
+            Nossa missão é revolucionar a gestão de espaços automotivos através
+            da tecnologia de ponta.
+          </p>
+        </div>
+        <div class="card">
+          <img
+            src="../assets/img/Online article-cuate.png"
+            alt="Imagem Visão"
+            class="image-card"
+          />
+          <h2>Visão</h2>
+          <p>
+            Ser referência mundial em soluções tecnológicas para o setor
+            automotivo, promovendo eficiência e inovação.
+          </p>
+        </div>
+        <div class="card">
+          <img
+            src="../assets/img/Team goals-bro.png"
+            alt="Imagem Valores"
+            class="image-card"
+          />
+          <h2>Valores</h2>
+          <p>
+            Valorizamos a transparência, a inovação e o compromisso com a
+            sustentabilidade.
+          </p>
+        </div>
+      </section>
+
+      <section id="plataforma" class="section-plataforma">
+        <div class="plataforma-content">
+          <img
+            src="../assets/img/Spreadsheets-cuate (1).png"
+            alt="Imagem Plataforma"
+            class="image-plataforma"
+          />
+
+          <div class="plataforma-text">
+            <h2>Plataforma</h2>
+            <p>
+              Nossa plataforma oferece soluções completas para a gestão de
+              espaços automotivos, otimizando o fluxo de trabalho e garantindo
+              eficiência em todos os processos. Descubra como podemos
+              transformar a maneira como você gerencia seus negócios.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div id="fale_conosco" class="fale_conosco">
+        <section>
+          <div class="coluna_fale_conosco">
+            <h1>Fique à vontade para nos contatar!</h1>
+            <img src="../assets/img/fale.gif" />
+          </div>
+          <form action="" method="post">
+            <label>Nome:</label>
+            <input
+              type="text"
+              name="nome"
+              placeholder="Digite seu nome aqui"
+              autocomplete="off"
+            />
+
+            <label>Email:</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Digite seu email aqui"
+              autocomplete="off"
+            />
+
+            <label>Telefone:</label>
+            <input
+              type="tel"
+              name="telefone"
+              placeholder="Digite seu número aqui"
+              autocomplete="off"
+            />
+
+            <label>Mensagem*</label>
+            <textarea
+              name="mensagem"
+              cols="45"
+              rows="10"
+              placeholder="Quer nos enviar uma mensagem?"
+            ></textarea>
+
+            <button type="submit">Enviar</button>
+          </form>
+        </section>
+      </div>
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="footer-col">
+              <h4>Empresa</h4>
+              <ul>
+                <li><a href="#sobre_nos">Sobre nós</a></li>
+                <li><a href="#">Nossos serviços</a></li>
+                <li><a href="#">Política de privacidade</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Fale conosco</h4>
+              <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Opções de pagamento</a></li>
+                <li><a href="#">Dúvidas</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Nos siga!</h4>
+              <ul>
+                <li><a href="#">Linkedin</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Gupy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>
