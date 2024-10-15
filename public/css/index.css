@@ -196,7 +196,7 @@ section h1 {
   margin-right: 60px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-    text-align: center;
+  text-align: center;
 }
 
 section .coluna_fale_conosco {
@@ -212,7 +212,6 @@ section form {
   flex-direction: column;
   width: 60%;
 }
-
 
 form input {
   padding: 15px;
@@ -285,6 +284,7 @@ form button:hover {
 
 .footer-col ul {
   list-style: none;
+  height: 15vh;
 }
 
 .footer-col h4 {
