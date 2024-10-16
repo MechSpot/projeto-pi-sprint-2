@@ -68,10 +68,10 @@
           <div class="segunda_coluna">
             <h2 class="titulo titulo_entrar">Crie sua própria conta</h2>
             <form>
-              <input class="nome" type="text" placeholder="Nome" />
-              <input class="email" type="email" placeholder="Email" />
-              <input class="senha" type="password" placeholder="Senha" />
-              <button class="btn">CADASTRAR</button>
+              <input class="nome" type="text" placeholder="Nome" id="input_nome" />
+              <input class="email" type="email" placeholder="Email" id="input_email"/>
+              <input class="senha" type="password" placeholder="Senha" id="input_senha" />
+              <button onclick="cadastrar()" class="btn">CADASTRAR</button>
             </form>
           </div>
         </div>
@@ -79,3 +79,32 @@
     </div>
   </body>
 </html>
+<script>
+function cadastrar(){
+
+  var nome = input_nome.value
+  var email = input_email.value
+  var senha = input_senha.value
+
+  if (nome.length < 6) {
+            alert(`Digite um nome válido!`)
+        } else if (email.indexOf("@") <= -1) {
+            alert ( `Digite um email válido! Não Possui @!`)
+        }
+        else if (email.indexOf(".com") <= -1) {
+          alert ( `Digite um email válido! Não Possui .com`)
+        }else if (senha.length < 8) {
+           alert(`A senha deve ter pelo menos de 8 caracteres`)
+        }
+        
+
+
+
+
+}
+
+
+
+</script>
+
+
