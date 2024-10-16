@@ -83,13 +83,13 @@
 }
 
 .image-plataforma {
-  width: 300px;
-  height: auto;
+  width: 500px;
+  height: 500px;
   margin-bottom: 10px;
 }
 
 .plataforma-text {
-  max-width: 400px;
+  max-width: 450px;
   flex-direction: column;
   margin-top: 0;
 }
