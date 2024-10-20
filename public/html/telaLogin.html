@@ -10,101 +10,96 @@
   </head>
   <body>
     <div class="header">
-    <div class="container">
-      <div class="logo">
-          <img src="../assets/img/MechSpot.png">
+      <div class="container">
+        <div class="logo">
+          <img src="../assets/img/MechSpot.png" />
           <h1 class="titulo">MechSpot</h1>
-      </div>
-      <ul class="navbar">
-        <li>
-          <a href="index.html">Home</a>
-        </li>
-        <li>
-          <a href="index.html#sobre_nos">Sobre Nós</a>
-        </li>
-        <li>
-          <a href="index.html#fale_conosco">Fale Conosco</a>
-        </li>
-        <li>
-          <a href="telaSimulador.html">Simulador</a>
-        </li>
-        <li class="agora">
-            <a href="telaLogin.html">Login</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-      <div class="tela_login_cadastro">
-        <div id="tela" class="card tela_login">
-          <div class="primeira_coluna">
-            <h2 class="titulo titulo_bem_vindo">Bem Vindo!</h2>
-            <p class="descricao">Se conecte com a gente</p>
-            <p class="descricao">crie sua conta agora</p>
-            <button class="btn btn_cadastre-se_entrar" onclick="trocar_tela()">
-              CRIAR CONTA
-            </button>
-          </div>
-          <div class="segunda_coluna">
-            <h2 class="titulo titulo_entrar">Entrar com sua conta</h2>
-            <form>
-              <input id="input_email_login" class="email" type="email" placeholder="Email" />
-              <input id="input_senha_login" class="senha" type="password" placeholder="Senha" />
-              <button class="btn" onclick="entrar()">LOGIN</button>
-            </form>
-          </div>
         </div>
-        <div id="tela2" class="card tela_cadastro sumir">
-          <div class="primeira_coluna">
-            <h2 class="titulo titulo_bem_vindo">Olá!</h2>
-            <p class="descricao">Para se manter conectado</p>
-            <p class="descricao">
-              por favor faça login com suas informações pessoais
-            </p>
-            <button class="btn btn_cadastre-se_entrar" onclick="trocar_tela()">
-              LOGIN
-            </button>
-          </div>
-          <div class="segunda_coluna">
-            <h2 class="titulo titulo_entrar">Crie sua própria conta</h2>
-            <form>
-              <input class="nome" type="text" placeholder="Nome" id="input_nome" />
-              <input class="email" type="email" placeholder="Email" id="input_email"/>
-              <input class="senha" type="password" placeholder="Senha" id="input_senha" />
-              <button onclick="cadastrar()" class="btn">CADASTRAR</button>
-            </form>
-          </div>
+        <ul class="navbar">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="index.html#sobre_nos">Sobre Nós</a>
+          </li>
+          <li>
+            <a href="index.html#fale_conosco">Fale Conosco</a>
+          </li>
+          <li>
+            <a href="telaSimulador.html">Simulador</a>
+          </li>
+          <li class="agora">
+            <a href="telaLogin.html">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tela_login_cadastro">
+      <div id="tela" class="card tela_login">
+        <div class="primeira_coluna">
+          <h2 class="titulo titulo_bem_vindo">Bem Vindo!</h2>
+          <p class="descricao">Se conecte com a gente</p>
+          <p class="descricao">crie sua conta agora</p>
+          <button class="btn btn_cadastre-se_entrar" onclick="trocar_tela()">
+            CRIAR CONTA
+          </button>
+        </div>
+        <div class="segunda_coluna">
+          <h2 class="titulo titulo_entrar">Entrar com sua conta</h2>
+          <form>
+            <input
+              id="input_email_login"
+              class="email"
+              type="email"
+              placeholder="Email"
+            />
+            <input
+              id="input_senha_login"
+              class="senha"
+              type="password"
+              placeholder="Senha"
+            />
+            <button class="btn" onclick="entrar()">LOGIN</button>
+          </form>
+        </div>
+      </div>
+      <div id="tela2" class="card tela_cadastro sumir">
+        <div class="primeira_coluna">
+          <h2 class="titulo titulo_bem_vindo">Olá!</h2>
+          <p class="descricao">Para se manter conectado</p>
+          <p class="descricao">
+            por favor faça login com suas informações pessoais
+          </p>
+          <button class="btn btn_cadastre-se_entrar" onclick="trocar_tela()">
+            LOGIN
+          </button>
+        </div>
+        <div class="segunda_coluna">
+          <h2 class="titulo titulo_entrar">Crie sua própria conta</h2>
+          <form>
+            <input
+              class="nome"
+              type="text"
+              placeholder="Nome"
+              id="input_nome"
+            />
+            <input
+              class="email"
+              type="email"
+              placeholder="Email"
+              id="input_email"
+            />
+            <input
+              class="senha"
+              type="text"
+              placeholder="Senha"
+              id="input_senha"
+            />
+            <button onclick="cadastrar()" class="btn">CADASTRAR</button>
+          </form>
         </div>
       </div>
     </div>
   </body>
 </html>
-<script>
-function cadastrar(){
-
-  var nome = input_nome.value
-  var email = input_email.value
-  var senha = input_senha.value
-
-  if (nome.length < 6) {
-            alert(`Digite um nome válido!`)
-        } else if (email.indexOf("@") <= -1) {
-            alert ( `Digite um email válido! Não Possui @!`)
-        }
-        else if (email.indexOf(".com") <= -1) {
-          alert ( `Digite um email válido! Não Possui .com`)
-        }else if (senha.length < 8) {
-           alert(`A senha deve ter pelo menos de 8 caracteres`)
-        }
-        
-
-
-
-
-}
-
-
-
-</script>
-
-
