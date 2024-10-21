@@ -31,9 +31,9 @@ function cadastrar() {
   for (var caracterAtual = 0; caracterAtual < senha.legth; caracterAtual++) {
     if (!senhaPossuiMaiscula || !senhaPossuiMinuscula) {
       if (senha[caracterAtual] == senha[caracterAtual].toUpperCase()) {
-        senhaPossuiMinuscula == true;
+        senhaPossuiMaiscula = true;
       } else if (senha[caracterAtual] == senha[caracterAtual].toLowerCase()) {
-        senhaPossuiMaiscula == true;
+        senhaPossuiMinuscula = true;
       }
     }
 
