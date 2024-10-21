@@ -26,12 +26,22 @@ function cadastrar() {
 
   var senhaPossuiMaiscula = false;
   var senhaPossuiMinuscula = false;
-  var senhaPossuiCaracterEspecil = false;
+  var senhaPossuiNumero = false;
 
-  if (senha[caracterAtual] == senha[caracterAtual].toUpperCase()) {
-      senhaPossuiMinuscula == true;
-  } else if (senha[caracterAtual] == senha[caracterAtual].toLowerCase()) {
-      senhaPossuiMaiscula == true;
+  for (var caracterAtual = 0; caracterAtual < senha.legth; caracterAtual++) {
+    if (!senhaPossuiMaiscula || !senhaPossuiMinuscula) {
+      if (senha[caracterAtual] == senha[caracterAtual].toUpperCase()) {
+        senhaPossuiMinuscula == true;
+      } else if (senha[caracterAtual] == senha[caracterAtual].toLowerCase()) {
+        senhaPossuiMaiscula == true;
+      }
+    }
+
+    if (!senhaPossuiNumero) {
+      if (!isNaN(Number(senha[caracterAtual]))) {
+        senhaPossuiNumero = true;
+      }
+    }
   }
 
   if (nome.length < 3) {
@@ -41,7 +51,9 @@ function cadastrar() {
   } else if (
     senha.length < 8 ||
     !senhaPossuiMaiscula ||
-    !senhaPossuiMinuscula
+    !senhaPossuiMinuscula ||
+    !senhaPossuiNumero ||
+    senha.indexOf(" ") != -1
   ) {
     alert("Senha Inválida");
   }
