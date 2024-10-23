@@ -13,7 +13,7 @@ function entrar() {
   const senha = input_senha_login.value;
 
   if (email == "honda@gmail.com" && senha == "Honda123") {
-    window.location = "./visao_geral.html";
+    window.location = "../html/visao_geral.html";
   } else {
     alert("Dados invalidos");
   }
