@@ -22,13 +22,14 @@ body {
   height: 100%;
 }
 
-.logo {
+.logo a {
   display: flex;
   align-items: center;
   justify-items: center;
+  text-decoration: none;
 }
 
-.logo img {
+.logo a img {
   height: 60px;
   width: 100px;
 }
