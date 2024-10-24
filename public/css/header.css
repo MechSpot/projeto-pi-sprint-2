@@ -1,17 +1,21 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: monospace;
   background-color: #32746d;
 }
 
 .header {
   background-color: #104f55;
   width: 98%;
-  height: 14vh;
+  height: 85px;
   border-radius: 80px;
   margin-left: 1%;
   margin-right: 1%;
   margin-top: 1%;
+  font-weight: bold;
 }
 
 .header .container {
@@ -20,6 +24,7 @@ body {
   justify-content: space-around;
   align-items: center;
   height: 100%;
+  font-size: 18px;
 }
 
 .logo a {
@@ -36,6 +41,7 @@ body {
 
 .header .container .titulo {
   color: #f7f7f7;
+  font-size: 31px;
 }
 
 .header .container .navbar {
@@ -50,6 +56,7 @@ body {
 .header .container .navbar .agora a {
   padding: 30%;
   background-color: #32746d;
+  border-radius: 19px;
 }
 
 .header .container .navbar a {

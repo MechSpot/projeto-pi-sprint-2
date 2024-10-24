@@ -30,7 +30,7 @@
 
 .banner .campo h1 {
   font-weight: bold;
-  font-size: 50px;
+  font-size: 42px;
   color: #f7f7f7;
 }
 
@@ -63,11 +63,20 @@
   width: 30%;
   height: 90%;
   background-color: #5ec2ac7e;
-  padding: 5px;
+  padding: 7px;
   border-radius: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   color: black;
+}
+
+.card p {
+  height: 12vh;
+  margin: 0;
+  padding: 4vh;
+  margin-top: -25px;
+  font-size: 115%;
+  margin-bottom: 11%;
 }
 
 .section-plataforma {
@@ -98,10 +107,11 @@
 .plataforma-text h2 {
   color: #335d92;
   margin-bottom: 10px;
+  font-size: 4vh;
 }
 
 .plataforma-text p {
-  color: #555;
+  color: black;
   line-height: 1, 6;
 }
 
@@ -113,6 +123,7 @@
 
 .sobre-nos h1 {
   color: #104f55;
+  font-size: 4vh;
 }
 
 .sobre-nos .container {
@@ -126,11 +137,11 @@
 
 .sobre-nos .container .campo {
   width: 45%;
-  height: 85%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .sobre-nos .container .campo img {
@@ -142,22 +153,25 @@
   width: 65%;
   font-size: 20px;
   text-align: justify;
+  margin-bottom: 15px;
 }
 
 .sobre-nos .container .campo a {
   text-decoration: none;
+  font-weight: bold;
+  font-size: 17px;
   color: #f7f7f7;
-  align-self: flex-start;
-  margin-left: 17.5%;
+  align-self: center;
+  margin-right: 5%;
   padding: 3%;
   background-color: #104f55;
   border-radius: 10px;
   margin-top: 2%;
+  margin-left: 6%;
 }
 
 .sobre-nos .container .campo h1 {
-  align-self: flex-start;
-  padding-left: 17.5%;
+  align-self: center;
 }
 
 .fale_conosco {
@@ -195,8 +209,7 @@ section h1 {
   margin-bottom: 50px;
   margin-top: -3px;
   margin-right: 60px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: monospace;
   text-align: center;
 }
 
@@ -261,8 +274,7 @@ form button:hover {
 .footer {
   background: #22868f;
   padding: 20px 0;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: monospace;
   width: 100%;
   text-align: center;
   justify-items: center;
