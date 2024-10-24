@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora Financeira</title>
+  <link rel="stylesheet" href="./css/simulador.css" />
+  <link rel="stylesheet" href="./css/header.css" />
+  <script src="./js/simulador.js"></script>
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="./assets/img/MechSpot.png" />
+          <h1 class="titulo">MechSpot</h1>
+        </a>
+      </div>
+      <ul class="navbar">
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="index.html#sobre_nos">Sobre Nós</a>
+        </li>
+        <li>
+          <a href="index.html#fale_conosco">Fale Conosco</a>
+        </li>
+        <li>
+          <a href="simluador.html">Simulador</a>
+        </li>
+        <li>
+          <a href="login_cadastro.html">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="simulador">
+    <div class="container">
+      <div class="card card-simulador">
+        <h1>Simule Aqui!</h1>
+        <label for="valor_lucro_hora">Valor de lucro médio por hora (R$):</label>
+        <input type="number" id="valor_lucro_hora" placeholder="Ex: 100" />
+
+        <label for="horas_operacao_dia">Horas de Operação (por dia):</label>
+        <input type="number" id="horas_operacao_dia" placeholder="Ex: 8" />
+
+        <label for="boxes">Quantidade de boxes que sua oficina tem:</label>
+        <input type="number" id="boxes" placeholder="Ex: 20" />
+
+        <label for="dias_operacao_mes">Dias de operação por mês:</label>
+        <input type="number" id="dias_operacao_mes" placeholder="Ex: 22 dias" />
+
+        <button onclick="calcular()">Calcular</button>
+      </div>
+      <div id="div_retorno" class="container-retorno">
+        <div id="explicacao_contexto" class="card card-explicacao-contexto" style="display: none;">
+          <div class="campo">
+            <span>
+              A taxa de ociosidade média de boxes em oficinas mecânicas no
+              Brasil pode chegar <span>em até 50%.</span><br><br>
+              Com o nosso software de gestão vamos te fornecer informações em
+              tempo real sobre o uso dos boxes e a produtividade da equipe.
+              <br>
+              Com dashboards de fácil visualização, é possível ver imediatamente
+              quais boxes estão ociosos e reorganizar tarefas ou redistribuir os
+              serviços de forma dinâmica. <br>
+              Esse monitoramento garante uma rápida resposta a imprevistos, como
+              cancelamentos ou atrasos.
+            </span>
+          </div>
+        </div>
+        <div id="resultado_simulacao" class="card card-resultado-simulacao" style="display: none;">
+          <div class="campo campo-ociosidade-reduzida">
+            <span>
+              Com o nosso software você poderá reduzir a ociosidade média <span>em até 50%</span>,
+              ou seja, sua ociosidade poderá <span>reduzir para apenas 25%</span> se o seu caso seja o mais critíco.
+            </span>
+          </div>
+          <div class="campo">
+            <span>
+              Desta maneira recuperará em média <span id="span_horas_dia"></span>,
+              <span id="span_horas_mes"></span>,
+              totalizando em <span id="span_horas_ano"></span>.
+            </span>
+          </div>
+          <div class="campo">
+            <span>
+              Consequemente aumentará o lucro em média <span id="span_lucro_dia"></span>,
+              <span id="span_lucro_mes"></span>,
+              totalizando em <span id="span_lucro_ano"></span>.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+  function calcular() {
+  var valorLucroHora = Number(valor_lucro_hora.value);
+  var horasOperacaoDia = Number(horas_operacao_dia.value);
+  var diasOperacaoMes = Number(dias_operacao_mes.value);
+  var qtdBoxes = Number(boxes.value);
+
+  if (valorLucroHora == 0) {
+    valorLucroHora = 100
+  }
+
+  if (horasOperacaoDia == 0) {
+    horasOperacaoDia = 8
+  }
+
+  if (diasOperacaoMes == 0) {
+    diasOperacaoMes = 22
+  }
+
+  if (qtdBoxes == 0) {
+    qtdBoxes = 20
+  }
+
+  var lucroDiario = valorLucroHora * horasOperacaoDia;
+  var tempoOcioso = 0.5 * (horasOperacaoDia * qtdBoxes);
+  var tempoOciosoSoftware = 0.25 * (horasOperacaoDia * qtdBoxes);
+  var horasRecuperadas = tempoOcioso - tempoOciosoSoftware;
+  var ganhoRecuperado = tempoOciosoSoftware * valorLucroHora;
+
+  span_horas_dia.innerHTML += `${horasRecuperadas.toLocaleString()} horas por dia`
+  span_horas_mes.innerHTML += `${(horasRecuperadas * diasOperacaoMes).toLocaleString()} horas por mês`
+  span_horas_ano.innerHTML += `${(horasRecuperadas * diasOperacaoMes * 11).toLocaleString()} horas por ano`
+  span_lucro_dia.innerHTML += `${ganhoRecuperado.toLocaleString("pt-br", { style: "currency", currency: "BRL", })} por dia`
+  span_lucro_mes.innerHTML += `${(ganhoRecuperado * diasOperacaoMes * 11).toLocaleString("pt-br", { style: "currency", currency: "BRL", })}
+  por ano`
+  
+  explicacao_contexto.style.display = "block"
+  resultado_simulacao.style.display = "flex"
+}
+</script>
