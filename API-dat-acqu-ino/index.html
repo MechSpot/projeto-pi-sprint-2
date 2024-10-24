@@ -2,13 +2,26 @@
 <html>
   <head>
     <title>Graphics</title>
+    <link rel="stylesheet" href="index.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <body>
-    <h1>Graphics</h1>
-    <div style="display: flex">
-      <div style="width: 50%">
+    <div class="barraSuperior">
+        <span> <img src="../dash/img/MechSpot.png" alt="">Mechspot</span>
+
+        <span>Dashboard</span>
+        <div class="barraSuperiorOpcoes">
+            <ul>
+                <li class="paginaAtual"> <a href="visao_geral.html">Visão Geral</a></li>
+                <li> <a href="relatorios.html">Relatórios</a></li>
+                <li>Sair</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+      <div class="grafico">
         <canvas id="sensorTcrt5000"></canvas>
       </div>
     </div>
@@ -22,8 +35,9 @@
             datasets: [
               {
                 label: "Vaga 1",
-                borderColor: "#63B1BC",
-                backgroundColor: "#0762C8",
+                borderColor: "black",
+                backgroundColor: "#5eded1a1",
+                fill: true,
               },
             ],
           },
