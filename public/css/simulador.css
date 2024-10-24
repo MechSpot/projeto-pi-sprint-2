@@ -1,11 +1,14 @@
 .simulador {
   width: 100%;
   height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .simulador .container {
-  width: 90%;
-  height: 96%;
+  width: 80%;
+  height: 90%;
   display: flex;
   margin: 2% 5%;
   background-image: linear-gradient(to right, #f7f7f7 0 30%, #104f55 30% 100%);
@@ -24,21 +27,24 @@
   justify-self: flex-start;
 }
 
+.card-simulador h1 {
+  font-size: 28px;
+}
 .card-simulador label {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: bold;
 }
 .card-simulador input {
   height: 7%;
   border-radius: 5px;
   margin-bottom: 3%;
-  border: 2px solid #104f55;
+  border: 2px solid black;
   background-color: #f7f7f7;
 }
 
 .card-simulador button {
   align-self: center;
-  width: 50%;
+  width: 40%;
   height: 8%;
   background-color: #104f55;
   color: #f7f7f7;
@@ -46,33 +52,50 @@
   border: 1px solid #104f55;
   margin: 1%;
 }
-.card-resultado {
-  width: 39%;
-  margin: 0 2%;
-  display: none;
-  align-self: center;
+
+.container-retorno {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 70%;
+}
+.card-explicacao-contexto {
+  width: 90%;
+  height: 57%;
+
 }
 
 .campo {
-  padding: 3%;
+  padding: 2%;
   margin: 3% 0;
   background-color: #f7f7f7;
   border-radius: 10px;
-  border: 2px solid #104f55;
-  text-align: justify;
 }
 
 .campo span {
   font-size: 18px;
-  font-weight: 500;
 }
 
 .campo span span {
   font-weight: bold;
 }
 
-.card-resultado2 {
-  display: none;
-  width: 24%;
-  align-self: center;
+.card-resultado-simulacao {
+  width: 90%;
+  height: 38%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
+
+.card-resultado-simulacao .campo {
+  width: 28%;
+  margin: 0 1%;
+}
+
+.card-resultado-simulacao .campo-ociosidade-reduzida {
+  width: 38%;
+  margin: 0 1%;
+}
+
