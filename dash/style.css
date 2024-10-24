@@ -1,0 +1,289 @@
+body {
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(220, 220, 220);
+}
+
+.barraSuperior {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    background: linear-gradient(to bottom, #104f55, #32746D);
+    color: white;
+    justify-content: space-around;
+}
+
+.barraSuperior span {
+    font-weight: bold;
+    font-size: xx-large;
+    margin-left: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: flex;
+    align-items: center;
+    width: 20%;
+
+}
+
+.barraSuperior img {
+    width: 20%;
+}
+
+.barraSuperiorOpcoes {
+    width: 25%;
+}
+
+.barraSuperiorOpcoes ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 7%;
+    list-style: none;
+}
+
+.barraSuperiorOpcoes ul li {
+    justify-content: space-around;
+}
+
+.barraSuperiorOpcoes ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+#Sair {
+    display: flex;
+    flex-direction: row;
+}
+
+.info-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    margin-top: 1%;
+    width: 80%;
+    height: 80vh;
+
+}
+
+.container1 {
+    position: relative;
+}
+
+.container2 {
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.box1 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.box2 {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: end;
+    gap: 8vh;
+
+    margin-top: 4%;
+    margin-right: 2.5%;
+}
+
+.container_box {
+
+    border-radius: 10px;
+    width: 20%;
+    height: 15vh;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.30);
+    background-color: white;
+    position: relative;
+}
+
+.container_box img {
+    width: 40%;
+    position: absolute;
+    bottom: 0;
+    /* Alinha a imagem ao fundo */
+    right: 0;
+    /* Alinha a imagem ao canto direito */
+    width: 40px;
+    /* Ajusta o tamanho conforme necessário */
+    height: auto;
+}
+
+#boxesVazios {
+    background-color: rgb(241, 135, 135);
+}
+
+.box2 .container_box {
+    border-radius: 10px;
+    width: 80%;
+    height: 15vh;
+}
+
+.display_vagas {
+    width: 70%;
+    height: 50vh;
+    margin-top: 4%;
+    margin-left: 2.5%;
+    background-color: white;
+    z-index: -1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.30);
+
+}
+
+.display_vagas .barraSuperior {
+    height: 5vh;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.vagas {
+    width: 10%;
+    height: 18vh;
+    margin: 5px;
+    background-color: #9EC5AB;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+    z-index: -1;
+
+    border: solid 2px black;
+
+    font-weight: bold;
+}
+
+.vagas img {
+    width: 75%;
+    z-index: -1;
+}
+
+.vagasVazias {
+    background-color: #f32a2a74;
+    background-color: #5eded1a1;
+}
+
+.tituloKPI {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    width: 100%;
+    height: 5vh;
+    background: linear-gradient(to bottom, #104f55, #32746D);
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudoKPI {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+
+}
+
+.conteudoKPI span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    font-size: xx-large;
+}
+
+.containerGraficos {
+    width: 80%;
+    height: 80vh;
+    margin-top: 2%;
+}
+
+.graficosGerais {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.grafico {
+    position: relative;
+    height: 60vh;
+    width: 100vh;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.30);
+    border-radius: 10px;
+    background-color: white;
+    color: #0a4243;
+}
+
+.graficoMenor {
+    position: relative;
+    height: 30vh;
+    width: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 5px 5px #0000004d;
+    border-radius: 10px;
+    overflow: hidden;
+    /* Evitar que o gráfico vaze */
+    background-color: white;
+}
+
+.graficoMenor canvas {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    /* Garante que o gráfico preencha a div corretamente */
+}
+
+
+.barraSuperiorGraficos {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    width: 100%;
+    height: 5vh;
+    background: linear-gradient(to bottom, #104f55, #32746D);
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudoGraficoMenor {
+    height: 83%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.graficoMenor:hover {
+    transform: scale(1.05);
+    transition: transform 0.5 ease;
+}

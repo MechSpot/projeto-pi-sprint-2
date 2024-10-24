@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <div class="barraSuperior">
+        <span> <img src="img/MechSpot.png" alt="">Mechspot</span>
+
+        <span>Dashboard</span>
+        <div class="barraSuperiorOpcoes">
+            <ul>
+                <li class="paginaAtual"> <a href="visao_geral.html">Visão Geral</a></li>
+                <li> <a href="relatorios.html">Relatórios</a></li>
+                <li>Sair</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="info-body">
+        <div class="containerGraficos">
+            <h1 style="margin-left: 7%;">Relatórios</h1>
+
+            <div class="graficosGerais">
+                <div class="grafico">
+                    <div class="barraSuperiorGraficos">
+                        <h3>Movimento Diário</h3>
+                    </div>
+                    <canvas id="chartLinha" style="padding: 5px"></canvas>
+                </div>
+
+
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                   
+                    <div class="graficoMenor">
+                        <div class="barraSuperiorGraficos">
+                            <h4>Proporção de Ocupação</h4>
+                        </div>
+                        <div class="conteudoGraficoMenor">
+                            <canvas id="chartpizza" style="padding: 5px; "></canvas>
+                        </div>
+                    </div>
+
+                    <div class="graficoMenor">
+                        <div class="barraSuperiorGraficos">
+                            <span>Fluxo Geral</span>
+                        </div>
+                        <div class="conteudoGraficoMenor">
+                            <canvas id="chartBarra" style="padding: 10px"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    const chartMovimentoDiario = document.getElementById("chartLinha");
+
+    new Chart(chartMovimentoDiario, {
+        type: "line",
+        data: {
+            labels: [
+                "9h",
+                "10h",
+                "11h",
+                "12h",
+                "13h",
+                "14h",
+                "15h",
+                "16h",
+                "17h",
+                "18h",
+                "19h",
+                "20h",
+            ],
+            datasets: [
+                {
+                    label: "Movimento Diário",
+                    data: [0, 1, 3, 2, 5, 4, 6, 4, 2, 1, 3, 2],
+                    borderColor: "black",
+                    backgroundColor: "#5eded1a1",
+                    fill: true,
+                },
+            ],
+        },
+    });
+
+    const chartBarra = document.getElementById("chartpizza");
+
+    new Chart(chartBarra, {
+        type: "pie",
+        data: {
+            labels: ["Vagas Ocupadas", "Vagas Vazias"],
+            datasets: [
+                {
+                    label: "Movimento Diário",
+                    data: [8, 6],
+                    borderColor: "#01200F",
+                    backgroundColor: ["#32746D", "orange"],
+                },
+            ],
+        },
+    });
+
+    const chartLinha = document.getElementById("chartBarra");
+
+    new Chart(chartLinha, {
+        type: "bar",
+        data: {
+            labels: ["Entrada de Carros", "Saída de Carros"],
+            datasets: [
+                {
+                    label: "Entrada",
+                    data: [35, 18],
+                    backgroundColor: ["#9EC5AB", "#ff0000d2"],
+                },
+            ],
+        },
+        options: {
+            indexAxis: "y",
+        },
+    });
+</script>
