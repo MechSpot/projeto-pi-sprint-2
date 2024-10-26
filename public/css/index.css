@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .banner {
@@ -67,7 +68,8 @@
   border-radius: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  color: black;
+  color: #005969;
+  font-size: 19px;
 }
 
 .card p {
@@ -77,10 +79,12 @@
   margin-top: -25px;
   font-size: 115%;
   margin-bottom: 11%;
+  color: black;
+  font-size: 18px;
 }
 
 .section-plataforma {
-  padding: 40px;
+  padding: 20px;
   background-color: #eef2f5;
   margin-bottom: 20px;
 }
@@ -105,25 +109,27 @@
 }
 
 .plataforma-text h2 {
-  color: #335d92;
+  color: #0097b2;
   margin-bottom: 10px;
-  font-size: 4vh;
+  font-size: 5vh;
 }
 
 .plataforma-text p {
   color: black;
-  line-height: 1, 6;
+  font-size: 18px;
 }
 
 .sobre-nos {
   width: 100%;
-  height: 500px;
+  height: 100%;
   background-color: #f7f7f7;
 }
 
 .sobre-nos h1 {
-  color: #104f55;
-  font-size: 4vh;
+  margin-top: 30px;
+  margin-bottom: -1px;
+  color: #0097b2;
+  font-size: 5vh;
 }
 
 .sobre-nos .container {
@@ -145,29 +151,30 @@
 }
 
 .sobre-nos .container .campo img {
-  width: 80%;
+  width: 100%;
   height: 100%;
+  border-radius: 700px;
 }
 
 .sobre-nos .container .campo span {
   width: 65%;
   font-size: 20px;
   text-align: justify;
-  margin-bottom: 15px;
 }
 
 .sobre-nos .container .campo a {
   text-decoration: none;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 18px;
   color: #f7f7f7;
   align-self: center;
   margin-right: 5%;
   padding: 3%;
-  background-color: #104f55;
+  background-color: #0097b2;
   border-radius: 10px;
   margin-top: 2%;
   margin-left: 6%;
+  margin-bottom: 5%;
 }
 
 .sobre-nos .container .campo h1 {
@@ -188,7 +195,7 @@ section {
   align-items: center;
   justify-content: center;
   padding: 80px 70px 50px 55px;
-  background: #d8d8d8;
+  background: white;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   font-family: monospace;
   color: #104f55;
@@ -234,6 +241,7 @@ form input {
   margin-bottom: 8px;
   font-size: 15px;
   border-radius: 20px;
+  background-color:#5ec2ac7e;
 }
 
 form textarea {
@@ -244,6 +252,7 @@ form textarea {
   margin-top: 12px;
   margin-bottom: 47px;
   transition: all 0.5s;
+  background-color:#5ec2ac7e;
   box-shadow: rgba(12, 69, 27, 0.4) 5px 5px, rgba(12, 76, 59, 0.3) 10px 10px,
     rgba(17, 57, 78, 0.2) 15px 15px, rgba(0, 71, 28, 0.1) 20px 20px,
     rgba(22, 71, 51, 0.05) 25px 25px;
@@ -257,9 +266,9 @@ form button {
   padding: 15px;
   cursor: pointer;
   font-size: 18px;
-  background: #104f55;
-  color: whitesmoke;
-  border: 2px solid #104f55;
+  background: #5ec2ac7e;
+  color: black;
+  border: none;
   transition: all 1s;
   margin-bottom: 20px;
   border-radius: 16px;
@@ -269,25 +278,23 @@ form button {
 form button:hover {
   background: transparent;
   color: #104f55;
+  border: solid 1px;
 }
 
 .footer {
   background: #22868f;
-  padding: 20px 0;
   font-family: monospace;
   width: 100%;
   text-align: center;
   justify-items: center;
-  margin: 0 auto;
 }
-.footer .container {
-  max-width: 1170px;
-  margin: 0 auto;
-}
+
 .footer .container .row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
+  margin-bottom: 1px;
+  margin-top: -12px;
 }
 
 .footer-col {
@@ -297,14 +304,12 @@ form button:hover {
 
 .footer-col ul {
   list-style: none;
-  height: 15vh;
 }
 
 .footer-col h4 {
-  font-size: 22px;
+  font-size: 18px;
   color: aliceblue;
   text-transform: capitalize;
-  margin-bottom: 30px;
   font-weight: bold;
   position: relative;
 }
@@ -322,7 +327,7 @@ form button:hover {
   margin-bottom: 10px;
 }
 .footer-col ul li a {
-  font-size: 16px;
+  font-size: 13px;
   text-transform: capitalize;
   color: white;
   text-decoration: none;

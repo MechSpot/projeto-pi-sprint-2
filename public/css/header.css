@@ -8,10 +8,10 @@ body {
 }
 
 .header {
-  background-color: #104f55;
+  background-color: #15423a;
   width: 98%;
   height: 85px;
-  border-radius: 80px;
+  border-radius: 150px;
   margin-left: 1%;
   margin-right: 1%;
   margin-top: 1%;
@@ -35,13 +35,15 @@ body {
 }
 
 .logo a img {
-  height: 60px;
-  width: 100px;
+  height: 100%;
+  width: 70px;
 }
 
 .header .container .titulo {
-  color: #f7f7f7;
-  font-size: 31px;
+  color: white;
+  font-size: 30px;
+  font-family: monospace;
+  margin-left: 10px;
 }
 
 .header .container .navbar {
@@ -55,11 +57,11 @@ body {
 
 .header .container .navbar .agora a {
   padding: 30%;
-  background-color: #32746d;
+  background-color: #0097b2;
   border-radius: 19px;
 }
 
 .header .container .navbar a {
-  color: #f7f7f7;
+  color: white;
   text-decoration: none;
 }

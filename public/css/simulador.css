@@ -4,15 +4,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 3%;
 }
 
 .simulador .container {
-  width: 80%;
-  height: 90%;
+  width: 83%;
+  height: 100%;
   display: flex;
   margin: 2% 5%;
   background-image: linear-gradient(to right, #f7f7f7 0 30%, #104f55 30% 100%);
   border-radius: 15px;
+}
+
+input::placeholder {
+  color: #0097b2;
+  font-family: monospace;
+  text-align: center;
 }
 
 .card {
@@ -22,17 +29,23 @@
 }
 
 .card-simulador {
-  width: 28%;
+  width: 24%;
   margin: 0 1%;
   justify-self: flex-start;
+  color: #0097b2;
+  text-align: center;
+  margin: 3%;
 }
 
 .card-simulador h1 {
   font-size: 28px;
+  margin-bottom: 35px;
 }
 .card-simulador label {
   font-size: 15px;
   font-weight: bold;
+  color: #104f55;
+  margin-bottom: 10px;
 }
 .card-simulador input {
   height: 7%;
@@ -44,13 +57,16 @@
 
 .card-simulador button {
   align-self: center;
-  width: 40%;
-  height: 8%;
+  width: 58%;
+  height: 11%;
   background-color: #104f55;
   color: #f7f7f7;
   border-radius: 5px;
-  border: 1px solid #104f55;
+  border: none;
   margin: 1%;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .container-retorno {
