@@ -121,7 +121,11 @@ body {
 }
 
 #boxesVazios {
-    background-color: rgb(241, 135, 135);
+    background-color: #8af18781;
+}
+
+#boxesOcupados{
+    background-color: #ff000068;
 }
 
 .box2 .container_box {
@@ -136,20 +140,29 @@ body {
     margin-top: 4%;
     margin-left: 2.5%;
     background-color: white;
-    z-index: -1;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    z-index:2;
+    
 
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.30);
 
+    border-radius: 10px;
+
+}
+
+.conteudoDisplay{
+    margin-top: 2%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .display_vagas .barraSuperior {
     height: 5vh;
     align-items: center;
+    justify-self: center;
     color: white;
     font-weight: bold;
 
@@ -157,11 +170,17 @@ body {
     border-top-right-radius: 5px;
 }
 
+#select_detalhadamento{
+    border-radius: 10px;
+    padding: 3px;
+    
+}
+
 .vagas {
     width: 10%;
     height: 18vh;
     margin: 5px;
-    background-color: #9EC5AB;
+    background-color: #eb1b1b83;
 
     display: flex;
     flex-direction: column;
@@ -169,11 +188,12 @@ body {
     align-items: center;
 
     gap: 5px;
-    z-index: -1;
+    z-index: 2;
 
     border: solid 2px black;
 
     font-weight: bold;
+    z-index: 2;
 }
 
 .vagas img {
@@ -182,8 +202,7 @@ body {
 }
 
 .vagasVazias {
-    background-color: #f32a2a74;
-    background-color: #5eded1a1;
+    background-color: #8af18781;
 }
 
 .tituloKPI {
@@ -216,26 +235,44 @@ body {
 }
 
 .containerGraficos {
-    width: 80%;
+    width: 90%;
     height: 80vh;
     margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .graficosGerais {
     height: auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
+    gap: 20px;
 }
 
 .grafico {
     position: relative;
-    height: 60vh;
-    width: 100vh;
+    height: 40vh;
+    width: 80vh;
     box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.30);
     border-radius: 10px;
     background-color: white;
     color: #0a4243;
+}
+
+.graficosMenores {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    gap:50px;
+}
+
+.graficoMaior {
+    display: flex;
 }
 
 .graficoMenor {
@@ -250,6 +287,28 @@ body {
     overflow: hidden;
     /* Evitar que o gráfico vaze */
     background-color: white;
+}
+
+.log {
+    position: relative;
+    height: 80vh;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 5px 5px #0000004d;
+    border-radius: 10px;
+    background-color: rgb(195, 192, 192);
+}
+
+.conteudoLOG{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:90vh;
+    overflow-y: scroll;
 }
 
 .graficoMenor canvas {
@@ -275,6 +334,23 @@ body {
     justify-content: center;
 }
 
+
+.conteudoGraficoMaiorBarra{
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudoGraficoMaiorLinha{
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+}
+
 .conteudoGraficoMenor {
     height: 83%;
     display: flex;
@@ -283,7 +359,124 @@ body {
     align-items: center;
 }
 
+
+
 .graficoMenor:hover {
     transform: scale(1.05);
     transition: transform 0.5 ease;
+}
+
+.dados_relatorio {
+    background-color: white;
+    width: 80%;
+    height: 10vh;
+
+    margin-left: 10%;
+    margin-top: 4%;
+
+    border: solid 1px black;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.dados_relatorio #entrada {
+    color: green;
+    margin-left: 5px;
+    /* Adiciona espaço à esquerda */
+    margin-right: 5px;
+    /* Adiciona espaço à direita */
+
+    padding: 5px;
+}
+
+.dados_relatorio #saida {
+    color: red;
+    margin-left: 5px;
+    /* Adiciona espaço à esquerda */
+    margin-right: 5px;
+    /* Adiciona espaço à direita */
+    padding: 5px;
+
+}
+
+.barraSuperiorOpcoes ul li a:hover{
+    padding: 2px;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+}
+
+/* Estilo da modal (oculta por padrão) */
+.modal {
+    display: none; /* Inicialmente oculta */
+    position: fixed;
+    z-index: 2; /* Ficar acima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100;
+    overflow: auto;
+    background-color: rgb(0, 0, 0); /* Fundo escuro */
+    background-color: rgba(0, 0, 0, 0.8); /* Transparência no fundo escuro */
+
+    
+}
+
+/* Conteúdo da modal */
+.modal-content {
+    background-color: #fefefe;
+    position: relative;
+    margin: 10% auto; /* Centraliza verticalmente */
+    padding: 0px;
+    border: 1px solid #888;
+    width: 90%; /* Largura da modal */
+    max-width: 600px; /* Largura máxima */
+    border-radius: 10px;
+    text-align: center;
+}
+.modal-content .barraSuperiorGraficos{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.modalKPI{
+    border-top: solid black 1px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    gap: 10px;
+}
+
+.conteudoModal{
+    padding: 5px;
+}
+body.modal-open{
+    overflow: hidden;
+}
+/* Botão de fechar */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.graficoLinha{
+    width: 100%;
 }

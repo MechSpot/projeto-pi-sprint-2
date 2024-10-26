@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+
 </head>
 
 <body>
@@ -17,7 +18,7 @@
         <span>Dashboard</span>
         <div class="barraSuperiorOpcoes">
             <ul>
-                <li class="paginaAtual"> <a href="visao_geral.html">Visão Geral</a></li>
+                <li> <a href="visao_geral.html">Visão Geral</a></li>
                 <li> <a href="relatorios.html">Relatórios</a></li>
                 <li>Sair</li>
             </ul>
@@ -26,42 +27,122 @@
 
     <div class="info-body">
         <div class="containerGraficos">
-            <h1 style="margin-left: 7%;">Relatórios</h1>
+            <!--<h1 style="margin-left: 7%;">Relatórios</h1>-->
 
             <div class="graficosGerais">
+
                 <div class="grafico">
-                    <div class="barraSuperiorGraficos">
-                        <h3>Movimento Diário</h3>
+
+                    <!-- GRAFICO DE LINHAS-->
+                    <div class="graficoLinha">
+                        <div class="barraSuperiorGraficos">
+                            <h3>Movimento Diário</h3>
+                        </div>
+                        <div class="conteudoGraficoMaiorLinha">
+                            <canvas id="chartLinha" style="padding: 5px"></canvas>
+                        </div>
                     </div>
-                    <canvas id="chartLinha" style="padding: 5px"></canvas>
                 </div>
 
-
-                <div style="display: flex; flex-direction: column; gap: 20px;">
-                   
-                    <div class="graficoMenor">
+                <!-- GRAFICO DE BARRAS-->
+                <div class="grafico">
+                    <div class="graficoBarra">
                         <div class="barraSuperiorGraficos">
-                            <h4>Proporção de Ocupação</h4>
+                            <h3>Movimento Semanal</h3>
                         </div>
-                        <div class="conteudoGraficoMenor">
-                            <canvas id="chartpizza" style="padding: 5px; "></canvas>
-                        </div>
+
                     </div>
-
-                    <div class="graficoMenor">
-                        <div class="barraSuperiorGraficos">
-                            <span>Fluxo Geral</span>
-                        </div>
-                        <div class="conteudoGraficoMenor">
-                            <canvas id="chartBarra" style="padding: 10px"></canvas>
-                        </div>
+                    <div class="conteudoGraficoMaiorBarra">
+                        <canvas id="chartBarraVertical" style="padding: 5px"></canvas>
                     </div>
                 </div>
 
 
             </div>
+
+
+            <div class="graficosMenores">
+
+                <div class="graficoMenor">
+                    <div class="barraSuperiorGraficos">
+                        <h4>Proporção de Ocupação</h4>
+                    </div>
+                    <div class="conteudoGraficoMenor">
+                        <canvas id="chartpizza" style="padding: 5px; "></canvas>
+                    </div>
+                </div>
+
+
+
+                <div class="graficoMenor">
+                    <div class="barraSuperiorGraficos">
+                        <span>Fluxo Geral</span>
+                    </div>
+                    <div class="conteudoGraficoMenor">
+                        <canvas id="chartBarraHorizontal" style="padding: 5px"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="log">
+                <div class="barraSuperiorGraficos">
+                    <span>LOG/ Histórico</span>
+
+                </div>
+                <div class="conteudoLOG">
+
+                    <div class="dados_relatorio">
+                        17:37 - Um carro<span id="entrada">entrou</span>na vaga 14
+                    </div>
+                    <div class="dados_relatorio">
+                        16:21 - Um carro<span id="saida"> saiu </span>na vaga 7
+                    </div>
+                    <div class="dados_relatorio">
+                        16:02 - Um carro<span id="entrada"> entrou </span>na vaga 7
+                    </div>
+                    <div class="dados_relatorio">
+                        14:49 - Um carro<span id="entrada"> entrou </span>na vaga 2
+                    </div>
+                    <div class="dados_relatorio">
+                        14:49 - Um carro<span id="entrada"> entrou </span>na vaga 2
+                    </div>
+                    <div class="dados_relatorio">
+                        10:12 - Um carro<span id="saida"> saiu </span>na vaga 1
+                    </div>
+                    <div class="dados_relatorio">
+                        14:49 - Um carro<span id="entrada"> entrou </span>na vaga 4
+                    </div>
+                    <div class="dados_relatorio">
+                        10:12 - Um carro<span id="saida"> saiu </span>na vaga 6
+                    </div>
+                    <div class="dados_relatorio">
+                        10:12 - Um carro<span id="saida"> saiu </span>na vaga 6
+                    </div>
+                    <div class="dados_relatorio">
+                        14:49 - Um carro<span id="entrada"> entrou </span>na vaga 4
+                    </div>
+                    <div class="dados_relatorio">
+                        10:12 - Um carro<span id="saida"> saiu </span>na vaga 6
+                    </div>
+                    <div class="dados_relatorio">
+                        10:12 - Um carro<span id="saida"> saiu </span>na vaga 6
+                    </div>
+                    <div class="dados_relatorio">
+                        14:49 - Um carro<span id="entrada"> entrou </span>na vaga 4
+                    </div>
+                    <div class="dados_relatorio">
+                        10:12 - Um carro<span id="saida"> saiu </span>na vaga 6
+                    </div>
+                    <div class="dados_relatorio">
+                        10:12 - Um carro<span id="saida"> saiu </span>na vaga 6
+                    </div>
+                </div>
+            </div>
+
+
+
+
         </div>
-    </div>
 </body>
 
 </html>
@@ -92,16 +173,16 @@
                     label: "Movimento Diário",
                     data: [0, 1, 3, 2, 5, 4, 6, 4, 2, 1, 3, 2],
                     borderColor: "black",
-                    backgroundColor: "#5eded1a1",
+                    backgroundColor: "#5eded154",
                     fill: true,
                 },
             ],
         },
     });
 
-    const chartBarra = document.getElementById("chartpizza");
+    const chartPizza = document.getElementById("chartpizza");
 
-    new Chart(chartBarra, {
+    new Chart(chartPizza, {
         type: "pie",
         data: {
             labels: ["Vagas Ocupadas", "Vagas Vazias"],
@@ -110,15 +191,15 @@
                     label: "Movimento Diário",
                     data: [8, 6],
                     borderColor: "#01200F",
-                    backgroundColor: ["#32746D", "orange"],
+                    backgroundColor: ["#5eded154", "#001aabdb"],
                 },
             ],
         },
     });
 
-    const chartLinha = document.getElementById("chartBarra");
+    const chartBarraHorizontal = document.getElementById("chartBarraHorizontal");
 
-    new Chart(chartLinha, {
+    new Chart(chartBarraHorizontal, {
         type: "bar",
         data: {
             labels: ["Entrada de Carros", "Saída de Carros"],
@@ -126,12 +207,30 @@
                 {
                     label: "Entrada",
                     data: [35, 18],
-                    backgroundColor: ["#9EC5AB", "#ff0000d2"],
+                    backgroundColor: ["#9EC5AB", "#eb1b1b83"],
                 },
             ],
         },
         options: {
             indexAxis: "y",
+        },
+    });
+
+
+    const chartBarraVertical = document.getElementById("chartBarraVertical");
+
+    new Chart(chartBarraVertical, {
+        type: "bar",
+        data: {
+            labels: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"],
+            datasets: [
+                {
+                    label: "Movimento na Semana",
+                    data: [12, 20, 17, 11, 22],
+                    borderColor: "black",
+                    backgroundColor: "#e8c10092",
+                },
+            ],
         },
     });
 </script>

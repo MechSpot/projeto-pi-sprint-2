@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -47,7 +47,7 @@
                         <img src="img/lovepikcar.png" alt="">
                     </div>
 
-                    <div class="container_box">
+                    <div class="container_box" id="boxesOcupados">
                         <div class="tituloKPI">
                             <span>OF1 - Boxes Ocupados:</span>
                         </div>
@@ -70,25 +70,51 @@
 
             <div class="container2">
                 <div class="display_vagas">
-                    <div class="barraSuperior">Display Vagas OF1</div>
+                    <div class="barraSuperior">
+                        Display Vagas OF1
 
 
-                    <div class="vagas" >1<img src="img/fusca.png" alt=""></div>
-                    <div class="vagas vagasVazias">2</div>
-                    <div class="vagas">3<img src="img/fusca.png" alt=""></div>
-                    <div class="vagas">4<img src="img/fusca.png" alt=""></div>
-                    <div class="vagas vagasVazias">5</div>
-                    <div class="vagas vagasVazias">6</div>
-                    <div class="vagas vagasVazias">7</div>
-                    <div class="vagas">8<img src="img/fusca.png" alt=""></div>
-                    <div class="vagas vagasVazias">9</div>
-                    <div class="vagas vagasVazias">10</div>
-                    <div class="vagas vagasVazias">11</div>
-                    <div class="vagas">12<img src="img/fusca.png" alt=""></div>
-                    <div class="vagas">13<img src="img/fusca.png" alt=""></div>
-                    <div class="vagas vagasVazias">14</div>
-                    <div class="vagas vagasVazias">15</div>
-                    <div class="vagas">16<img src="img/fusca.png" alt=""></div>
+                        <select onchange="verDetalhamento()" id="select_detalhadamento">
+                            <option value="#">Detalhamento</option>
+                            <option value="1">Vaga 1</option>
+                            <option value="2">Vaga 2</option>
+                            <option value="3">Vaga 3</option>
+                            <option value="4">Vaga 4</option>
+                            <option value="5">Vaga 5</option>
+                            <option value="6">Vaga 6</option>
+                            <option value="7">Vaga 7</option>
+                            <option value="8">Vaga 8</option>
+                            <option value="9">Vaga 9</option>
+                            <option value="10">Vaga 10</option>
+                            <option value="11">Vaga 11</option>
+                            <option value="12">Vaga 12</option>
+                            <option value="13">Vaga 13</option>
+                            <option value="14">Vaga 14</option>
+                            <option value="15">Vaga 15</option>
+                            <option value="16">Vaga 16</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="conteudoDisplay">
+                        <div class="vagas">1<img src="img/fusca.png" alt=""></div>
+                        <div class="vagas vagasVazias">2</div>
+                        <div class="vagas">3<img src="img/fusca.png" alt=""></div>
+                        <div class="vagas">4<img src="img/fusca.png" alt=""></div>
+                        <div class="vagas vagasVazias">5</div>
+                        <div class="vagas vagasVazias">6</div>
+                        <div class="vagas vagasVazias">7</div>
+                        <div class="vagas">8<img src="img/fusca.png" alt=""></div>
+                        <div class="vagas vagasVazias">9</div>
+                        <div class="vagas vagasVazias">10</div>
+                        <div class="vagas vagasVazias">11</div>
+                        <div class="vagas">12<img src="img/fusca.png" alt=""></div>
+                        <div class="vagas">13<img src="img/fusca.png" alt=""></div>
+                        <div class="vagas vagasVazias">14</div>
+                        <div class="vagas vagasVazias">15</div>
+                        <div class="vagas">16<img src="img/fusca.png" alt=""></div>
+                    </div>
 
 
                 </div>
@@ -112,7 +138,132 @@
             </div>
         </div>
 
+
+        <div id="vagaModal" class="modal">
+            <div class="modal-content">
+                <div class="barraSuperiorGraficos">
+                    <span id="vagaInfo">Informações da vaga</span>
+                    <span class="close" onclick="fecharModal()">&times;</span>
+                </div>
+                <div class="conteudoModal">
+                    <div class="graficoLinha">
+                        <canvas id="chartLinha" style="padding:5px;"></canvas>
+                    </div>
+                    <div class="modalKPI">
+                        <span style="font-weight: bold;">Tempo médio de uso: <span
+                                style="font-weight: normal;">40min</span></span>
+                        <span style="font-weight: bold;">Rotatividade Média: <span
+                                style="font-weight: normal;">55min</span></span>
+                        <span style="font-weight: bold;">Estado Atual: <span style="color: GREEN;">Vazia</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
 </body>
 
 </html>
+
+<script>
+
+
+    function verDetalhamento() {
+        const select = document.getElementById('select_detalhadamento');
+        const vagaSelecionada = select.value;
+
+        const modal = document.getElementById('vagaModal');
+        const vagaInfo = document.getElementById('vagaInfo');
+
+
+        if (vagaSelecionada !== "#") {
+            if (vagaSelecionada !== '9') {
+                vagaInfo.textContent = 'Informações da vaga N° ' + vagaSelecionada;
+                modal.style.display = 'block';
+
+                const chartMovimentoDiario = document.getElementById("chartLinha");
+
+                new Chart(chartMovimentoDiario, {
+                    type: "line",
+                    data: {
+                        labels: [
+                            "9h", "10h", "11h", "12h", "13h", "14h", "15h", "16h", "17h", "18h", "19h", "20h",
+                        ],
+                        datasets: [
+                            {
+                                label: "Rotatividade Média (Minutos)",
+                                data: [10, 30, 20, 50, 40, 60, 80, 20, 0, 30, 20, 10],
+                                borderColor: "blue",
+                                backgroundColor: "blue",
+
+                            }, {
+                                label: "Clientes Excessivos",
+                                data: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+                                borderColor: "orange",
+                                backgroundColor: "orange",
+
+                            }, {
+                                label: "Falta de clientes",
+                                data: [70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70],
+                                borderColor: "#eb1b1b83",
+                                backgroundColor: "#eb1b1b83",
+                            },
+                        ],
+                    },
+                });
+            } else if (vagaSelecionada == '9') {
+                vagaInfo.textContent = 'Informações da vaga N° ' + vagaSelecionada;
+                modal.style.display = 'block';
+
+                const chartMovimentoDiario = document.getElementById("chartLinha");
+
+                new Chart(chartMovimentoDiario, {
+                    type: "line",
+                    data: {
+                        labels: [
+                            "9h", "10h", "11h", "12h", "13h", "14h", "15h", "16h", "17h", "18h", "19h", "20h",
+                        ],
+                        datasets: [
+                            {
+                                label: "Rotatividade Média (Minutos)",
+                                data: [60, 60, 60, 40, 30, 60, 70, 80, 60, 70, 55, 55],
+                                borderColor: "blue",
+                                backgroundColor: "blue",
+
+                            }, {
+                                label: "Clientes Excessivos",
+                                data: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+                                borderColor: "orange",
+                                backgroundColor: "orange",
+
+                            }, {
+                                label: "Falta de clientes",
+                                data: [70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70],
+                                borderColor: "#eb1b1b83",
+                                backgroundColor: "#eb1b1b83",
+                            },
+                        ],
+                    },
+                });
+            }
+        }
+    }
+
+    function fecharModal() {
+        // Fecha a modal
+        document.getElementById('vagaModal').style.display = 'none';
+    }
+
+    // Fecha a modal ao clicar fora dela
+    window.onclick = function (event) {
+        const modal = document.getElementById('vagaModal');
+        if (event.target === modal) {
+            fecharModal();
+        }
+    };
+
+
+
+
+</script>
