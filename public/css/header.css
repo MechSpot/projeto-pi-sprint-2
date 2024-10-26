@@ -1,6 +1,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
   font-family: monospace;
@@ -56,7 +57,7 @@ body {
 }
 
 .header .container .navbar .agora a {
-  padding: 30%;
+  padding: 15%;
   background-color: #0097b2;
   border-radius: 19px;
 }

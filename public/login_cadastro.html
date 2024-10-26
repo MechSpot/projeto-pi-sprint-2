@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/login_cadastro.css" />
-    <script src="../js/login_cadastro.js"></script>
+    <script src="./js/login_cadastro.js"></script>
     <title>Login</title>
   </head>
   <body>
@@ -40,7 +40,7 @@
     <div class="tela_login_cadastro">
       <div id="tela" class="card tela_login">
         <div class="primeira_coluna">
-          <h2 class="titulo titulo_bem_vindo">Bem Vindo!</h2>
+          <h2 class="titulo titulo_bem_vindo">Bem-Vindo!</h2>
           <p class="descricao">Se conecte com a gente</p>
           <p class="descricao">crie sua conta agora</p>
           <button class="btn btn_cadastre-se_entrar" onclick="trocar_tela()">
@@ -49,21 +49,23 @@
         </div>
         <div class="segunda_coluna">
           <h2 class="titulo titulo_entrar">Entrar com sua conta</h2>
-          <form>
+          <div class="campos">
+            <label>Email:</label>
             <input
               id="input_email_login"
               class="email"
               type="email"
               placeholder="Email"
             />
+            <label>Senha:</label>
             <input
               id="input_senha_login"
               class="senha"
               type="password"
               placeholder="Senha"
             />
-            <button class="btn" onclick="entrar()">LOGIN</button>
-          </form>
+          </div>
+          <button class="btn" onclick="entrar()">LOGIN</button>
         </div>
       </div>
       <div id="tela2" class="card tela_cadastro sumir">
@@ -79,27 +81,54 @@
         </div>
         <div class="segunda_coluna">
           <h2 class="titulo titulo_entrar">Crie sua própria conta</h2>
-          <form>
-            <input
-              class="nome"
-              type="text"
-              placeholder="Nome"
-              id="input_nome"
-            />
-            <input
-              class="email"
-              type="email"
-              placeholder="Email"
-              id="input_email"
-            />
-            <input
-              class="senha"
-              type="text"
-              placeholder="Senha"
-              id="input_senha"
-            />
-            <button onclick="cadastrar()" class="btn">CADASTRAR</button>
-          </form>
+          <div class="campos">
+            <div class="div_inputs_cadastro">
+              <label>CNPJ (Somente os Números):</label>
+              <input type="text" placeholder="CNPJ" id="input_cnpj" />
+              <label>Nome Fantasia:</label>
+              <input
+                type="text"
+                placeholder="Nome Fantasia"
+                id="input_nome_fantasia"
+              />
+              <label>Razão Social:</label>
+              <input
+                type="text"
+                placeholder="Razão Social"
+                id="input_razao_social"
+              />
+              <label>Representante Legal:</label>
+              <input
+                type="text"
+                placeholder="Representante Legal"
+                id="input_representante_legal"
+              />
+            </div>
+
+            <div class="div_inputs_cadastro">
+              <label>Email:</label>
+              <input type="email" placeholder="Email" id="input_email" />
+              <label>Telefone Celular:</label>
+              <input
+                type="text"
+                placeholder="Telefone Celular"
+                id="input_tel_celular"
+              />
+              <label>Telefone Fixo:</label>
+              <input
+                type="text"
+                placeholder="Telefone Fixo"
+                id="input_tel_fixo"
+              />
+              <label>Quantidade de Boxes:</label>
+              <input
+                type="number"
+                placeholder="Quantidade de Boxes"
+                id="input_qtd_box"
+              />
+            </div>
+          </div>
+          <button onclick="cadastrar()" class="btn">CADASTRAR</button>
         </div>
       </div>
     </div>

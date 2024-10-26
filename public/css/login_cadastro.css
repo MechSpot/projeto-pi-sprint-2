@@ -45,27 +45,11 @@ form {
 }
 
 input {
-  height: 45px;
-  background-size: 16px;
+  height: 6vh;
   border-radius: 5px;
   border: 0;
   text-align: center;
-  background-repeat: no-repeat;
-  background-position: left;
   background-color: #ecf0f1;
-}
-
-.nome {
-  background-image: url(../assets/icon/login-cadastro-icons/person.png);
-}
-
-.email {
-  position: relative;
-  background-image: url(../assets/icon/login-cadastro-icons/mail.png);
-}
-
-.senha {
-  background-image: url(../assets/icon/login-cadastro-icons/lock.png);
 }
 
 .card .titulo {
@@ -88,11 +72,35 @@ input {
   line-height: 30px;
 }
 
-form {
+.campos {
   display: flex;
   flex-direction: column;
   width: 55%;
   gap: 5vh;
+}
+
+#tela2 .campos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
+label {
+  margin-bottom: -10%;
+  font-size: 14px;
+}
+
+#tela2 label {
+  margin-bottom: -4%;
+}
+
+.div_inputs_cadastro {
+  display: flex;
+  flex-direction: column;
+  width: 47%;
+  gap: 2vh;
 }
 
 .btn {
