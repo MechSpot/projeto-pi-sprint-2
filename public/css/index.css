@@ -115,8 +115,9 @@
 }
 
 .plataforma-text p {
-  color: black;
+  color: rgb(41, 40, 40);
   font-size: 18px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .sobre-nos {
@@ -158,8 +159,8 @@
 
 .sobre-nos .container .campo span {
   width: 65%;
-  font-size: 20px;
-  text-align: justify;
+  font-size: 19px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .sobre-nos .container .campo a {
