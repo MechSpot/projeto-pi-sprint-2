@@ -57,9 +57,9 @@ body {
 }
 
 .header .container .navbar .agora a {
-  padding: 15%;
-  background-color: #0097b2;
-  border-radius: 19px;
+  padding: 12%;
+  background-color: #32746d;
+  border-radius: 10px;
 }
 
 .header .container .navbar a {

@@ -18,6 +18,13 @@
   display: flex;
 }
 
+.tela_login_cadastro .descricao{
+font-size: 18px;
+margin: 10%;
+
+
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -85,6 +92,12 @@ input {
   justify-content: space-between;
   align-items: center;
   width: 90%;
+}
+
+#tela2 .descricao{
+  font-size: 18px;
+  margin: 10% 0;
+
 }
 
 label {
