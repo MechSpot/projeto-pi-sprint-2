@@ -12,7 +12,7 @@ function calcular() {
     var qtdBoxes = Number(boxes.value)
 
     if (valorLucroHora == 0) {
-        valorLucroHora = 100
+        valorLucroHora = 50
     }
 
     if (horasOperacaoDia == 0) {
