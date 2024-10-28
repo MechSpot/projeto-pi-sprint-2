@@ -1,81 +1,325 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visão Geral</title>
-    <link rel="stylesheet" href="../css/dashboard.css" />
-  </head>
+<html lang="en">
 
-  <body>
-    <div class="barraLateral">
-      <div class="logo">
-        <img src="../assets/img/MechSpot.png" />
-        <h3>Mechspot</h3>
-      </div>
-      <nav>
-        <div class="opcoes">
-          <ul>
-            <li>
-              <a href="./visao_geral.html">
-                <span>Visão Geral</span>
-              </a>
-            </li>
-            <li>
-              <a href="./relatorios.html">
-                <span>Relatórios</span>
-              </a>
-            </li>
-            <li>
-              <a href="./graficos.html">
-                <span>Gráficos</span>
-              </a>
-            </li>
-          </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <div class="barraSuperior">
+        <span> <img src="assets/img/MechSpot.png" alt="">Mechspot</span>
+
+        <span>Dashboard</span>
+        <div class="barraSuperiorOpcoes">
+            <ul>
+                <li class="paginaAtual"> <a href="visao_geral.html">Visão Geral</a></li>
+                <li> <a href="relatorios.html">Relatórios</a></li>
+                <li><a href="index.html">Sair</a></li>
+            </ul>
         </div>
-      </nav>
-      <a href="../html/index.html" id="Sair">
-        <img src="../assets/img/Door_icon.png" />
-        <span>Sair</span>
-      </a>
     </div>
-
     <div class="info-body">
-      <div class="container">
-        <h1>Eficiência da oficina:</h1>
 
-        <div class="container-box">
-          <p>Vagas Ocupadas: 8</p>
-        </div>
-        <div class="container-box">
-          <p>Média de ocupação: 8h</p>
-        </div>
-        <div class="container-box">
-          <p>Tempo de Rotatividade: 48min</p>
-        </div>
-        <div class="container-box">
-          <p>Vaga mais Ocupada: n°9</p>
-        </div>
-      </div>
+        <div class="container">
+            <h1 style="margin-left: 4%;">
+                Visão Geral
+            </h1>
 
-      <div class="display_vagas">
-        <div><img src="" /></div>
-        <div><img src="" /></div>
-        <div><img src="../assets/img/car_icon.png" /></div>
-        <div><img src="../assets/img/car_icon.png" /></div>
-        <div><img src="../assets/img/car_icon.png" /></div>
-        <div><img src="" /></div>
-        <div><img src="../assets/img/car_icon.png" /></div>
-        <br />
-        <br />
-        <div><img src="" /></div>
-        <div><img src="../assets/img/car_icon.png" /></div>
-        <div><img src="../assets/img/car_icon.png" /></div>
-        <div><img src="" /></div>
-        <div><img src="../assets/img/car_icon.png" /></div>
-        <div><img src="../assets/img/car_icon.png" /></div>
-        <div><img src="" /></div>
-      </div>
+            <div class="container1">
+                <div class="box1">
+                    <div class="container_box">
+                        <div class="tituloKPI">
+                            <span>OF1 - Sensores Totais</span>
+                        </div>
+                        <div class="conteudoKPI"><span>16</span></div>
+                        <img src="assets/img/lovepikcar.png" alt="">
+                    </div>
+
+                    <div class="container_box" id="boxesVazios">
+                        <div class="tituloKPI">
+                            <span>OF1 - Boxes Vazios</span>
+                        </div>
+                        <div class="conteudoKPI"><span>9</span></div>
+                        <img src="assets/img/lovepikcar.png" alt="">
+                    </div>
+
+                    <div class="container_box" id="boxesOcupados">
+                        <div class="tituloKPI">
+                            <span>OF1 - Boxes Ocupados:</span>
+                        </div>
+
+                        <div class="conteudoKPI">
+                            <span>7</span>
+                        </div>
+                        <img src="assets/img/lovepikcar.png" alt="">
+                    </div>
+
+                    <div class="container_box">
+                        <div class="tituloKPI">
+                            <span>Tempo Médio de Uso</span>
+                        </div>
+                        <div class="conteudoKPI"><span>55min</span></div>
+                        <img src="assets/img/lovepikcar.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container2">
+                <div class="display_vagas">
+                    <div class="barraSuperior">
+                        Display Vagas OF1
+
+
+                        <select onchange="verDetalhamento()" id="select_detalhadamento">
+                            <option value="#">Detalhamento</option>
+                            <option value="1">Vaga 1</option>
+                            <option value="2">Vaga 2</option>
+                            <option value="3">Vaga 3</option>
+                            <option value="4">Vaga 4</option>
+                            <option value="5">Vaga 5</option>
+                            <option value="6">Vaga 6</option>
+                            <option value="7">Vaga 7</option>
+                            <option value="8">Vaga 8</option>
+                            <option value="9">Vaga 9</option>
+                            <option value="10">Vaga 10</option>
+                            <option value="11">Vaga 11</option>
+                            <option value="12">Vaga 12</option>
+                            <option value="13">Vaga 13</option>
+                            <option value="14">Vaga 14</option>
+                            <option value="15">Vaga 15</option>
+                            <option value="16">Vaga 16</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="conteudoDisplay">
+                        <div class="vagas"><img src="assets/img/alertIcon.png" alt="" class="imagemAlerta">1<img
+                                src="assets/img/fusca.png" alt="" class="imagemFusca"></div>
+                        <div class="vagas vagasVazias"> <img src="" alt="">2</div>
+                        <div class="vagas">3<img src="assets/img/fusca.png" alt="" class="imagemFusca"></div>
+                        <div class="vagas">4<img src="assets/img/fusca.png" alt="" class="imagemFusca"></div>
+                        <div class="vagas vagasVazias">5</div>
+                        <div class="vagas vagasVazias">6</div>
+                        <div class="vagas vagasVazias">7</div>
+                        <div class="vagas">8<img src="assets/img/fusca.png" alt="" class="imagemFusca"></div>
+                        <div class="vagas vagasVazias">9</div>
+                        <div class="vagas vagasVazias">10</div>
+                        <div class="vagas vagasVazias">11</div>
+                        <div class="vagas">12<img src="assets/img/fusca.png" alt="" class="imagemFusca"></div>
+                        <div class="vagas">13<img src="assets/img/fusca.png" alt="" class="imagemFusca"></div>
+                        <div class="vagas vagasVazias">14</div>
+                        <div class="vagas vagasVazias">15</div>
+                        <div class="vagas">16<img src="assets/img/fusca.png" alt="" class="imagemFusca"></div>
+                    </div>
+
+
+                </div>
+
+                <div class="box2">
+                    <div class="container_box">
+                        <div class="tituloKPI">
+                            <span>Média de Rotatividade</span>
+                        </div>
+                        <div class="conteudoKPI"><span>30min</span></div>
+                        <img src="assets/img/lovepikcar.png" alt="">
+                    </div>
+                    <div class="container_box">
+                        <div class="tituloKPI">
+                            <span>Vaga menos usada</span>
+                        </div>
+                        <div class="conteudoKPI"><span>Vaga N°9</span></div>
+                        <img src="assets/img/lovepikcar.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="vagaModal" class="modal">
+            <div class="modal-content">
+                <div class="barraSuperiorGraficos">
+                    <span id="vagaInfo">Informações da vaga</span>
+                    <span class="close" onclick="fecharModal()">&times;</span>
+                </div>
+                <div class="conteudoModal">
+                    <div class="graficoLinha">
+                        <canvas id="chartLinha" style="padding:5px;"></canvas>
+                    </div>
+                    <div class="modalKPI">
+                        <span style="font-weight: bold;">Tempo médio de uso: <span style="font-weight: normal;"> X
+                                min</span></span>
+                        <span style="font-weight: bold;">Rotatividade Média: <span style="font-weight: normal;"> X
+                                min</span></span>
+                        <span style="font-weight: bold;">Estado Atual: <span style="color: red;">Ocupada</span> / <span
+                                style="color: green;">Vazia</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-  </body>
+
+</body>
+
 </html>
+
+<script>
+
+    let chartInstance
+
+    function verDetalhamento() {
+
+        const select = document.getElementById('select_detalhadamento');
+        const vagaSelecionada = select.value;
+
+        const modal = document.getElementById('vagaModal');
+        const vagaInfo = document.getElementById('vagaInfo');
+
+
+        if (vagaSelecionada !== "#") {
+            if (vagaSelecionada !== '9' && vagaSelecionada !== '1') {
+                vagaInfo.textContent = 'Informações da vaga N° ' + vagaSelecionada;
+                modal.style.display = 'block';
+
+                if (chartInstance) {
+                    chartInstance.destroy();
+                }
+
+                const chartMovimentoDiario = document.getElementById("chartLinha");
+
+                chartInstance = new Chart(chartMovimentoDiario, {
+                    type: "line",
+                    data: {
+                        labels: [
+                            "9h", "10h", "11h", "12h", "13h", "14h", "15h", "16h", "17h", "18h", "19h", "20h",
+                        ],
+                        datasets: [
+                            {
+                                label: "Rotatividade Média (Minutos)",
+                                data: [10, 30, 20, 50, 40, 60, 80, 20, 0, 30, 20, 10],
+                                borderColor: "blue",
+                                backgroundColor: "blue",
+
+                            }, {
+                                label: "Clientes Excessivos",
+                                data: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+                                borderColor: "orange",
+                                backgroundColor: "orange",
+
+                            }, {
+                                label: "Falta de clientes",
+                                data: [70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70],
+                                borderColor: "#eb1b1b83",
+                                backgroundColor: "#eb1b1b83",
+                            },
+                        ],
+                    },
+                });
+
+            } else if (vagaSelecionada == '9') {
+                vagaInfo.textContent = 'Informações da vaga N° ' + vagaSelecionada;
+                modal.style.display = 'block';
+
+                if (chartInstance) {
+                    chartInstance.destroy();
+                }
+
+                const chartMovimentoDiario = document.getElementById("chartLinha");
+
+                chartInstance = new Chart(chartMovimentoDiario, {
+                    type: "line",
+                    data: {
+                        labels: [
+                            "9h", "10h", "11h", "12h", "13h", "14h", "15h", "16h", "17h", "18h", "19h", "20h",
+                        ],
+                        datasets: [
+                            {
+                                label: "Rotatividade Média (Minutos)",
+                                data: [60, 80, 60, 55, 50, 60, 70, 80, 60, 70, 55, 55],
+                                borderColor: "blue",
+                                backgroundColor: "blue",
+
+                            }, {
+                                label: "Clientes Excessivos",
+                                data: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+                                borderColor: "orange",
+                                backgroundColor: "orange",
+
+                            }, {
+                                label: "Falta de clientes",
+                                data: [70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70],
+                                borderColor: "#eb1b1b83",
+                                backgroundColor: "#eb1b1b83",
+                            },
+                        ],
+                    },
+                });
+
+            }
+            else if (vagaSelecionada == '1') {
+                vagaInfo.textContent = 'Informações da vaga N° ' + vagaSelecionada;
+                modal.style.display = 'block';
+
+                if (chartInstance) {
+                    chartInstance.destroy()
+                }
+
+                const chartMovimentoDiario = document.getElementById("chartLinha");
+
+                chartInstance = new Chart(chartMovimentoDiario, {
+                    type: "line",
+                    data: {
+                        labels: [
+                            "9h", "10h", "11h", "12h", "13h", "14h", "15h", "16h", "17h", "18h", "19h", "20h",
+                        ],
+                        datasets: [
+                            {
+                                label: "Rotatividade Média (Minutos)",
+                                data: [10, 0, 5, 10, 60, 70, 80, 60, 70, 55, 55, 72],
+                                borderColor: "blue",
+                                backgroundColor: "blue",
+
+                            }, {
+                                label: "Clientes Excessivos",
+                                data: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+                                borderColor: "orange",
+                                backgroundColor: "orange",
+
+                            }, {
+                                label: "Falta de clientes",
+                                data: [70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70],
+                                borderColor: "#eb1b1b83",
+                                backgroundColor: "#eb1b1b83",
+                            },
+                        ],
+                    },
+                });
+            }
+        }
+    }
+
+    function fecharModal() {
+        // Fecha a modal
+        document.getElementById('vagaModal').style.display = 'none';
+        if (chartInstance) {
+            chartInstance.destroy();
+        }
+    }
+
+    // Fecha a modal ao clicar fora dela
+    window.onclick = function (event) {
+        const modal = document.getElementById('vagaModal');
+        if (event.target === modal) {
+            fecharModal();
+        }
+    };
+
+
+
+
+</script>
