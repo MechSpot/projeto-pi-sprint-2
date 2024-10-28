@@ -98,22 +98,23 @@
 
 
                     <div class="conteudoDisplay">
-                        <div class="vagas">1<img src="img/fusca.png" alt=""></div>
-                        <div class="vagas vagasVazias">2</div>
-                        <div class="vagas">3<img src="img/fusca.png" alt=""></div>
-                        <div class="vagas">4<img src="img/fusca.png" alt=""></div>
+                        <div class="vagas"><img src="img/alertIcon.png" alt="" class="imagemAlerta">1<img
+                                src="img/fusca.png" alt="" class="imagemFusca"></div>
+                        <div class="vagas vagasVazias"> <img src="" alt="">2</div>
+                        <div class="vagas">3<img src="img/fusca.png" alt="" class="imagemFusca"></div>
+                        <div class="vagas">4<img src="img/fusca.png" alt="" class="imagemFusca"></div>
                         <div class="vagas vagasVazias">5</div>
                         <div class="vagas vagasVazias">6</div>
                         <div class="vagas vagasVazias">7</div>
-                        <div class="vagas">8<img src="img/fusca.png" alt=""></div>
+                        <div class="vagas">8<img src="img/fusca.png" alt="" class="imagemFusca"></div>
                         <div class="vagas vagasVazias">9</div>
                         <div class="vagas vagasVazias">10</div>
                         <div class="vagas vagasVazias">11</div>
-                        <div class="vagas">12<img src="img/fusca.png" alt=""></div>
-                        <div class="vagas">13<img src="img/fusca.png" alt=""></div>
+                        <div class="vagas">12<img src="img/fusca.png" alt="" class="imagemFusca"></div>
+                        <div class="vagas">13<img src="img/fusca.png" alt="" class="imagemFusca"></div>
                         <div class="vagas vagasVazias">14</div>
                         <div class="vagas vagasVazias">15</div>
-                        <div class="vagas">16<img src="img/fusca.png" alt=""></div>
+                        <div class="vagas">16<img src="img/fusca.png" alt="" class="imagemFusca"></div>
                     </div>
 
 
@@ -150,11 +151,12 @@
                         <canvas id="chartLinha" style="padding:5px;"></canvas>
                     </div>
                     <div class="modalKPI">
-                        <span style="font-weight: bold;">Tempo médio de uso: <span
-                                style="font-weight: normal;">40min</span></span>
-                        <span style="font-weight: bold;">Rotatividade Média: <span
-                                style="font-weight: normal;">55min</span></span>
-                        <span style="font-weight: bold;">Estado Atual: <span style="color: GREEN;">Vazia</span></span>
+                        <span style="font-weight: bold;">Tempo médio de uso: <span style="font-weight: normal;"> X
+                                min</span></span>
+                        <span style="font-weight: bold;">Rotatividade Média: <span style="font-weight: normal;"> X
+                                min</span></span>
+                        <span style="font-weight: bold;">Estado Atual: <span style="color: red;">Ocupada</span> / <span
+                                style="color: green;">Vazia</span></span>
                     </div>
                 </div>
             </div>
@@ -168,8 +170,10 @@
 
 <script>
 
+    let chartInstance
 
     function verDetalhamento() {
+
         const select = document.getElementById('select_detalhadamento');
         const vagaSelecionada = select.value;
 
@@ -178,13 +182,17 @@
 
 
         if (vagaSelecionada !== "#") {
-            if (vagaSelecionada !== '9') {
+            if (vagaSelecionada !== '9' && vagaSelecionada !== '1') {
                 vagaInfo.textContent = 'Informações da vaga N° ' + vagaSelecionada;
                 modal.style.display = 'block';
 
+                if (chartInstance) {
+                    chartInstance.destroy();
+                }
+
                 const chartMovimentoDiario = document.getElementById("chartLinha");
 
-                new Chart(chartMovimentoDiario, {
+                chartInstance = new Chart(chartMovimentoDiario, {
                     type: "line",
                     data: {
                         labels: [
@@ -212,13 +220,18 @@
                         ],
                     },
                 });
+
             } else if (vagaSelecionada == '9') {
                 vagaInfo.textContent = 'Informações da vaga N° ' + vagaSelecionada;
                 modal.style.display = 'block';
 
+                if (chartInstance) {
+                    chartInstance.destroy();
+                }
+
                 const chartMovimentoDiario = document.getElementById("chartLinha");
 
-                new Chart(chartMovimentoDiario, {
+                chartInstance = new Chart(chartMovimentoDiario, {
                     type: "line",
                     data: {
                         labels: [
@@ -227,7 +240,47 @@
                         datasets: [
                             {
                                 label: "Rotatividade Média (Minutos)",
-                                data: [60, 60, 60, 40, 30, 60, 70, 80, 60, 70, 55, 55],
+                                data: [60, 80, 60, 55, 50, 60, 70, 80, 60, 70, 55, 55],
+                                borderColor: "blue",
+                                backgroundColor: "blue",
+
+                            }, {
+                                label: "Clientes Excessivos",
+                                data: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+                                borderColor: "orange",
+                                backgroundColor: "orange",
+
+                            }, {
+                                label: "Falta de clientes",
+                                data: [70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70],
+                                borderColor: "#eb1b1b83",
+                                backgroundColor: "#eb1b1b83",
+                            },
+                        ],
+                    },
+                });
+
+            }
+            else if (vagaSelecionada == '1') {
+                vagaInfo.textContent = 'Informações da vaga N° ' + vagaSelecionada;
+                modal.style.display = 'block';
+
+                if (chartInstance) {
+                    chartInstance.destroy()
+                }
+
+                const chartMovimentoDiario = document.getElementById("chartLinha");
+
+                chartInstance = new Chart(chartMovimentoDiario, {
+                    type: "line",
+                    data: {
+                        labels: [
+                            "9h", "10h", "11h", "12h", "13h", "14h", "15h", "16h", "17h", "18h", "19h", "20h",
+                        ],
+                        datasets: [
+                            {
+                                label: "Rotatividade Média (Minutos)",
+                                data: [10, 0, 5, 10, 60, 70, 80, 60, 70, 55, 55, 72],
                                 borderColor: "blue",
                                 backgroundColor: "blue",
 
@@ -253,6 +306,9 @@
     function fecharModal() {
         // Fecha a modal
         document.getElementById('vagaModal').style.display = 'none';
+        if (chartInstance) {
+            chartInstance.destroy();
+        }
     }
 
     // Fecha a modal ao clicar fora dela

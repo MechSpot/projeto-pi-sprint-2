@@ -193,10 +193,9 @@ body {
     border: solid 2px black;
 
     font-weight: bold;
-    z-index: 2;
 }
 
-.vagas img {
+.vagas .imagemFusca {
     width: 75%;
     z-index: -1;
 }
@@ -385,6 +384,7 @@ body {
 
 .dados_relatorio #entrada {
     color: green;
+    height: auto;
     margin-left: 5px;
     /* Adiciona espaço à esquerda */
     margin-right: 5px;
@@ -453,6 +453,7 @@ body {
     align-items: center;
     padding: 5px;
     gap: 10px;
+
 }
 
 .conteudoModal{
@@ -480,3 +481,11 @@ body.modal-open{
 .graficoLinha{
     width: 100%;
 }
+
+.imagemAlerta{
+    height: 20%;
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-right: 3%;
+}
+
