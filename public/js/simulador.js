@@ -27,7 +27,6 @@ function calcular() {
         qtdBoxes = 20
     }
 
-    var lucroDiario = valorLucroHora * horasOperacaoDia
     var tempoOcioso = 0.5 * (horasOperacaoDia * qtdBoxes)
     var tempoOciosoSoftware = 0.25 * (horasOperacaoDia * qtdBoxes)
     var horasRecuperadas = tempoOcioso - tempoOciosoSoftware
@@ -41,6 +40,6 @@ function calcular() {
     por mês`
     span_lucro_ano.innerHTML += `${(ganhoRecuperado * diasOperacaoMes * 11).toLocaleString("pt-br", { style: "currency", currency: "BRL", })}
     por ano`
-    explicacao_contexto.style.display = "block"
+    explicacao_contexto.style.display = "flex"
     resultado_simulacao.style.display = "flex"
 }
