@@ -84,11 +84,15 @@ input {
 }
 
 label {
-  margin-bottom: -10%;
+  margin-bottom: -2%;
   font-size: 14px;
 }
 
-#tela2 label {
+#tela label {
+  margin-bottom: -10%;
+}
+
+#tela2 .campos label {
   margin-bottom: -4%;
 }
 
