@@ -18,9 +18,6 @@ body {
     font-weight: bold;
     font-size: xx-large;
     margin: 1% 0 1% 1%;
-    /* margin-left: 1%;
-    margin-top: 1%;
-    margin-bottom: 1%; */
     display: flex;
     align-items: center;
     width: 20%;
@@ -65,7 +62,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+np
 .grafico {
-    width: 50%;
+    width: 80%;
 }
