@@ -15,7 +15,7 @@ function entrar() {
   if (email == "honda@gmail.com" && senha == "Honda123") {
     window.location = "visao_geral.html";
   } else {
-    alert("Dados invalidos");
+    alert("Dados inválidos");
   }
 }
 
@@ -66,9 +66,9 @@ function cadastrar() {
       representanteLegal.length < 5 ||
       representanteLegal.length > 100
     ) {
-      alert("Represemtante legal Inválido");
+      alert("Represemtante legal inválido");
     } else if (email.indexOf("@") == -1 || !email.endsWith(".com")) {
-      alert("Email Inválido");
+      alert("Email inválido");
     } else if (telefoneCelualar.length < 11) {
       alert("Número de celular inválido");
     } else if (telefoneFixo.legth < 10) {
@@ -82,7 +82,7 @@ function cadastrar() {
     ) {
       alert("Senha Inválida");
     } else {
-      alert("Login Efetuado Com Sucesso!!")
+      alert("Cadastro Efetuado Com Sucesso!!")
       trocar_tela()
     }
   }
