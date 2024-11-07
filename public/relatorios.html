@@ -7,9 +7,21 @@
     <title>Relatórios</title>
     <link rel="stylesheet" href="css/dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
 </head>
+<style>
+    /* Ajustar a posição do select no gráfico de Movimento Diário */
+.barraSuperiorGraficos select#selectDiario {
+    padding-left: 15px;  /* Adiciona um pouco mais de espaçamento interno à esquerda */
+    margin-left: 20px;   /* Adiciona mais margem à esquerda */
+}
+
+/* Ajustar a posição do select no gráfico de Movimento Semanal */
+.barraSuperiorGraficos select#selectSemanal {
+    padding-left: 15px;  /* Adiciona um pouco mais de espaçamento interno à esquerda */
+    margin-left: 20px;   /* Adiciona mais margem à esquerda */
+}
+
+</style>
 
 <body>
     <div class="barraSuperior">
@@ -28,16 +40,21 @@
 
     <div class="info-body">
         <div class="containerGraficos">
-            <!--<h1 style="margin-left: 7%;">Relatórios</h1>-->
-
             <div class="graficosGerais">
 
+                <!-- GRAFICO DE LINHAS (Movimento Diário) -->
                 <div class="grafico">
-
-                    <!-- GRAFICO DE LINHAS-->
                     <div class="graficoLinha">
                         <div class="barraSuperiorGraficos">
                             <h3>Movimento Diário</h3>
+                            <!-- Para escolher o dia -->
+                            <select id="selectDiario">
+                                <option value="segunda">Segunda</option>
+                                <option value="terca">Terça</option>
+                                <option value="quarta">Quarta</option>
+                                <option value="quinta">Quinta</option>
+                                <option value="sexta">Sexta</option>
+                            </select>
                         </div>
                         <div class="conteudoGraficoMaiorLinha">
                             <canvas id="chartLinha" style="padding: 5px"></canvas>
@@ -45,25 +62,28 @@
                     </div>
                 </div>
 
-                <!-- GRAFICO DE BARRAS-->
+                <!-- GRAFICO DE BARRAS (Movimento Semanal) -->
                 <div class="grafico">
                     <div class="graficoBarra">
                         <div class="barraSuperiorGraficos">
                             <h3>Movimento Semanal</h3>
+                            <!-- Select para escolher a semana -->
+                            <select id="selectSemanal">
+                                <option value="semana1">Semana 1</option>
+                                <option value="semana2">Semana 2</option>
+                                <option value="semana3">Semana 3</option>
+                                <option value="semana4">Semana 4</option>
+                            </select>
                         </div>
-
                     </div>
                     <div class="conteudoGraficoMaiorBarra">
                         <canvas id="chartBarraVertical" style="padding: 5px"></canvas>
                     </div>
                 </div>
 
-
             </div>
 
-
             <div class="graficosMenores">
-
                 <div class="graficoMenor">
                     <div class="barraSuperiorGraficos">
                         <h4>Proporção de Ocupação</h4>
@@ -72,166 +92,149 @@
                         <canvas id="chartpizza" style="padding: 5px; "></canvas>
                     </div>
                 </div>
-
-
-
-                <div class="graficoMenor">
-                    <div class="barraSuperiorGraficos">
-                        <span>Fluxo Geral</span>
-                    </div>
-                    <div class="conteudoGraficoMenor">
-                        <canvas id="chartBarraHorizontal" style="padding: 5px"></canvas>
-                    </div>
-                </div>
             </div>
 
             <div class="log">
                 <div class="barraSuperiorGraficos">
                     <span>LOG/ Histórico</span>
-
                 </div>
                 <div class="conteudoLOG">
-
+                    <!-- histórico -->
                     <div class="dados_relatorio">
-                        17:37 - Um carro<span id="entrada">entrou</span>na vaga 14
+                        17:37 - Um carro <span id="entrada">entrou</span> na vaga 14 
                     </div>
                     <div class="dados_relatorio">
-                        16:21 - Um carro<span id="saida"> saiu </span>na vaga 7
+                        16:21 - Um carro <span id="saida">saiu</span> da vaga 7 
                     </div>
                     <div class="dados_relatorio">
-                        16:02 - Um carro<span id="entrada"> entrou </span>na vaga 7
+                        16:02 - Um carro <span id="entrada">entrou</span> na vaga 7 
                     </div>
                     <div class="dados_relatorio">
-                        14:49 - Um carro<span id="entrada"> entrou </span>na vaga 2
+                        17:00 - Um carro <span id="entrada">entrou</span> na vaga 2 
                     </div>
                     <div class="dados_relatorio">
-                        14:49 - Um carro<span id="entrada"> entrou </span>na vaga 2
+                        14:49 - Um carro <span id="entrada">entrou</span> na vaga 2 
                     </div>
                     <div class="dados_relatorio">
-                        10:12 - Um carro<span id="saida"> saiu </span>na vaga 1
+                        10:22 - Um carro <span id="saida">saiu</span> da vaga 1 
                     </div>
                     <div class="dados_relatorio">
-                        14:49 - Um carro<span id="entrada"> entrou </span>na vaga 4
+                        11:50 - Um carro <span id="entrada">entrou</span> na vaga 4 
                     </div>
                     <div class="dados_relatorio">
-                        10:12 - Um carro<span id="saida"> saiu </span>na vaga 6
+                        10:12 - Um carro <span id="saida">saiu</span> da vaga 6 
+                    </div>
+                    
+                    <div class="dados_relatorio">
+                        15:49 - Um carro <span id="entrada">entrou</span> na vaga 4 
                     </div>
                     <div class="dados_relatorio">
-                        10:12 - Um carro<span id="saida"> saiu </span>na vaga 6
+                        11:12 - Um carro <span id="saida">saiu</span> da vaga 6 
                     </div>
                     <div class="dados_relatorio">
-                        14:49 - Um carro<span id="entrada"> entrou </span>na vaga 4
+                        18:49 - Um carro <span id="entrada">entrou</span> na vaga 4 
                     </div>
+                    
                     <div class="dados_relatorio">
-                        10:12 - Um carro<span id="saida"> saiu </span>na vaga 6
-                    </div>
-                    <div class="dados_relatorio">
-                        10:12 - Um carro<span id="saida"> saiu </span>na vaga 6
-                    </div>
-                    <div class="dados_relatorio">
-                        14:49 - Um carro<span id="entrada"> entrou </span>na vaga 4
-                    </div>
-                    <div class="dados_relatorio">
-                        10:12 - Um carro<span id="saida"> saiu </span>na vaga 6
-                    </div>
-                    <div class="dados_relatorio">
-                        10:12 - Um carro<span id="saida"> saiu </span>na vaga 6
+                        11:12 - Um carro <span id="saida">saiu</span> da vaga 9 (Tipo: Conversível)
                     </div>
                 </div>
             </div>
-
-
-
-
+            
         </div>
+    </div>
+
 </body>
+
 
 </html>
 
 <script>
-
+    // Gráfico de movimento diário
     const chartMovimentoDiario = document.getElementById("chartLinha");
 
-    new Chart(chartMovimentoDiario, {
+    const dadosDiarios = {
+        segunda: [0, 1, 3, 2, 5, 4, 6, 4, 2, 1, 3, 2],
+        terca: [2, 3, 1, 4, 6, 5, 7, 8, 3, 2, 4, 6],
+        quarta: [1, 4, 3, 6, 5, 7, 9, 6, 5, 3, 4, 7],
+        quinta: [0, 3, 2, 5, 8, 7, 9, 6, 4, 2, 5, 8],
+        sexta: [1, 2, 4, 6, 7, 6, 8, 9, 4, 3, 5, 7]
+    };
+
+    let movimentoDiarioAtual = dadosDiarios["segunda"];
+
+    const chartLinhaObj = new Chart(chartMovimentoDiario, {
         type: "line",
         data: {
             labels: [
-                "9h",
-                "10h",
-                "11h",
-                "12h",
-                "13h",
-                "14h",
-                "15h",
-                "16h",
-                "17h",
-                "18h",
-                "19h",
-                "20h",
+                "9h", "10h", "11h", "12h", "13h", "14h", "15h", "16h", "17h", "18h", "19h", "20h"
             ],
-            datasets: [
-                {
-                    label: "Movimento Diário",
-                    data: [0, 1, 3, 2, 5, 4, 6, 4, 2, 1, 3, 2],
-                    borderColor: "black",
-                    backgroundColor: "#5eded154",
-                    fill: true,
-                },
-            ],
+            datasets: [{
+                label: "Movimento Diário",
+                data: movimentoDiarioAtual,
+                borderColor: "black",
+                backgroundColor: "#5eded154",
+                fill: true,
+            }],
         },
     });
 
+    // Gráfico de movimento semanal
+    const chartMovimentoSemanal = document.getElementById("chartBarraVertical");
+
+    const dadosSemana = {
+        semana1: [12, 20, 17, 11, 22],
+        semana2: [15, 18, 21, 13, 19],
+        semana3: [10, 14, 18, 12, 17],
+        semana4: [13, 16, 19, 15, 20]
+    };
+
+    let movimentoSemanalAtual = dadosSemana["semana1"];
+
+    const chartBarraVerticalObj = new Chart(chartMovimentoSemanal, {
+        type: "bar",
+        data: {
+            labels: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"],
+            datasets: [{
+                label: "Movimento na Semana",
+                data: movimentoSemanalAtual,
+                borderColor: "black",
+                backgroundColor: "#e8c10092",
+            }],
+        },
+    });
+
+    // Atualizar gráfico diário
+    document.getElementById("selectDiario").addEventListener("change", function () {
+        const diaSelecionado = this.value;
+        movimentoDiarioAtual = dadosDiarios[diaSelecionado];
+
+        chartLinhaObj.data.datasets[0].data = movimentoDiarioAtual;
+        chartLinhaObj.update();
+    });
+
+    // Atualizar gráfico semanal
+    document.getElementById("selectSemanal").addEventListener("change", function () {
+        const semanaSelecionada = this.value;
+        movimentoSemanalAtual = dadosSemana[semanaSelecionada];
+
+        chartBarraVerticalObj.data.datasets[0].data = movimentoSemanalAtual;
+        chartBarraVerticalObj.update();
+    });
+
+    // Gráfico de proporção de ocupação
     const chartPizza = document.getElementById("chartpizza");
 
     new Chart(chartPizza, {
         type: "pie",
         data: {
             labels: ["Vagas Ocupadas", "Vagas Vazias"],
-            datasets: [
-                {
-                    label: "Movimento Diário",
-                    data: [8, 6],
-                    borderColor: "#01200F",
-                    backgroundColor: ["#5eded154", "#001aabdb"],
-                },
-            ],
-        },
-    });
-
-    const chartBarraHorizontal = document.getElementById("chartBarraHorizontal");
-
-    new Chart(chartBarraHorizontal, {
-        type: "bar",
-        data: {
-            labels: ["Entrada de Carros", "Saída de Carros"],
-            datasets: [
-                {
-                    label: "Entrada",
-                    data: [35, 18],
-                    backgroundColor: ["#9EC5AB", "#eb1b1b83"],
-                },
-            ],
-        },
-        options: {
-            indexAxis: "y",
-        },
-    });
-
-
-    const chartBarraVertical = document.getElementById("chartBarraVertical");
-
-    new Chart(chartBarraVertical, {
-        type: "bar",
-        data: {
-            labels: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"],
-            datasets: [
-                {
-                    label: "Movimento na Semana",
-                    data: [12, 20, 17, 11, 22],
-                    borderColor: "black",
-                    backgroundColor: "#e8c10092",
-                },
-            ],
+            datasets: [{
+                label: "Movimento Diário",
+                data: [8, 6],
+                borderColor: "#01200F",
+                backgroundColor: ["#5eded154", "#001aabdb"],
+            }],
         },
     });
 </script>
