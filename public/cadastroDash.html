@@ -6,6 +6,7 @@
     <title>Cadastro de Usuários</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/dashboard.css">
+    <script src="js/cadastroDash.js"></script>
 </head>
 
 <body>
@@ -35,15 +36,15 @@
                     <input type="text" class="inputCadastro" placeholder="Nome do Funcionario">
 
                     <label for="email">E-mail:</label>
-                    <input type="text" class="inputCadastro" placeholder="exemplo@email.com" onblur="validarEmail()">
+                    <input type="text" class="inputCadastro" placeholder="exemplo@email.com" onblur="validarEmail()" id="input_email">
 
                     <label for="senha">Senha:</label>
-                    <input type="text" class="inputCadastro" placeholder="Digite a senha" onblur="validarSenha()">
+                    <input type="text" class="inputCadastro" placeholder="Digite a senha" onblur="validarSenha()" id="input_senha">
 
                     <label for="confirmarSenha">Confirmar Senha:</label>
-                    <input type="text" class="inputCadastro" placeholder="Confirme a senha">
+                    <input type="text" class="inputCadastro" placeholder="Confirme a senha" id="input_confirmar_senha" onblur="confirmarSenha()">
 
-                    <button>Cadastrar</button>
+                    <button onclick="cadastrar()">Cadastrar</button>
                 </div>
             </div>
         </div>

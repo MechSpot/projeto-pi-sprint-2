@@ -6,7 +6,7 @@ body {
 }
 .barraSuperior {
     width: 100%;
-    height: 16.5vh;
+    height: 13vh;
     display: flex;
     background: linear-gradient(to bottom, #349191, #005160);
     color: white;
@@ -160,9 +160,6 @@ body {
 
     border-radius: 10px;
     overflow-y: scroll;
-}
-
-#barraSuperiorDisplay{
 }
 
 .conteudoDisplay {

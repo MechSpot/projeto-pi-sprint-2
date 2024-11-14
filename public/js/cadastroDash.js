@@ -1,3 +1,10 @@
+
+// Variaveis globais para validação
+var emailValidado = false
+var senhaValidada = false
+var senhaConfirmmada = false
+
+
 function validarEmail() {
   const inputEmail = document.getElementById("input_email");
   const email = document.getElementById("input_email").value;
@@ -8,50 +15,86 @@ function validarEmail() {
     if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
       inputEmail.style.border = "2px solid red";
     } else {
+      emailValidado = true // Email validado
       inputEmail.style.border = "none";
     }
   }
 }
 
-// const tooltip = document.getElementById("tooltip_senha");
 
-// document.getElementById("input_senha").addEventListener("focus", () => {
-//   tooltip.style.display = "block";
-// });
+
+
 
 function validarSenha() {
   const inputSenha = document.getElementById("input_senha")
   const senha = document.getElementById("input_senha").value
+  // Simbolos que podem ou devem ser comportados na senha
+  const simbolos = ['!', '@', '#', '$', '%', '&', '*', '(', ')', '_', '-', '.']
 
-  if (senha == "") {
-    alert("Preencha a Senha");
+  if (senha == "") { // Verificando se o Input não está vazio, caso esteja, irá trocar a cor da borda para vermelho 
     inputSenha.style.border = '2px solid red'
   } else {
-    if (senha.length < 11) {
-      alert("Insira uma senha maior");
+    if (senha.length < 11) { // Verificando o comprimento da senha
       inputSenha.style.border = '2px solid red'
-
+      console.log('senha muito curta')
     } else {
+      console.log('entrou nas validações')
+      // Entrando nas validações
+      var contemletraMaiscula = false
+      var contemletraMinuscula = false
+      var contemSimbolos = false
 
-      var letraMaiscula = false
-      var letraMinuscula = false
       for (var pos = 0; pos < senha.length; pos++) {
 
-        if(senha[pos] == senha[pos].toUpperCase()){
-          letraMaiscula = true
+        if (senha[pos] == senha[pos].toUpperCase()) { // Checando caractéres maiusculos
+          contemletraMaiscula = true
+        }
+        if (senha[pos] == senha[pos].toLowerCase()) { // checando caractéres minusculos
+          contemletraMinuscula = true
         }
 
-        if(senha[pos] == senha[pos].toLowerCase()){
-          letraMinuscula = true
+        for (var i = 0; i < simbolos.length; i++) { // Verificando a lista de simbolos com os caractéres
+          if (senha[pos] == simbolos[i]) {
+            contemSimbolos = true
+          }
         }
       }
-   
-      if(letraMaiscula && letraMinuscula){
-        alert('Senha validada com sucesso')
+
+      if (contemletraMaiscula && contemletraMinuscula && contemSimbolos) {
+        console.log('A senha foi validada')
+
+        inputSenha.style.border = 'none'
+        senhaValidada = true // Senha validada
+        confirmarSenha(senha)
+
+      } else {
+        console.log('A senha não foi validada')
+        inputSenha.style.border = 'solid 1px red'
       }
     }
   }
 }
 
 
-console.log(validarSenha())
+function confirmarSenha() {
+  const senha = input_senha.value
+  const confirmarSenha = input_confirmar_senha.value
+
+  if (confirmarSenha == senha) {
+    console.log('confirmarSenha validado')
+
+    senhaConfirmmada = true
+    input_confirmar_senha.style.border = 'none'
+  } else {
+    input_confirmar_senha.style.border = 'solid 1px red'
+  }
+}
+
+
+
+
+function cadastrar() {
+  if (emailValidado && senhaValidada && senhaConfirmmada) {
+    alert('cadastrado realizado com sucesso')
+  }
+}
