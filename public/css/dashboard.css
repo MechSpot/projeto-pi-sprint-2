@@ -159,7 +159,10 @@ body {
     box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.30);
 
     border-radius: 10px;
+    overflow-y: scroll;
+}
 
+#barraSuperiorDisplay{
 }
 
 .conteudoDisplay {
@@ -353,7 +356,7 @@ margin-left: -9%;
     font-weight: bold;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     font-size: 2.5vh;
 }
 
