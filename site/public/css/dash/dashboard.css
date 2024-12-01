@@ -100,8 +100,6 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   align-items: end;
-  gap: 8vh;
-  margin-top: 4%;
   margin-bottom: -3.5%;
 }
 
