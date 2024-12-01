@@ -106,7 +106,40 @@ function cadastrar(req, res) {
   }
 }
 
+
+function cadastrarNovoFuncionario(req, res) {
+  const idOficina = req.body.idOficinaServer
+
+  const email = req.body.emailServer
+  const senha = req.body.senhaServer
+
+  if (idOficina == undefined) {
+    res.status(400).send('idOficina está undefined')
+  } else if (email == undefined) {
+    res.status(400).send('email está undefined')
+  } else if (senha == undefined) {
+    res.status(400).send('senha está undefined')
+  } else {
+
+    usuarioModel.cadastroNovoFuncionario(email, senha, idOficina)
+      .then(function (resultado) {
+        res.json(resultado);
+      })
+      .catch(function (erro) {
+        console.log(erro);
+        console.log(
+          "\nHouve um erro ao realizar o cadastro do novo funcionario! Erro: ",
+          erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+      });
+  }
+}
+
+
+
 module.exports = {
   autenticar,
   cadastrar,
+  cadastrarNovoFuncionario
 };

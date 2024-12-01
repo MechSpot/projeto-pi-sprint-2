@@ -95,7 +95,19 @@ function cadastrar(
   );
 }
 
+function cadastroNovoFuncionario(email, senha, fkOficina){
+  console.log('Acessei o MODEL CadastroNovoFuncionario')
+
+  var instrucaoSql = `
+    INSERT INTO login VALUES
+    (default, ${fkOficina}, '${email}', '${senha}');
+  `
+  console.log('Executando a instrução SQL: \n' + instrucaoSql)
+  return database.executar(instrucaoSql)
+}
+
 module.exports = {
   autenticar,
   cadastrar,
+  cadastroNovoFuncionario
 };

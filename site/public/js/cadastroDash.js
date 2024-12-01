@@ -23,8 +23,6 @@ function validarEmail() {
 
 
 
-
-
 function validarSenha() {
   const inputSenha = document.getElementById("input_senha")
   const senha = document.getElementById("input_senha").value
@@ -34,7 +32,7 @@ function validarSenha() {
   if (senha == "") { // Verificando se o Input não está vazio, caso esteja, irá trocar a cor da borda para vermelho 
     inputSenha.style.border = '2px solid red'
   } else {
-    if (senha.length < 11) { // Verificando o comprimento da senha
+    if (senha.length < 8) { // Verificando o comprimento da senha
       inputSenha.style.border = '2px solid red'
       console.log('senha muito curta')
     } else {
@@ -93,8 +91,43 @@ function confirmarSenha() {
 
 
 
-function cadastrar() {
+function cadastrarFuncionario() {
   if (emailValidado && senhaValidada && senhaConfirmmada) {
-    alert('cadastrado realizado com sucesso')
+
+    const idOficinaVar = sessionStorage.getItem('ID_OFICINA')
+    
+    const emailVar = input_email.value
+    const senhaVar = input_senha.value
+
+    // Começando processo da API
+    fetch('/usuarios/cadastrarNovoFuncionario', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+
+        
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        idOficinaServer : idOficinaVar
+      })
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+
+          alert('Novo funcionário cadastrado com sucesso!')
+
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
   }
 }

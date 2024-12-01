@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro de Usuários</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <link rel="stylesheet" href="../css/dash/dashboard.css" />
-    <script src="js/cadastroDash.js"></script>
+    <script src="../js/cadastroDash.js"></script>
+
   </head>
 
   <body>
@@ -34,7 +36,7 @@
 
         <div>
           <div class="imagemCadastro">
-            <img src="assets/img/personIcon.png" alt="" />
+            <img src="../assets/img/personIcon.png" alt="" />
           </div>
 
           <div class="informacoesCadastro">
@@ -43,6 +45,7 @@
               type="text"
               class="inputCadastro"
               placeholder="Nome do Funcionario"
+              id="input_nome"
             />
 
             <label for="email">E-mail:</label>
@@ -72,7 +75,7 @@
               onblur="confirmarSenha()"
             />
 
-            <button onclick="cadastrar()">Cadastrar</button>
+            <button onclick="cadastrarFuncionario()">Cadastrar</button>
           </div>
         </div>
       </div>
