@@ -165,3 +165,9 @@ function fecharModal() {
   const modal = document.getElementById("vagaModal");
   modal.style.display = "none";
 }
+
+
+function sair(){
+  sessionStorage.clear()
+  window.location = '../index.html'
+}
