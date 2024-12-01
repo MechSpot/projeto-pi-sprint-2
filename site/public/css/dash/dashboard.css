@@ -1,0 +1,595 @@
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(241, 241, 241);
+  font-family: monospace;
+}
+.barraSuperior {
+  width: 100%;
+  height: 13vh;
+  display: flex;
+  background: linear-gradient(to bottom, #349191, #005160);
+  color: white;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 138%;
+  font-weight: bold;
+}
+
+.titulovisao {
+  width: 100%;
+  height: 3vh;
+  background-color: #1d7a7d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3%;
+  margin-top: -2.5%;
+}
+.barraSuperior span {
+  font-weight: bold;
+  font-size: 200%;
+  display: flex;
+  align-items: center;
+}
+
+.barraSuperior img {
+  width: 15%;
+}
+
+.barraSuperiorOpcoes {
+  width: 35%;
+}
+
+.barraSuperiorOpcoes ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+.barraSuperiorOpcoes ul li {
+  justify-content: space-around;
+}
+
+.barraSuperiorOpcoes ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+#Sair {
+  display: flex;
+  flex-direction: row;
+}
+
+.info-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  margin-top: 3%;
+  width: 75%;
+  height: 80vh;
+}
+
+.container1 {
+  position: relative;
+}
+
+.container2 {
+  height: 50vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: -2.5%;
+}
+
+.box1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box2 {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: end;
+  gap: 8vh;
+  margin-top: 4%;
+  margin-bottom: -3.5%;
+}
+
+.container_box {
+  border-radius: 10px;
+  width: 20%;
+  height: 15vh;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  position: relative;
+}
+
+.container_box img {
+  width: 20%;
+  position: absolute;
+  bottom: 0;
+  /* Alinha a imagem ao fundo */
+  right: 0;
+  /* Alinha a imagem ao canto direito */
+  width: 32px;
+  /* Ajusta o tamanho conforme necessário */
+  height: auto;
+}
+
+#boxesVazios {
+  background-color: #63e5a281;
+}
+
+#boxesOcupados {
+  background-color: #ff000068;
+}
+
+.box2 .container_box {
+  border-radius: 15px;
+  width: 80%;
+  height: 15vh;
+  margin-top: 10%;
+}
+
+.display_vagas {
+  width: 70%;
+  height: 50vh;
+  margin-top: 4%;
+  margin-left: 2.5%;
+  background-color: white;
+  z-index: 2;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
+
+  border-radius: 10px;
+  overflow-y: scroll;
+}
+
+.conteudoDisplay {
+  margin-top: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 2.5vh;
+}
+
+.display_vagas .barraSuperior {
+  height: 5vh;
+  align-items: center;
+  justify-self: center;
+  color: white;
+  font-weight: bold;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#select_detalhadamento {
+  display: flex;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.vagas {
+  width: 10%;
+  height: 18vh;
+  margin: 5px;
+  background-color: #eb1b1b83;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  z-index: 2;
+  border: solid 4px #005160;
+  border-radius: 14%;
+  font-weight: bold;
+}
+.vagas:hover {
+  background-color: #005160;
+  transition: 0.6s;
+  opacity: 4;
+  cursor: pointer;
+}
+
+.vagas .imagemFusca {
+  width: 75%;
+  z-index: -1;
+}
+
+.vagasVazias {
+  background-color: #63e5a281;
+}
+
+.tituloKPI {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  width: 100%;
+  height: 5vh;
+  background: linear-gradient(to bottom, #104f55, #32746d);
+  color: white;
+  font-weight: bold;
+  font-size: 120%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conteudoKPI {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+}
+
+.conteudoKPI span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  font-size: xx-large;
+}
+.conteudoKPI .fluxoCarros {
+  text-align: center;
+  font-size: 123%;
+  font-weight: bold;
+  margin-top: 8%;
+  width: 116%;
+  margin-left: -9%;
+}
+
+.containerGraficos {
+  width: 90%;
+  height: 80vh;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.graficosGerais {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.grafico {
+  position: relative;
+  height: 40vh;
+  width: 80vh;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: white;
+  color: #0a4243;
+}
+
+.graficosMenores {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  gap: 50px;
+}
+
+.graficoMaior {
+  display: flex;
+}
+
+.graficoMenor {
+  position: relative;
+  height: 30vh;
+  width: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 5px 5px #0000004d;
+  border-radius: 10px;
+  overflow: hidden;
+  /* Evitar que o gráfico vaze */
+  background-color: white;
+}
+
+.log {
+  position: relative;
+  height: 80vh;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 5px 5px #0000004d;
+  border-radius: 10px;
+  background-color: rgb(195, 192, 192);
+}
+
+.conteudoLOG {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+.graficoMenor canvas {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  /* Garante que o gráfico preencha a div corretamente */
+}
+
+.barraSuperiorGraficos {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  width: 100%;
+  height: 6vh;
+  background: linear-gradient(to bottom, #104f55, #32746d);
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 2.5vh;
+}
+
+.conteudoGraficoMaiorBarra {
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.conteudoGraficoMaiorLinha {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+}
+
+.conteudoGraficoMenor {
+  height: 83%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.graficoMenor:hover {
+  transform: scale(1.05);
+  transition: transform 0.5 ease;
+}
+
+.dados_relatorio {
+  background-color: white;
+  width: 80%;
+  height: 10vh;
+
+  margin-left: 10%;
+  margin-top: 4%;
+
+  border: solid 1px black;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.dados_relatorio #entrada {
+  color: green;
+  height: auto;
+  margin-left: 5px;
+  /* Adiciona espaço à esquerda */
+  margin-right: 5px;
+  /* Adiciona espaço à direita */
+
+  padding: 5px;
+}
+
+.dados_relatorio #saida {
+  color: red;
+  margin-left: 5px;
+  /* Adiciona espaço à esquerda */
+  margin-right: 5px;
+  /* Adiciona espaço à direita */
+  padding: 5px;
+}
+
+.barraSuperiorOpcoes ul li a:hover {
+  padding: 2px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+}
+
+/* Estilo da modal (oculta por padrão) */
+.modal {
+  display: none;
+  /* Inicialmente oculta */
+  position: fixed;
+  z-index: 2;
+  /* Ficar acima de outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  /* Fundo escuro */
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Transparência no fundo escuro */
+}
+
+/* Conteúdo da modal */
+.modal-content {
+  background-color: #fefefe;
+  position: relative;
+  margin: 10% auto;
+  /* Centraliza verticalmente */
+  padding: 0px;
+  border: 1px solid #888;
+  width: 90%;
+  /* Largura da modal */
+  max-width: 600px;
+  /* Largura máxima */
+  border-radius: 10px;
+  text-align: center;
+}
+
+.modal-content .barraSuperiorGraficos {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.modalKPI {
+  border-top: solid black 1px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  gap: 10px;
+}
+
+.conteudoModal {
+  padding: 5px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Botão de fechar */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.graficoLinha {
+  width: 100%;
+}
+
+.imagemAlerta {
+  height: 15%;
+  justify-self: flex-end;
+  align-self: flex-end;
+  margin-right: 8%;
+  margin-top: -15%;
+}
+
+.infobodyCadastro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerCadastro {
+  width: 30%;
+  height: 80vh;
+  box-shadow: 0px 0px 5px 5px #0000004d;
+
+  margin-top: 2%;
+
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.informacoesCadastro {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 2.1vh;
+}
+
+.informacoesCadastro button {
+  margin-top: 5%;
+  margin-left: 2.5%;
+  height: 10%;
+  width: 90%;
+  border-radius: 10px;
+  border: none;
+
+  color: white;
+  background: linear-gradient(to bottom, #104f55, #011502);
+}
+
+.inputCadastro {
+  width: 93%;
+  height: 6%;
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+
+  text-align: center;
+}
+
+.imagemCadastro img {
+  margin-left: 30%;
+  margin-top: 5%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.containerCadastro label {
+  font-weight: bold;
+}
+
+/* Ajuste de estilo para a posição dos selects de data e semana */
+.barraSuperiorGraficos select#selectDiario {
+  padding-left: 15px;
+  margin-left: 20px;
+}
+
+.barraSuperiorGraficos select#selectSemanal {
+  padding-left: 15px;
+  margin-left: 20px;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relatórios</title>
+    <link rel="stylesheet" href="../css/dash/dashboard.css" />
+    <script src="../js/relatoriosnovo.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      data-jsd-embedded
+      data-key="3d76bc1c-3d03-4f37-b6bd-7dea1a5e559e"
+      data-base-url="https://jsd-widget.atlassian.com"
+      src="https://jsd-widget.atlassian.com/assets/embed.js"
+    ></script>
+  </head>
+
+  <body onload="movimentoSemanal()">
+    <div class="barraSuperior">
+      <span style="font-size: 4vh">
+        <img src="../assets/img/MechSpot.png" alt="" />MECHSPOT</span
+      >
+      <span style="font-size: 6vh">Dashboard</span>
+
+      <div class="barraSuperiorOpcoes">
+        <ul>
+          <li><a href="visao_geral.html">Visão Geral</a></li>
+          <li><a href="relatorios.html">Relatórios</a></li>
+          <li><a href="cadastroDash.html">Novo Cadastro</a></li>
+          <li><a href="../index.html">Sair</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-body">
+      <div class="containerGraficos">
+        <div class="graficosGerais">
+          <div class="grafico">
+            <div class="graficoLinha">
+              <div class="barraSuperiorGraficos">
+                <h3>Movimento Diário</h3>
+                <!-- Esse é o Input do calendário para selecionar o dia -->
+                <input
+                  type="date"
+                  id="calendarDiario"
+                  onchange="movimentoDiario()"
+                />
+              </div>
+              <div class="conteudoGraficoMaiorLinha">
+                <canvas id="chartLinha" style="padding: 5px"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="grafico">
+            <div class="graficoBarra">
+              <div class="barraSuperiorGraficos">
+                <h3>Movimento Semanal</h3>
+
+                <select id="selectSemana" onchange="movimentoSemanal()">
+                  <option value="0">Semana Atual</option>
+                  <option value="1">1 atrás</option>
+                  <option value="2">2 atrás</option>
+                  <option value="3">3 atrás</option>
+                  <option value="4">4 atrás</option>
+                  <option value="5">5 atrás</option>
+                </select>
+              </div>
+            </div>
+            <div class="conteudoGraficoMaiorBarra">
+              <canvas id="chartBarraVertical" style="padding: 5px"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="log">
+          <div class="barraSuperiorGraficos">
+            <span>LOG/ Histórico</span>
+          </div>
+          <div class="conteudoLOG" id="historico">
+            <!-- Aqui o histórico será atualizado dinamicamente aqui -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

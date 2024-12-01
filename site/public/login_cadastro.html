@@ -49,22 +49,14 @@
         <div class="segunda_coluna">
           <h2 class="titulo titulo_entrar">Entrar com sua conta</h2>
           <div class="campos">
+            <label>Chave de Acesso:</label>
+            <input id="input_chave_acesso" type="number" placeholder="Chave" />
             <label>Email:</label>
-            <input
-              id="input_email_login"
-              class="email"
-              type="email"
-              placeholder="Email"
-            />
+            <input id="input_email_login" type="email" placeholder="Email" />
             <label>Senha:</label>
-            <input
-              id="input_senha_login"
-              class="senha"
-              type="password"
-              placeholder="Senha"
-            />
+            <input id="input_senha_login" type="password" placeholder="Senha" />
           </div>
-          <button class="btn" onclick="entrar()">LOGIN</button>
+          <button class="btn" onclick="autenticar()">LOGIN</button>
         </div>
       </div>
       <div id="tela2" class="card tela_cadastro sumir">
@@ -79,9 +71,15 @@
         <div class="segunda_coluna">
           <h2 class="titulo titulo_entrar">Crie sua própria conta</h2>
           <div class="campos">
-            <div class="div_inputs_cadastro">
+            <div class="div_inputs_cadastro" id="div_primeiros_campos_cadastro">
               <label>CNPJ (Somente os Números):</label>
               <input type="text" placeholder="CNPJ" id="input_cnpj" />
+              <label>Nome Fantasia:</label>
+              <input
+                type="text"
+                placeholder="Nome Fantasia"
+                id="input_nome_fantasia"
+              />
               <label>Razão Social:</label>
               <input
                 type="text"
@@ -96,7 +94,7 @@
               />
             </div>
 
-            <div class="div_inputs_cadastro">
+            <div class="div_inputs_cadastro" id="div_segundos_campos_cadastro">
               <label>Email:</label>
               <input type="email" placeholder="Email" id="input_email" />
               <label>Telefone Celular:</label>
@@ -111,13 +109,17 @@
                 placeholder="Telefone Fixo"
                 id="input_tel_fixo"
               />
+              <label>Quantidade de Boxes:</label>
+              <input
+                type="number"
+                placeholder="Quantidade de Boxes"
+                id="input_qtd_boxes"
+              />
             </div>
           </div>
-          <div class="div_inputs_cadastro">
-            <label>Senha:</label>
-            <input type="text" placeholder="Senha" id="input_senha" />
+          <div id="div_botao">
+            <button onclick="proximaPagina()" class="btn">PROXIMO</button>
           </div>
-          <button onclick="cadastrar()" class="btn">CADASTRAR</button>
         </div>
       </div>
     </div>
