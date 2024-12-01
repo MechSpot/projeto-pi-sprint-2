@@ -15,7 +15,7 @@
     ></script>
   </head>
 
-  <body onload="movimentoSemanal()">
+  <body onload="atualizarDados()">
     <div class="barraSuperior">
       <span style="font-size: 4vh">
         <img src="../assets/img/MechSpot.png" alt="" />MECHSPOT</span
@@ -43,7 +43,7 @@
                 <input
                   type="date"
                   id="calendarDiario"
-                  onchange="movimentoDiario()"
+                  onchange="atualizarDados('dia e historico')"
                 />
               </div>
               <div class="conteudoGraficoMaiorLinha">
@@ -59,11 +59,11 @@
 
                 <select id="selectSemana" onchange="movimentoSemanal()">
                   <option value="0">Semana Atual</option>
-                  <option value="1">1 atrás</option>
-                  <option value="2">2 atrás</option>
-                  <option value="3">3 atrás</option>
-                  <option value="4">4 atrás</option>
-                  <option value="5">5 atrás</option>
+                  <option value="1">1 semana atrás</option>
+                  <option value="2">2 semana atrás</option>
+                  <option value="3">3 semana atrás</option>
+                  <option value="4">4 semana atrás</option>
+                  <option value="5">5 semana atrás</option>
                 </select>
               </div>
             </div>

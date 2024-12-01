@@ -11,4 +11,8 @@ router.get("/movimentoSemanal/:semanaSelecionada/:idOficina", function (req, res
   relatoriosController.movimentoSemanal(req, res);
 });
 
+router.get("/historico/:dataSelecionada/:idOficina", function (req, res) {
+  relatoriosController.historico(req, res);
+});
+
 module.exports = router;

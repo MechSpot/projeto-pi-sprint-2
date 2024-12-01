@@ -20,7 +20,27 @@ function movimentoSemanal(idOficina, semanaSelecionada) {
   return database.executar(instrucaoSql);
 }
 
+function historico(idOficina, dataSelecionada) {
+  console.log("ACESSEI O RELATORIOS MODEL");
+
+  var instrucaoSql = `
+    select horario, resultado, boxe
+    from (
+      select date_format(dtHora, '%H:%i') horario, resultado, idBoxe boxe, lag(resultado) over(partition by idBoxe order by dtHora) resultadoAnterior
+      from registro
+      join sensor on fkSensor = idSensor
+      join boxe on idBoxe = fkBoxe
+      where fkOficina = ${idOficina} and dtHora like '${dataSelecionada}%'
+    ) resultadosOrdenados
+    where resultado <> resultadoAnterior or resultadoAnterior is null
+    order by horario desc;
+  `;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   movimentoDiario,
   movimentoSemanal,
+  historico,
 };

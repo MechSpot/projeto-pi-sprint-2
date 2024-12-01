@@ -1,3 +1,6 @@
+dataAtual = new Date();
+calendarDiario.value = `${dataAtual.getFullYear()}-${dataAtual.getMonth() + 1}-${dataAtual.getDate() < 10 ? `0${dataAtual.getDate()}` : dataAtual.getDate()}`;
+
 var movimentoDiarioAtual = [];
 var horas = [];
 
@@ -53,7 +56,34 @@ function movimentoSemanal() {
   });
 }
 
-function atualizarHistorico() {}
+function atualizarHistorico() {
+  const historicoContainer = document.getElementById("historico");
+  var dataSelecionada = calendarDiario.value;
+
+  fetch(
+    `/relatorios/historico/${dataSelecionada}/${sessionStorage.ID_OFICINA}`,
+    {
+      method: "get",
+    }
+  ).then(function (resposta) {
+    if (resposta.ok) {
+      resposta.json().then((json) => {
+        historicoContainer.innerHTML = "";
+        json.forEach((evento) => {
+          const div = document.createElement("div"); // Cria um novo elemento div para o evento
+          div.classList.add("dados_relatorio"); // Adiciona uma classe para o estilo
+
+          if (evento.resultado == 1) {
+            div.innerHTML = `${evento.horario} - Um carro <span class="entrada">entrou</span> no boxe ${evento.boxe}`; // Insere o texto do evento
+          } else {
+            div.innerHTML = `${evento.horario} - Um carro <span class="saida">saiu</span> do boxe ${evento.boxe}`; // Insere o texto do evento
+          }
+          historicoContainer.appendChild(div); // Adiciona o evento no histórico
+        });
+      });
+    }
+  });
+}
 
 const chartMovimentoDiario = document.getElementById("chartLinha");
 
@@ -80,7 +110,6 @@ const chartDiario = new Chart(chartMovimentoDiario, {
   },
 });
 
-
 const chartMovimentoSemanal = document.getElementById("chartBarraVertical");
 
 const chartSemanal = new Chart(chartMovimentoSemanal, {
@@ -98,8 +127,16 @@ const chartSemanal = new Chart(chartMovimentoSemanal, {
   },
 });
 
+function atualizarDados(dado) {
+  if (dado == "dia e historico") {
+    movimentoDiario(), atualizarHistorico();
+    return;
+  }
 
-function sair(){
-  sessionStorage.clear()
-  window.location = '../index.html'
+  movimentoDiario(), atualizarHistorico(), movimentoSemanal();
+}
+
+function sair() {
+  sessionStorage.clear();
+  window.location = "../index.html";
 }
