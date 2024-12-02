@@ -8,15 +8,25 @@ function autenticar(chaveAcesso, email, senha) {
     senha
   );
 
-  if (chaveAcesso == null) {
-    var instrucaoSql = `
-          SELECT idOficina FROM oficina join login on idOficina = fkOficina WHERE email = '${email}' AND senha = '${senha}';
-      `;
-  } else {
-    var instrucaoSql = `
+  var instrucaoSql = `
             SELECT idOficina FROM oficina join login on idOficina = fkOficina WHERE chaveAcesso = ${chaveAcesso} AND email = '${email}' AND senha = '${senha}';
         `;
-  }
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
+function autenticarUsuario(email, senha) {
+  console.log(
+    "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ",
+    email,
+    senha
+  );
+
+  var instrucaoSql = `
+          SELECT idOficina FROM oficina join login on idOficina = fkOficina WHERE email = '${email}' AND senha = '${senha}';
+      `;
+
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
 }
@@ -95,19 +105,20 @@ function cadastrar(
   );
 }
 
-function cadastroNovoFuncionario(email, senha, fkOficina){
-  console.log('Acessei o MODEL CadastroNovoFuncionario')
+function cadastroNovoFuncionario(email, senha, fkOficina) {
+  console.log("Acessei o MODEL CadastroNovoFuncionario");
 
   var instrucaoSql = `
     INSERT INTO login VALUES
     (default, ${fkOficina}, '${email}', '${senha}');
-  `
-  console.log('Executando a instrução SQL: \n' + instrucaoSql)
-  return database.executar(instrucaoSql)
+  `;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
 }
 
 module.exports = {
   autenticar,
+  autenticarUsuario,
   cadastrar,
-  cadastroNovoFuncionario
+  cadastroNovoFuncionario,
 };
