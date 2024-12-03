@@ -1,195 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/dash/dashboard.css" />
+    <script src="../js/visao_geral.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      data-jsd-embedded
+      data-key="3d76bc1c-3d03-4f37-b6bd-7dea1a5e559e"
+      data-base-url="https://jsd-widget.atlassian.com"
+      src="https://jsd-widget.atlassian.com/assets/embed.js"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="../css/dash/dashboard.css" />
-  <script src="../js/visao_geral.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script data-jsd-embedded data-key="3d76bc1c-3d03-4f37-b6bd-7dea1a5e559e"
-    data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
-</head>
+  <body>
+    <div class="barraSuperior">
+      <span style="font-size: 4vh">
+        <img src="../assets/img/MechSpot.png" />MECHSPOT</span
+      >
 
-<body>
-  <div class="barraSuperior">
-    <span style="font-size: 4vh">
-      <img src="../assets/img/MechSpot.png" />MECHSPOT</span>
-
-    <span style="font-size: 6vh">Dashboard</span>
-    <div class="barraSuperiorOpcoes">
-      <ul>
-        <li class="paginaAtual">
-          <a href="visao_geral.html">Visão Geral</a>
-        </li>
-        <li><a href="relatorios.html">Relatórios</a></li>
-        <li><a href="cadastroDash.html">Novo Cadastro</a></li>
-        <li><a onclick="sair()">Sair</a></li>
-      </ul>
+      <span style="font-size: 6vh">Dashboard</span>
+      <div class="barraSuperiorOpcoes">
+        <ul>
+          <li class="paginaAtual">
+            <a href="visao_geral.html">Visão Geral</a>
+          </li>
+          <li><a href="relatorios.html">Relatórios</a></li>
+          <li><a href="cadastroDash.html">Novo Cadastro</a></li>
+          <li><a onclick="sair()">Sair</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div class="barraSuperior2"></div>
-  <div class="info-body">
-    <div class="container">
-      <div class="container1">
-        <div class="box1">
-          <div class="container_box">
-            <div class="tituloKPI">
-              <span>OF1 | Sensores Totais</span>
+    <div class="barraSuperior2"></div>
+    <div class="info-body">
+      <div class="container">
+        <div class="container1">
+          <div class="box1">
+            <div class="container_box">
+              <div class="tituloKPI">
+                <span>OF1 | Sensores Totais</span>
+              </div>
+              <div class="conteudoKPI">
+                <span id="span_sensores_totais"></span>
+              </div>
+              <img src="../assets/img/lovepikcar.png" alt="" />
             </div>
-            <div class="conteudoKPI">
-              <span id="span_sensores_totais"></span>
+
+            <div class="container_box" id="boxesVazios">
+              <div class="tituloKPI">
+                <span>OF1 | Boxes Vazios</span>
+              </div>
+              <div class="conteudoKPI">
+                <span id="span_boxes_vazio"></span>
+              </div>
+              <img src="../assets/img/lovepikcar.png" alt="" />
             </div>
-            <img src="../assets/img/lovepikcar.png" alt="" />
+
+            <div class="container_box" id="fluxoDiario">
+              <div class="tituloKPI">
+                <span>OF1 | Fluxo diário:</span>
+              </div>
+              <div class="conteudoKPI">
+                <span class="fluxoCarros"
+                  >Entrada de carros:
+                  <span style="margin: 0" id="span_entrada_carros"></span> <br
+                /></span>
+              </div>
+              <img src="../assets/img/lovepikcar.png" alt="" />
+            </div>
+
+            <div class="container_box" id="fluxoDiario">
+              <div class="tituloKPI">
+                <span>OF1 | Fluxo diário:</span>
+              </div>
+              <div class="conteudoKPI">
+                <span class="fluxoCarros">
+                  Saída de carros:
+                  <span style="margin: 0" id="span_saida_carros"></span
+                ></span>
+              </div>
+              <img src="../assets/img/lovepikcar.png" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <div class="container2">
+          <div class="display_vagas">
+            <div class="barraSuperior" id="barraSuperiorDisplay">Oficina 1</div>
+
+            <div id="display" class="conteudoDisplay"></div>
           </div>
 
-          <div class="container_box" id="boxesVazios">
-            <div class="tituloKPI">
-              <span>OF1 | Boxes Vazios</span>
+          <div class="box2">
+            <div class="container_box" id="tempoMedio">
+              <div class="tituloKPI">
+                <span>Tempo Médio de Uso</span>
+              </div>
+              <div class="conteudoKPI">
+                <span id="span_media_uso"></span>
+              </div>
+              <img src="../assets/img/lovepikcar.png" alt="" />
             </div>
-            <div class="conteudoKPI">
-              <span id="span_boxes_vazio"></span>
+            <div class="container_box">
+              <div class="tituloKPI">
+                <span>Média de Rotatividade</span>
+              </div>
+              <div class="conteudoKPI">
+                <span id="span_media_rotatividade"></span>
+              </div>
+              <img src="../assets/img/lovepikcar.png" alt="" />
             </div>
-            <img src="../assets/img/lovepikcar.png" alt="" />
+            <div class="container_box">
+              <div class="tituloKPI">
+                <span>Vaga menos usada</span>
+              </div>
+              <div class="conteudoKPI">
+                <span id="span_vaga_menos_usada"></span>
+              </div>
+              <img src="../assets/img/lovepikcar.png" alt="" />
+            </div>
           </div>
-
-          <div class="container_box" id="fluxoDiario">
-            <div class="tituloKPI">
-              <span>OF1 | Fluxo diário:</span>
-            </div>
-            <div class="conteudoKPI">
-              <span class="fluxoCarros">Entrada de carros: <span style="margin: 0;" id="span_entrada_carros"></span> <br /></span>
-            </div>
-            <img src="../assets/img/lovepikcar.png" alt="" />
-          </div>
-
-          <div class="container_box" id="fluxoDiario">
-            <div class="tituloKPI">
-              <span>OF1 | Fluxo diário:</span>
-            </div>
-            <div class="conteudoKPI">
-              <span class="fluxoCarros"> Saída de carros: <span style="margin: 0;" id="span_saida_carros"></span></span>
-            </div>
-            <img src="../assets/img/lovepikcar.png" alt="" />
-          </div>
-
-
         </div>
       </div>
 
-      <div class="container2">
-        <div class="display_vagas">
-          <div class="barraSuperior" id="barraSuperiorDisplay">Oficina 1</div>
-
-          <div class="conteudoDisplay">
-            <div class="vagas" id="vaga1">
-              <img src="../assets/img/alertIcon.png" alt="" class="imagemAlerta" />1<img src="../assets/img/fusca.png"
-                alt="" class="imagemFusca" />
-            </div>
-            <div class="vagas vagasVazias" id="vaga2">
-              <img src="../" alt="" />2
-            </div>
-            <div class="vagas" id="vaga3">
-              3<img src="../assets/img/fusca.png" alt="" class="imagemFusca" />
-            </div>
-            <div class="vagas" id="vaga4">
-              4<img src="../assets/img/fusca.png" alt="" class="imagemFusca" />
-            </div>
-            <div class="vagas vagasVazias" id="vaga5">5</div>
-            <div class="vagas vagasVazias" id="vaga6">6</div>
-            <div class="vagas vagasVazias" id="vaga7">7</div>
-            <div class="vagas" id="vaga8">
-              8<img src="../assets/img/fusca.png" alt="" class="imagemFusca" />
-            </div>
-            <div class="vagas vagasVazias" id="vaga9">9</div>
-            <div class="vagas vagasVazias" id="vaga10">10</div>
-            <div class="vagas vagasVazias" id="vaga11">11</div>
-            <div class="vagas" id="vaga12">
-              12<img src="../assets/img/fusca.png" alt="" class="imagemFusca" />
-            </div>
-            <div class="vagas" id="vaga13">
-              13<img src="../assets/img/fusca.png" alt="" class="imagemFusca" />
-            </div>
-            <div class="vagas vagasVazias" id="vaga14">14</div>
-            <div class="vagas vagasVazias" id="vaga15">15</div>
-            <div class="vagas" data-vaga="16">
-              16<img src="../assets/img/fusca.png" alt="" class="imagemFusca" />
-            </div>
-            <div class="vagas" id="vaga1">
-              <img src="../assets/img/alertIcon.png" alt="" class="imagemAlerta" />1<img src="../assets/img/fusca.png"
-                alt="" class="imagemFusca" />
-            </div>
-            <div class="vagas vagasVazias" id="vaga2">
-              <img src="../" alt="" />2
-            </div>
-            <div class="vagas" id="vaga3">
-              3<img src="../assets/img/fusca.png" alt="" class="imagemFusca" />
-            </div>
-            <div class="vagas" id="vaga4">
-              4<img src="../assets/img/fusca.png" alt="" class="imagemFusca" />
-            </div>
-            <div class="vagas vagasVazias" id="vaga5">5</div>
-            <div class="vagas vagasVazias" id="vaga6">6</div>
-            <div class="vagas vagasVazias" id="vaga7">7</div>
-            <div class="vagas vagasVazias" id="vaga7">7</div>
+      <div id="vagaModal" class="modal">
+        <div class="modal-content">
+          <div class="barraSuperiorGraficos">
+            <span id="vagaInfo">Informações da vaga</span>
+            <span class="close" onclick="fecharModal()">&times;</span>
           </div>
-        </div>
-
-        <div class="box2">
-          <div class="container_box" id="tempoMedio">
-            <div class="tituloKPI">
-              <span>Tempo Médio de Uso</span>
+          <div class="conteudoModal">
+            <div class="graficoLinha">
+              <canvas id="chartLinha" style="padding: 5px"></canvas>
             </div>
-            <div class="conteudoKPI">
-              <span id="span_media_uso"></span>
+            <div class="modalKPI">
+              <span style="font-weight: bold"
+                >Estado Atual: <span style="color: red">Ocupada</span> /
+                <span style="color: green">Vazia</span></span
+              >
             </div>
-            <img src="../assets/img/lovepikcar.png" alt="" />
-          </div>
-          <div class="container_box">
-            <div class="tituloKPI">
-              <span>Média de Rotatividade</span>
-            </div>
-            <div class="conteudoKPI">
-              <span id="span_media_rotatividade"></span>
-            </div>
-            <img src="../assets/img/lovepikcar.png" alt="" />
-          </div>
-          <div class="container_box">
-            <div class="tituloKPI">
-              <span>Vaga menos usada</span>
-            </div>
-            <div class="conteudoKPI">
-              <span id="span_vaga_menos_usada"></span>
-            </div>
-            <img src="../assets/img/lovepikcar.png" alt="" />
           </div>
         </div>
       </div>
     </div>
-
-    <div id="vagaModal" class="modal">
-      <div class="modal-content">
-        <div class="barraSuperiorGraficos">
-          <span id="vagaInfo">Informações da vaga</span>
-          <span class="close" onclick="fecharModal()">&times;</span>
-        </div>
-        <div class="conteudoModal">
-          <div class="graficoLinha">
-            <canvas id="chartLinha" style="padding: 5px"></canvas>
-          </div>
-          <div class="modalKPI">
-            <span style="font-weight: bold">Tempo médio de uso:
-              <span style="font-weight: normal"> X min</span></span>
-            <span style="font-weight: bold">Rotatividade Média:
-              <span style="font-weight: normal"> X min</span></span>
-            <span style="font-weight: bold">Estado Atual: <span style="color: red">Ocupada</span> /
-              <span style="color: green">Vazia</span></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>

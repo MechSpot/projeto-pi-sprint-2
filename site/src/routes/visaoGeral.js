@@ -3,6 +3,10 @@ var router = express.Router();
 
 var visaoGeralController = require("../controllers/visaoGeralController");
 
+router.get("/resultadoDisplay/:idOficina", function (req, res) {
+  visaoGeralController.resultadoDisplay(req, res);
+});
+
 router.get("/sensoresTotais/:idOficina", function (req, res) {
   visaoGeralController.sensoresTotais(req, res);
 });
@@ -25,6 +29,10 @@ router.get("/mediaRotatividade/:idOficina", function (req, res) {
 
 router.get("/vagaMenosUsada/:idOficina", function (req, res) {
   visaoGeralController.vagaMenosUsada(req, res);
+});
+
+router.get("/movimentoVaga/:idOficina/:idBoxe", function (req, res) {
+  visaoGeralController.movimentoVaga(req, res);
 });
 
 module.exports = router;

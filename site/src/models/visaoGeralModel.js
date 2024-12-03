@@ -1,5 +1,20 @@
 var database = require("../database/config");
 
+function resultadoDisplay(idOficina) {
+  console.log("ACESSEI O RELATORIOS MODEL");
+
+  var instrucaoSql = `
+        SELECT b.idBoxe boxe, r.resultado ultimoResultado
+        FROM boxe b
+        LEFT JOIN sensor s ON b.idBoxe = s.fkBoxe
+        JOIN registro r ON s.idSensor = r.fkSensor
+        WHERE b.fkOficina = ${idOficina} AND r.idRegistro = (SELECT MAX(r2.idRegistro) FROM registro r2 WHERE r2.fkSensor = r.fkSensor)
+        ORDER BY b.idBoxe, r.dtHora DESC;
+    `;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 function sensoresTotais(idOficina) {
   console.log("ACESSEI O RELATORIOS MODEL");
 
@@ -94,11 +109,25 @@ function vagaMenosUsada(idOficina) {
   return database.executar(instrucaoSql);
 }
 
+function movimentoVaga(idOficina, idBoxe) {
+  console.log("ACESSEI O RELATORIOS MODEL");
+
+  var instrucaoSql = `
+          select sum(res.resultado) movimentoVaga, hour(res.dtHora) hora 
+          from (select * from registro join sensor on fkSensor = idSensor join boxe on idBoxe = fkBoxe where fkOficina = ${idOficina} and date(dtHora) like date(now()) and idBoxe = ${idBoxe}) res 
+          group by hour(res.dtHora) order by hour(dtHora);
+      `;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
+  resultadoDisplay,
   sensoresTotais,
   boxesVazio,
   vagaMenosUsada,
   fluxoDiario,
   mediaRotatividade,
   mediaUso,
+  movimentoVaga,
 };

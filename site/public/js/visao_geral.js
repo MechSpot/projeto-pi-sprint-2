@@ -1,3 +1,31 @@
+fetch(`/visaoGeral/resultadoDisplay/${sessionStorage.ID_OFICINA}`, {
+  method: "get",
+}).then(function (resposta) {
+  if (resposta.ok) {
+    resposta.json().then((json) => {
+      for (var i = 0; i < json.length; i++) {
+        if (json[i].ultimoResultado == 1) {
+          display.innerHTML += `
+            <div class="vagas" id="${
+              i + 1
+            }" onclick="verDetalhamento(this.id);">
+                <img src="../assets/img/alertIcon.png" alt="" class="imagemAlerta" style="display:none;"/>${
+                  i + 1
+                }<img src="../assets/img/fusca.png" class="imagemFusca" />
+            </div>
+          `;
+        } else {
+          display.innerHTML += `
+            <div class="vagas vagasVazias" id="${
+              i + 1
+            }" onclick="verDetalhamento(this.id);">${i + 1}</div>
+          `;
+        }
+      }
+    });
+  }
+});
+
 fetch(`/visaoGeral/sensoresTotais/${sessionStorage.ID_OFICINA}`, {
   method: "get",
 }).then(function (resposta) {
@@ -29,7 +57,6 @@ fetch(`/visaoGeral/fluxoDiario/${sessionStorage.ID_OFICINA}`, {
 }).then(function (resposta) {
   if (resposta.ok) {
     resposta.json().then((json) => {
-
       for (var i = 0; i < json.length; i++) {
         if (json[i].resultado == 1) {
           entrada++;
@@ -74,167 +101,88 @@ fetch(`/visaoGeral/vagaMenosUsada/${sessionStorage.ID_OFICINA}`, {
   }
 });
 
-let chartInstance = null;
+const modal = document.getElementById("vagaModal");
+const vagaInfo = document.getElementById("vagaInfo");
 
-function verDetalhamento() {
-  const modal = document.getElementById("vagaModal");
-  const vagaInfo = document.getElementById("vagaInfo");
+const movimentoVagaAtual = [];
+const horas = [];
+const linhaMetrica = [];
 
-  // vai passar por todas as vagas atraves da classe vagas e adicionar um "listener" que é chamado quando clica na div
-  document.querySelectorAll(".vagas").forEach(function (vaga) {
-    vaga.addEventListener("click", function () {
-      var vagaId = vaga.id;
+function verDetalhamento(idBoxe) {
+  movimentoVagaAtual.splice(0, movimentoVagaAtual.length);
+  horas.splice(0, horas.length);
 
-      if (vagaId != "vaga1" && vagaId != "vaga9") {
-        vagaInfo.textContent = "Informações da vaga N° " + vagaId;
-        modal.style.display = "block";
-
-        if (chartInstance) {
-          chartInstance.destroy();
-        }
-        const chartMovimentoDiario = document.getElementById("chartLinha");
-
-        chartInstance = new Chart(chartMovimentoDiario, {
-          type: "line",
-          data: {
-            labels: [
-              "9h",
-              "10h",
-              "11h",
-              "12h",
-              "13h",
-              "14h",
-              "15h",
-              "16h",
-              "17h",
-              "18h",
-              "19h",
-              "20h",
-            ],
-            datasets: [
-              {
-                label: "Clientes por Hora",
-                data: [1, 3, 1, 2, 2, 4, 1, 3, 2, 2, 2, 0],
-                borderColor: "#32746D",
-                backgroundColor: "#32746D",
-              },
-              {
-                label: "Ocupação Mínima",
-                data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-                borderColor: "red",
-                backgroundColor: "red",
-              },
-            ],
-          },
+  fetch(`/visaoGeral/movimentovaga/${sessionStorage.ID_OFICINA}/${idBoxe}`, {
+    method: "get",
+  }).then(function (resposta) {
+    if (resposta.ok) {
+      resposta.json().then((json) => {
+        json.forEach((item) => {
+          movimentoVagaAtual.push(parseInt(item.movimentoVaga));
+          console.log(movimentoVagaAtual);
+          horas.push(item.hora + "h");
+          linhaMetrica.push(1);
+          modal.style.display = "block";
+          chartMovimentoVaga.style.height = 100 + 'vh'
+          chartMovimentoVaga.style.width = 100 + 'vw'
+          vagaInfo.textContent = "Informações da vaga N° " + idBoxe;
+          chartVaga.update();
+          aleratar();
         });
-      } else if (vagaId == "vaga1") {
-        vagaInfo.textContent = "Informações da vaga N° " + vagaId;
-        modal.style.display = "block";
-
-        if (chartInstance) {
-          chartInstance.destroy();
-        }
-
-        const chartMovimentoDiario = document.getElementById("chartLinha");
-
-        chartInstance = new Chart(chartMovimentoDiario, {
-          type: "line",
-          data: {
-            labels: [
-              "9h",
-              "10h",
-              "11h",
-              "12h",
-              "13h",
-              "14h",
-              "15h",
-              "16h",
-              "17h",
-              "18h",
-              "19h",
-              "20h",
-            ],
-            datasets: [
-              {
-                label: "Clientes por Hora",
-                data: [3, 2, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0],
-                borderColor: "#32746D",
-                backgroundColor: "#32746D",
-              },
-              {
-                label: "Ocupação Mínima",
-                data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-                borderColor: "red",
-                backgroundColor: "red",
-              },
-            ],
-          },
-        });
-      } else if (vagaId == "vaga9") {
-        vagaInfo.textContent = "Informações da vaga N° " + vagaId;
-        modal.style.display = "block";
-
-        if (chartInstance) {
-          chartInstance.destroy();
-        }
-
-        const chartMovimentoDiario = document.getElementById("chartLinha");
-
-        chartInstance = new Chart(chartMovimentoDiario, {
-          type: "line",
-          data: {
-            labels: [
-              "9h",
-              "10h",
-              "11h",
-              "12h",
-              "13h",
-              "14h",
-              "15h",
-              "16h",
-              "17h",
-              "18h",
-              "19h",
-              "20h",
-            ],
-            datasets: [
-              {
-                label: "Rotatividade Média (Minutos)",
-                data: [1, 0, 0, 2, 2, 2, 3, 1, 3, 4, 0, 1],
-                borderColor: "#32746D",
-                backgroundColor: "#32746D",
-              },
-              {
-                label: "Ocupação Mínima",
-                data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-                borderColor: "red",
-                backgroundColor: "red",
-              },
-            ],
-          },
-          options: {
-            scales: {
-              y: {
-                ticks: {
-                  callback: function (value) {
-                    if (Number.isInteger(value)) {
-                      return value;
-                    }
-                    return "";
-                  },
-                  stepsize: 1,
-                },
-              },
-            },
-          },
-        });
-      }
-    });
+      });
+    }
   });
 }
 
-// pra permitir ver o detalhamento assim que a pagina carregar
-window.onload = verDetalhamento;
+function aleratar() {
+  var imgAlerta = document.getElementsByClassName("imagemAlerta");
+  if (
+    movimentoVagaAtual[movimentoVagaAtual.length - 1] == 0 &&
+    movimentoVagaAtual[movimentoVagaAtual.length - 2 == 0]
+  ) {
+    imgAlerta.style.display = "block"
+  } else {
+    imgAlerta.style.display = "none"
+  }
+}
+
+const chartMovimentoVaga = document.getElementById("chartLinha");
+console.log(chartMovimentoVaga);
+
+const chartVaga = new Chart(chartMovimentoVaga, {
+  type: "line",
+  data: {
+    labels: horas,
+    datasets: [
+      {
+        label: "Clientes por Hora",
+        data: movimentoVagaAtual,
+        borderColor: "#32746D",
+        backgroundColor: "#32746D",
+      },
+      {
+        label: "Ocupação Mínima",
+        data: linhaMetrica,
+        borderColor: "red",
+        backgroundColor: "red",
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1, // Garante que os valores no eixo Y sejam inteiros
+          callback: function (value) {
+            return Number.isInteger(value) ? value : ""; // Mostra apenas valores inteiros
+          },
+        },
+      },
+    },
+  },
+});
 
 // pra fechar o modal
 function fecharModal() {

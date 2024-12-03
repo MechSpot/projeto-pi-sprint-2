@@ -88,7 +88,7 @@ function atualizarHistorico() {
 const chartMovimentoDiario = document.getElementById("chartLinha");
 
 const chartDiario = new Chart(chartMovimentoDiario, {
-  type: "bar", // Tipo do gráfico (linha)
+  type: "bar",
   data: {
     labels: horas,
     datasets: [

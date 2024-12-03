@@ -1,5 +1,27 @@
 var visaoGeralModel = require("../models/visaoGeralModel");
 
+function resultadoDisplay(req, res) {
+  var idOficina = req.params.idOficina;
+
+  visaoGeralModel
+    .resultadoDisplay(idOficina)
+    .then(function (resultado) {
+      if (resultado.length > 0) {
+        res.status(200).json(resultado);
+      } else {
+        res.status(204).send("Nenhum resultado encontrado!");
+      }
+    })
+    .catch(function (erro) {
+      console.log(erro);
+      console.log(
+        "Houve um erro ao realizar a consulta! Erro: ",
+        erro.sqlMessage
+      );
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function sensoresTotais(req, res) {
   var idOficina = req.params.idOficina;
 
@@ -132,6 +154,29 @@ function vagaMenosUsada(req, res) {
     });
 }
 
+function movimentoVaga(req, res) {
+  var idOficina = req.params.idOficina;
+  var idBoxe = req.params.idBoxe;
+
+  visaoGeralModel
+    .movimentoVaga(idOficina, idBoxe)
+    .then(function (resultado) {
+      if (resultado.length > 0) {
+        res.status(200).json(resultado);
+      } else {
+        res.status(204).send("Nenhum resultado encontrado!");
+      }
+    })
+    .catch(function (erro) {
+      console.log(erro);
+      console.log(
+        "Houve um erro ao realizar a consulta! Erro: ",
+        erro.sqlMessage
+      );
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
   sensoresTotais,
   boxesVazio,
@@ -139,4 +184,6 @@ module.exports = {
   fluxoDiario,
   mediaRotatividade,
   mediaUso,
+  resultadoDisplay,
+  movimentoVaga,
 };
