@@ -1,3 +1,79 @@
+fetch(`/visaoGeral/sensoresTotais/${sessionStorage.ID_OFICINA}`, {
+  method: "get",
+}).then(function (resposta) {
+  if (resposta.ok) {
+    resposta.json().then((json) => {
+      span_sensores_totais.innerHTML = `<b>${json[0].totalSensores}</b>`;
+    });
+  }
+});
+
+fetch(`/visaoGeral/boxesVazio/${sessionStorage.ID_OFICINA}`, {
+  method: "get",
+}).then(function (resposta) {
+  if (resposta.ok) {
+    resposta.json().then((json) => {
+      span_boxes_vazio.innerHTML = `<b>${json[0].boxesVazios}</b>`;
+    });
+  }
+});
+
+var entrada = 0;
+var saida = 0;
+
+span_entrada_carros.innerHTML = entrada;
+span_saida_carros.innerHTML = saida;
+
+fetch(`/visaoGeral/fluxoDiario/${sessionStorage.ID_OFICINA}`, {
+  method: "get",
+}).then(function (resposta) {
+  if (resposta.ok) {
+    resposta.json().then((json) => {
+
+      for (var i = 0; i < json.length; i++) {
+        if (json[i].resultado == 1) {
+          entrada++;
+        } else {
+          saida++;
+        }
+      }
+
+      span_entrada_carros.innerHTML = entrada;
+      span_saida_carros.innerHTML = saida;
+    });
+  }
+});
+
+fetch(`/visaoGeral/mediaUso/${sessionStorage.ID_OFICINA}`, {
+  method: "get",
+}).then(function (resposta) {
+  if (resposta.ok) {
+    resposta.json().then((json) => {
+      span_media_uso.innerHTML = `<b>${json[0].mediaUso}min</b>`;
+    });
+  }
+});
+
+fetch(`/visaoGeral/mediaRotatividade/${sessionStorage.ID_OFICINA}`, {
+  method: "get",
+}).then(function (resposta) {
+  if (resposta.ok) {
+    resposta.json().then((json) => {
+      span_media_rotatividade.innerHTML = `<b>${json[0].mediaRotatividade}min</b>`;
+    });
+  }
+});
+
+fetch(`/visaoGeral/vagaMenosUsada/${sessionStorage.ID_OFICINA}`, {
+  method: "get",
+}).then(function (resposta) {
+  if (resposta.ok) {
+    resposta.json().then((json) => {
+      span_vaga_menos_usada.innerHTML = `<b>Vaga Nº${json[0].boxe}</b>`;
+    });
+  }
+});
+
 let chartInstance = null;
 
 function verDetalhamento() {
@@ -166,8 +242,7 @@ function fecharModal() {
   modal.style.display = "none";
 }
 
-
-function sair(){
-  sessionStorage.clear()
-  window.location = '../index.html'
+function sair() {
+  sessionStorage.clear();
+  window.location = "../index.html";
 }
