@@ -14,16 +14,13 @@ function boxesVazio(idOficina) {
   console.log("ACESSEI O RELATORIOS MODEL");
 
   var instrucaoSql = `
-            select count(distintc idBoxe) boxesVazios
-            from boxe
+            select count(distinct idBoxe) boxesVazios
+            from boxe 
             join sensor s on idBoxe = s.fkBoxe
-            join registro r on s.idSensor = r.fkSensor
-            join (
-                slect fkSensor, max(dtHora) ultimaData
-                from registro
-                group by fkSensor
-            ) ultimosRegistros on r.fkSensor = ultimosRegistros.fkSensor and r.dtHora = ultimosRegistros.ultimaData
-            where r.resultado = 0;
+            join registro r on s.idSensor = r.fkSensor 
+            join (select fkSensor, max(dtHora) ultimaData from registro group by fkSensor ) ultimosRegistros
+            on r.fkSensor = ultimosRegistros.fkSensor and r.dtHora = ultimosRegistros.ultimaData
+            where fkOficina = ${idOficina} and r.resultado = 0;
         `;
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
