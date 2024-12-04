@@ -1,5 +1,9 @@
 dataAtual = new Date();
-calendarDiario.value = `${dataAtual.getFullYear()}-${dataAtual.getMonth() + 1}-${dataAtual.getDate() < 10 ? `0${dataAtual.getDate()}` : dataAtual.getDate()}`;
+calendarDiario.value = `${dataAtual.getFullYear()}-${
+  dataAtual.getMonth() + 1
+}-${
+  dataAtual.getDate() < 10 ? `0${dataAtual.getDate()}` : dataAtual.getDate()
+}`;
 
 var movimentoDiarioAtual = [];
 var horas = [];
@@ -127,13 +131,14 @@ const chartSemanal = new Chart(chartMovimentoSemanal, {
   },
 });
 
-function atualizarDados(dado) {
-  if (dado == "dia e historico") {
-    movimentoDiario(), atualizarHistorico();
-    return;
-  }
+function atualizarMovimentoDiarioEHistorico() {
+  movimentoDiario(), atualizarHistorico();
+}
 
-  movimentoDiario(), atualizarHistorico(), movimentoSemanal();
+function atualizarDados() {
+  setInterval(() => {
+    movimentoDiario(), atualizarHistorico(), movimentoSemanal();
+  }, 5500);
 }
 
 function sair() {
