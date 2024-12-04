@@ -1,0 +1,25 @@
+{
+  "name": "@bobia",
+  "version": "1.0.2",
+  "description": "Aplicação para auxilio dos alunos na disciplina de Arquitetura de Computacional",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BandTec/BobIA.git"
+  },
+  "author": "@MatheusFerreiraMatos @gfalexander @miranda500",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BandTec/BobIA.git/issues"
+  },
+  "homepage": "https://github.com/BandTec/BobIA.git#readme",
+  "dependencies": {
+    "@google/generative-ai": "^0.7.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
