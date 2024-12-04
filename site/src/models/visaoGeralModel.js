@@ -20,20 +20,19 @@ function alertar(idOficina) {
 
   var instrucaoSql = ``;
 
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 9; i++) {
     instrucaoSql += `
-    SELECT * 
-    FROM 
-    (SELECT idBoxe, SUM(resultado) AS resultadoHora, HOUR(dtHora) AS hora, MAX(dtHora) AS maxDtHora
-    FROM registro JOIN sensor ON fkSensor = idSensor JOIN boxe ON idBoxe = fkBoxe WHERE fkOficina = ${idOficina} AND idBoxe = ${i+1} GROUP BY idBoxe, hora ORDER BY maxDtHora DESC LIMIT 2) AS boxe${i+1};
+    SELECT * FROM (SELECT idBoxe, SUM(resultado) AS resultadoHora, HOUR(dtHora) AS hora, MAX(dtHora) AS maxDtHora FROM registro JOIN sensor ON fkSensor = idSensor JOIN boxe ON idBoxe = fkBoxe WHERE fkOficina = ${idOficina} AND idBoxe = ${i+1} GROUP BY idBoxe, hora ORDER BY maxDtHora DESC LIMIT 2) AS boxe${i+1}
     `;
 
-    if (i < 9) {
-      instrucaoSql += `union all`;
-    }
+    instrucaoSql += `union all`;
   }
 
-  instrucaoSql += `;`;
+  instrucaoSql += `
+    SELECT * FROM (SELECT idBoxe, SUM(resultado) AS resultadoHora, HOUR(dtHora) AS hora, MAX(dtHora) AS maxDtHora FROM registro JOIN sensor ON fkSensor = idSensor JOIN boxe ON idBoxe = fkBoxe WHERE fkOficina = ${idOficina} AND idBoxe = ${
+    i + 1
+  } GROUP BY idBoxe, hora ORDER BY maxDtHora DESC LIMIT 2) AS boxe${i + 1};
+    `;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);

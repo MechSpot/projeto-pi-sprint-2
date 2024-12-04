@@ -41,8 +41,8 @@ function alertar() {
       resposta.json().then((json) => {
         for (var i = 0; i < json.length - 1; i += 2) {
           movimentoVagaAtual.push([
-            parseInt(json[i].resultado),
-            parseInt(json[i + 1].resultado),
+            parseInt(json[i].resultadoHora),
+            parseInt(json[i + 1].resultadoHora),
           ]);
         }
 
