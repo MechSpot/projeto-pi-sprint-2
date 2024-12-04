@@ -22,9 +22,10 @@ function alertar(idOficina) {
 
   for (var i = 0; i < 10; i++) {
     instrucaoSql += `
-    select * from (select idBoxe, resultado, dtHora from registro join sensor on fkSensor = idSensor join boxe on idBoxe = fkBoxe where fkOficina = ${idOficina} and idBoxe = ${
-      i + 1
-    } order by idBoxe, dtHora desc limit 2) boxe${i + 1}
+    SELECT * 
+    FROM 
+    (SELECT idBoxe, SUM(resultado) AS resultadoHora, HOUR(dtHora) AS hora, MAX(dtHora) AS maxDtHora
+    FROM registro JOIN sensor ON fkSensor = idSensor JOIN boxe ON idBoxe = fkBoxe WHERE fkOficina = ${idOficina} AND idBoxe = ${i+1} GROUP BY idBoxe, hora ORDER BY maxDtHora DESC LIMIT 2) AS boxe1;
     `;
 
     if (i < 9) {
