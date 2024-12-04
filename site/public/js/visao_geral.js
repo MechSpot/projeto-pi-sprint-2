@@ -1,4 +1,5 @@
 function plotarDisplay() {
+  display.innerHTML = "";
   fetch(`/visaoGeral/resultadoDisplay/${sessionStorage.ID_OFICINA}`, {
     method: "get",
   }).then(function (resposta) {
@@ -35,6 +36,7 @@ function plotarDisplay() {
 }
 
 function plotarSensoresTotais() {
+  span_sensores_totais.innerHTML = "";
   fetch(`/visaoGeral/sensoresTotais/${sessionStorage.ID_OFICINA}`, {
     method: "get",
   }).then(function (resposta) {
@@ -47,6 +49,7 @@ function plotarSensoresTotais() {
 }
 
 function plotarBoxesVazio() {
+  span_boxes_vazio.innerHTML = "";
   fetch(`/visaoGeral/boxesVazio/${sessionStorage.ID_OFICINA}`, {
     method: "get",
   }).then(function (resposta) {
@@ -65,6 +68,8 @@ span_entrada_carros.innerHTML = entrada;
 span_saida_carros.innerHTML = saida;
 
 function plotarFluxoDiario() {
+  entrada = 0;
+  saida = 0;
   fetch(`/visaoGeral/fluxoDiario/${sessionStorage.ID_OFICINA}`, {
     method: "get",
   }).then(function (resposta) {
@@ -86,6 +91,7 @@ function plotarFluxoDiario() {
 }
 
 function plotarMediaUso() {
+  span_media_uso.innerHTML = "";
   fetch(`/visaoGeral/mediaUso/${sessionStorage.ID_OFICINA}`, {
     method: "get",
   }).then(function (resposta) {
@@ -98,6 +104,7 @@ function plotarMediaUso() {
 }
 
 function plotarMediaRotatividade() {
+  span_media_rotatividade.innerHTML = "";
   fetch(`/visaoGeral/mediaRotatividade/${sessionStorage.ID_OFICINA}`, {
     method: "get",
   }).then(function (resposta) {
@@ -110,6 +117,7 @@ function plotarMediaRotatividade() {
 }
 
 function plotarVagaMenosUsada() {
+  span_vaga_menos_usada.innerHTML = "";
   fetch(`/visaoGeral/vagaMenosUsada/${sessionStorage.ID_OFICINA}`, {
     method: "get",
   }).then(function (resposta) {
@@ -213,11 +221,11 @@ function sair() {
 }
 
 setInterval(() => {
-plotarDisplay(),
-plotarSensoresTotais(),
-plotarBoxesVazio(),
-plotarFluxoDiario(),
-plotarMediaUso(),
-plotarMediaRotatividade()
-plotarVagaMenosUsada()
-}, 5500)
+  plotarDisplay(),
+    plotarSensoresTotais(),
+    plotarBoxesVazio(),
+    plotarFluxoDiario(),
+    plotarMediaUso(),
+    plotarMediaRotatividade();
+  plotarVagaMenosUsada();
+}, 5500);
