@@ -165,8 +165,8 @@ function autenticar() {
   const email = input_email_login.value;
   const senha = input_senha_login.value;
 
-  if (email == "suporteN3@gmail.com" && senha == "N3suporte") {
-    window.location = "../BobIA/index.html";
+  if (email == "suporteN3@mechspot.com" && senha == "N3suporte") {
+    window.location = "http://localhost:3000";
   } else {
     fetch("/usuarios/autenticar", {
       method: "POST",

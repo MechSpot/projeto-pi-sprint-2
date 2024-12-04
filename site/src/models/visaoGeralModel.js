@@ -25,7 +25,7 @@ function alertar(idOficina) {
     SELECT * 
     FROM 
     (SELECT idBoxe, SUM(resultado) AS resultadoHora, HOUR(dtHora) AS hora, MAX(dtHora) AS maxDtHora
-    FROM registro JOIN sensor ON fkSensor = idSensor JOIN boxe ON idBoxe = fkBoxe WHERE fkOficina = ${idOficina} AND idBoxe = ${i+1} GROUP BY idBoxe, hora ORDER BY maxDtHora DESC LIMIT 2) AS boxe1;
+    FROM registro JOIN sensor ON fkSensor = idSensor JOIN boxe ON idBoxe = fkBoxe WHERE fkOficina = ${idOficina} AND idBoxe = ${i+1} GROUP BY idBoxe, hora ORDER BY maxDtHora DESC LIMIT 2) AS boxe${i+1};
     `;
 
     if (i < 9) {
