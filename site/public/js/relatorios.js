@@ -92,7 +92,7 @@ function atualizarHistorico() {
 const chartMovimentoDiario = document.getElementById("chartLinha");
 
 const chartDiario = new Chart(chartMovimentoDiario, {
-  type: "bar",
+  type: "line",
   data: {
     labels: horas,
     datasets: [
@@ -117,7 +117,7 @@ const chartDiario = new Chart(chartMovimentoDiario, {
 const chartMovimentoSemanal = document.getElementById("chartBarraVertical");
 
 const chartSemanal = new Chart(chartMovimentoSemanal, {
-  type: "bar", // Tipo do gráfico (barra)
+  type: "line", // Tipo do gráfico (linha)
   data: {
     labels: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"],
     datasets: [
@@ -126,6 +126,7 @@ const chartSemanal = new Chart(chartMovimentoSemanal, {
         data: movimentoSemanalAtual,
         borderColor: "black",
         backgroundColor: "#e8c10092",
+        fell: true,
       },
     ],
   },

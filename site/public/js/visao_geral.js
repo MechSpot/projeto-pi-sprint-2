@@ -20,13 +20,10 @@ function plotarDisplay() {
             `;
           } else {
             display.innerHTML += `
-            <div class="vagas vagasVazias" id="${
+            <div class="vagas vagasVazias" id="${i + 1}" onclick="verDetalhamento(this.id);">
+            <img id="imagemAlerta${
               i + 1
-            }" onclick="verDetalhamento(this.id);">${
-              i + 1
-            }<img id="imagemAlerta${
-              i + 1
-            }" src="../assets/img/alertIcon.png" alt="" class="imagemAlerta" style="display:none;"/></div>
+            }" src="../assets/img/alertIcon.png" alt="" class="imagemAlerta" style="display:none;"/>${i + 1}</div>
             `;
           }
         }

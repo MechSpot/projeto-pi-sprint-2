@@ -125,12 +125,10 @@ body {
 }
 
 #boxesVazios {
-  background-color: #63e5a281;
-}
-
-#boxesOcupados {
   background-color: #ff000068;
 }
+
+
 
 .box2 .container_box {
   border-radius: 15px;
@@ -349,7 +347,7 @@ body {
 }
 
 .conteudoGraficoMaiorBarra {
-  height: 85%;
+  height: 79%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -357,7 +355,7 @@ body {
 }
 
 .conteudoGraficoMaiorLinha {
-  width: 85%;
+  width: 79%;
   display: flex;
   flex-direction: column;
   justify-self: center;
@@ -496,11 +494,7 @@ body.modal-open {
 }
 
 .imagemAlerta {
-  height: 15%;
-  justify-self: flex-end;
-  align-self: flex-end;
-  margin-right: 8%;
-  margin-top: -15%;
+  height: 20%;
 }
 
 .infobodyCadastro {
