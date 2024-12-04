@@ -255,4 +255,4 @@ setInterval(() => {
 
 setInterval(() => {
   alertar();
-}, 5600);
+}, 5501);
