@@ -318,10 +318,11 @@ body {
 .conteudoLOG {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+
+  padding: 5px;
   width: 100%;
-  height: 90vh;
+  flex-grow: 1;
   overflow-y: scroll;
 }
 
@@ -338,7 +339,6 @@ body {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   width: 100%;
-  height: 6vh;
   background: linear-gradient(to bottom, #104f55, #32746d);
   color: white;
   font-weight: bold;
@@ -575,15 +575,4 @@ body.modal-open {
 
 .containerCadastro label {
   font-weight: bold;
-}
-
-/* Ajuste de estilo para a posição dos selects de data e semana */
-.barraSuperiorGraficos select#selectDiario {
-  padding-left: 15px;
-  margin-left: 20px;
-}
-
-.barraSuperiorGraficos select#selectSemanal {
-  padding-left: 15px;
-  margin-left: 20px;
 }
