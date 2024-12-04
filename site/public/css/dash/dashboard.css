@@ -184,7 +184,7 @@ body {
   width: 10%;
   height: 18vh;
   margin: 5px;
-  background-color: #eb1b1b83;
+  background-color: #63e5a281;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -208,7 +208,7 @@ body {
 }
 
 .vagasVazias {
-  background-color: #63e5a281;
+  background-color: #eb1b1b83;
 }
 
 .tituloKPI {
