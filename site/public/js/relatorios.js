@@ -117,7 +117,7 @@ const chartDiario = new Chart(chartMovimentoDiario, {
 const chartMovimentoSemanal = document.getElementById("chartBarraVertical");
 
 const chartSemanal = new Chart(chartMovimentoSemanal, {
-  type: "line", // Tipo do gráfico (linha)
+  type: "bar", // Tipo do gráfico (linha)
   data: {
     labels: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"],
     datasets: [
@@ -126,7 +126,6 @@ const chartSemanal = new Chart(chartMovimentoSemanal, {
         data: movimentoSemanalAtual,
         borderColor: "black",
         backgroundColor: "#e8c10092",
-        fell: true,
       },
     ],
   },
