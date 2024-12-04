@@ -9,7 +9,7 @@ fetch(`/visaoGeral/resultadoDisplay/${sessionStorage.ID_OFICINA}`, {
             <div class="vagas" id="${
               i + 1
             }" onclick="verDetalhamento(this.id);">
-                <img src="../assets/img/alertIcon.png" alt="" class="imagemAlerta" style="display:none;"/>${
+                <img id="imagemAlerta${i+1}" src="../assets/img/alertIcon.png" alt="" class="imagemAlerta" style="display:none;"/>${
                   i + 1
                 }<img src="../assets/img/fusca.png" class="imagemFusca" />
             </div>
@@ -18,7 +18,11 @@ fetch(`/visaoGeral/resultadoDisplay/${sessionStorage.ID_OFICINA}`, {
           display.innerHTML += `
             <div class="vagas vagasVazias" id="${
               i + 1
-            }" onclick="verDetalhamento(this.id);">${i + 1}</div>
+            }" onclick="verDetalhamento(this.id);">${
+            i + 1
+          }<img id="imagemAlerta${
+            i + 1
+          }" src="../assets/img/alertIcon.png" alt="" class="imagemAlerta" style="display:none;"/></div>
           `;
         }
       }
@@ -122,32 +126,29 @@ function verDetalhamento(idBoxe) {
           console.log(movimentoVagaAtual);
           horas.push(item.hora + "h");
           linhaMetrica.push(1);
-          modal.style.display = "block";
-          chartMovimentoVaga.style.height = 100 + 'vh'
-          chartMovimentoVaga.style.width = 100 + 'vw'
-          vagaInfo.textContent = "Informações da vaga N° " + idBoxe;
-          chartVaga.update();
-          aleratar();
         });
+        modal.style.display = "block";
+        chartMovimentoVaga.style.height = 100 + 'vh'
+        chartMovimentoVaga.style.width = 100 + 'vw'
+        vagaInfo.textContent = "Informações da vaga N° " + idBoxe;
+        chartVaga.update();
       });
     }
   });
 }
 
-function aleratar() {
-  var imgAlerta = document.getElementsByClassName("imagemAlerta");
+function alertar(idBoxe) {
   if (
     movimentoVagaAtual[movimentoVagaAtual.length - 1] == 0 &&
-    movimentoVagaAtual[movimentoVagaAtual.length - 2 == 0]
+    movimentoVagaAtual[movimentoVagaAtual.length - 2] == 0
   ) {
-    imgAlerta.style.display = "block"
+    imagemAlerta[idBoxe - 1].style.display = "block"
   } else {
-    imgAlerta.style.display = "none"
+    imagemAlerta[idBoxe - 1].style.display = "none"
   }
 }
 
 const chartMovimentoVaga = document.getElementById("chartLinha");
-console.log(chartMovimentoVaga);
 
 const chartVaga = new Chart(chartMovimentoVaga, {
   type: "line",
