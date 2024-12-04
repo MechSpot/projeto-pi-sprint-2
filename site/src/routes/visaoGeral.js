@@ -7,6 +7,10 @@ router.get("/resultadoDisplay/:idOficina", function (req, res) {
   visaoGeralController.resultadoDisplay(req, res);
 });
 
+router.get("/alertar/:idOficina", function (req, res) {
+  visaoGeralController.alertar(req, res);
+});
+
 router.get("/sensoresTotais/:idOficina", function (req, res) {
   visaoGeralController.sensoresTotais(req, res);
 });

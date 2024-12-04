@@ -17,7 +17,7 @@ function plotarDisplay() {
               i + 1
             }<img src="../assets/img/fusca.png" class="imagemFusca" />
                 </div>
-                `;
+            `;
           } else {
             display.innerHTML += `
             <div class="vagas vagasVazias" id="${
@@ -27,7 +27,36 @@ function plotarDisplay() {
             }<img id="imagemAlerta${
               i + 1
             }" src="../assets/img/alertIcon.png" alt="" class="imagemAlerta" style="display:none;"/></div>
-                `;
+            `;
+          }
+        }
+      });
+    }
+  });
+}
+
+function alertar() {
+  movimentoVagaAtual.splice(0, movimentoVagaAtual.length);
+  fetch(`/visaoGeral/alertar/${sessionStorage.ID_OFICINA}`, {
+    method: "get",
+  }).then(function (resposta) {
+    if (resposta.ok) {
+      resposta.json().then((json) => {
+        for (var i = 0; i < json.length - 1; i += 2) {
+          movimentoVagaAtual.push([
+            parseInt(json[i].resultado),
+            parseInt(json[i + 1].resultado),
+          ]);
+        }
+
+        console.log(movimentoVagaAtual);
+        for (var i = 0; i < json.length / 2; i++) {
+          const imgAlerta = document.getElementById(`imagemAlerta${i + 1}`);
+
+          if (movimentoVagaAtual[i][0] == 0 && movimentoVagaAtual[i][1] == 0) {
+            imgAlerta.style.display = "block";
+          } else {
+            imgAlerta.style.display = "none";
           }
         }
       });
@@ -147,7 +176,6 @@ function verDetalhamento(idBoxe) {
       resposta.json().then((json) => {
         json.forEach((item) => {
           movimentoVagaAtual.push(parseInt(item.movimentoVaga));
-          console.log(movimentoVagaAtual);
           horas.push(item.hora + "h");
           linhaMetrica.push(1);
         });
@@ -159,17 +187,6 @@ function verDetalhamento(idBoxe) {
       });
     }
   });
-}
-
-function alertar(idBoxe) {
-  if (
-    movimentoVagaAtual[movimentoVagaAtual.length - 1] == 0 &&
-    movimentoVagaAtual[movimentoVagaAtual.length - 2] == 0
-  ) {
-    imagemAlerta[idBoxe - 1].style.display = "block";
-  } else {
-    imagemAlerta[idBoxe - 1].style.display = "none";
-  }
 }
 
 const chartMovimentoVaga = document.getElementById("chartLinha");
@@ -220,20 +237,25 @@ function sair() {
   window.location = "../index.html";
 }
 
-plotarDisplay(),
-plotarSensoresTotais(),
-plotarBoxesVazio(),
-plotarFluxoDiario(),
-plotarMediaUso(),
+plotarDisplay();
+plotarSensoresTotais();
+plotarBoxesVazio();
+plotarFluxoDiario();
+plotarMediaUso();
 plotarMediaRotatividade();
 plotarVagaMenosUsada();
+alertar();
 
 setInterval(() => {
   plotarDisplay(),
-  plotarSensoresTotais(),
-  plotarBoxesVazio(),
-  plotarFluxoDiario(),
-  plotarMediaUso(),
-  plotarMediaRotatividade();
+    plotarSensoresTotais(),
+    plotarBoxesVazio(),
+    plotarFluxoDiario(),
+    plotarMediaUso(),
+    plotarMediaRotatividade();
   plotarVagaMenosUsada();
 }, 5500);
+
+setInterval(() => {
+  alertar();
+}, 5600);

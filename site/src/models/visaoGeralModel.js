@@ -15,6 +15,29 @@ function resultadoDisplay(idOficina) {
   return database.executar(instrucaoSql);
 }
 
+function alertar(idOficina) {
+  console.log("ACESSEI O RELATORIOS MODEL");
+
+  var instrucaoSql = ``;
+
+  for (var i = 0; i < 10; i++) {
+    instrucaoSql += `
+    select * from (select idBoxe, resultado, dtHora from registro join sensor on fkSensor = idSensor join boxe on idBoxe = fkBoxe where fkOficina = ${idOficina} and idBoxe = ${
+      i + 1
+    } order by idBoxe, dtHora desc limit 2) boxe${i + 1}
+    `;
+
+    if (i < 9) {
+      instrucaoSql += `union all`;
+    }
+  }
+
+  instrucaoSql += `;`;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 function sensoresTotais(idOficina) {
   console.log("ACESSEI O RELATORIOS MODEL");
 
@@ -123,6 +146,7 @@ function movimentoVaga(idOficina, idBoxe) {
 
 module.exports = {
   resultadoDisplay,
+  alertar,
   sensoresTotais,
   boxesVazio,
   vagaMenosUsada,
