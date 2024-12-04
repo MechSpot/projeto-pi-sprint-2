@@ -13,6 +13,7 @@
   ],
   "license": "ISC",
   "dependencies": {
+    "arduino-api": "file:",
     "express": "^4.17.3",
     "mysql2": "^2.3.3",
     "serialport": "^10.4.0"
