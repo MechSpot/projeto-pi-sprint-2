@@ -220,12 +220,20 @@ function sair() {
   window.location = "../index.html";
 }
 
+plotarDisplay(),
+plotarSensoresTotais(),
+plotarBoxesVazio(),
+plotarFluxoDiario(),
+plotarMediaUso(),
+plotarMediaRotatividade();
+plotarVagaMenosUsada();
+
 setInterval(() => {
   plotarDisplay(),
-    plotarSensoresTotais(),
-    plotarBoxesVazio(),
-    plotarFluxoDiario(),
-    plotarMediaUso(),
-    plotarMediaRotatividade();
+  plotarSensoresTotais(),
+  plotarBoxesVazio(),
+  plotarFluxoDiario(),
+  plotarMediaUso(),
+  plotarMediaRotatividade();
   plotarVagaMenosUsada();
 }, 5500);

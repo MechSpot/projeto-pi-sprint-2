@@ -136,6 +136,7 @@ function atualizarMovimentoDiarioEHistorico() {
 }
 
 function atualizarDados() {
+  movimentoDiario(), atualizarHistorico(), movimentoSemanal();
   setInterval(() => {
     movimentoDiario(), atualizarHistorico(), movimentoSemanal();
   }, 5500);
