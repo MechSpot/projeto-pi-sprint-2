@@ -61,7 +61,7 @@ const serial = async (
             await poolBancoDados.execute(
                 'INSERT INTO registro (fkSensor, resultado) VALUES (?, ?)',
                 // Inserindo dados nos sensores dos boxes da oficina 1
-                [parseInt(Math.random() * 10), sensorTcrt5000]
+                [parseInt(Math.random() * 9 + 1), sensorTcrt5000]
             );
             console.log("valores inseridos no banco: ", sensorTcrt5000);
 
