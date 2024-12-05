@@ -128,8 +128,6 @@ body {
   background-color: #ff000068;
 }
 
-
-
 .box2 .container_box {
   border-radius: 15px;
   width: 80%;
@@ -570,4 +568,19 @@ body.modal-open {
 
 .containerCadastro label {
   font-weight: bold;
+}
+
+i {
+  position: absolute;
+  cursor: pointer;
+}
+
+#olho1 {
+  top: 63%;
+  left: 58%;
+}
+
+#olho2 {
+  top: 72.5%;
+  left: 58%;
 }

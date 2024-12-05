@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro de Usuários</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../js/sensorSimulado.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/dash/dashboard.css" />
     <script src="../js/cadastroDash.js"></script>
     <link rel="shortcut icon" href="../assets/img/Sinal.png" type="image/x-icon">
@@ -59,8 +59,9 @@
             />
 
             <label for="senha">Senha:</label>
+            <i id="olho1" class="fa-solid fa-eye" onclick="revelar('input_senha')"></i>
             <input
-              type="text"
+              type="password"
               class="inputCadastro"
               placeholder="Digite a senha"
               onblur="validarSenha()"
@@ -68,8 +69,9 @@
             />
 
             <label for="confirmarSenha">Confirmar Senha:</label>
+            <i id="olho2" class="fa-solid fa-eye" onclick="revelar('input_confirmar_senha')"></i>
             <input
-              type="text"
+              type="password"
               class="inputCadastro"
               placeholder="Confirme a senha"
               id="input_confirmar_senha"
