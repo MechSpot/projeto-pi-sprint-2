@@ -1,10 +1,10 @@
 const intervalo = setInterval(() => {
   simularInsert(sessionStorage.ID_OFICINA, Math.random().toFixed());
-}, 5000);
+}, 1000);
 
 setTimeout(() => {
   clearInterval(intervalo);
-}, 60000);
+}, 10000);
 
 function simularInsert(idOficina, resultado) {
   fetch("/simular/sensorSimulado", {

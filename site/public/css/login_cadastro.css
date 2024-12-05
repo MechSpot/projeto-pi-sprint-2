@@ -96,6 +96,21 @@ label {
   margin-bottom: -4%;
 }
 
+.campos i {
+  position: absolute;
+  cursor: pointer;
+}
+
+#olho1 {
+  left: 72%;
+  top: 73%;
+}
+
+#olho2 {
+  top: 65%;
+  left: 56%;
+}
+
 .div_inputs_cadastro {
   display: flex;
   flex-direction: column;

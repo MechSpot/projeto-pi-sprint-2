@@ -46,7 +46,6 @@ function alertar() {
           ]);
         }
 
-        console.log(movimentoVagaAtual);
         for (var i = 0; i < json.length / 2; i++) {
           const imgAlerta = document.getElementById(`imagemAlerta${i + 1}`);
 
@@ -255,4 +254,4 @@ setInterval(() => {
 
 setInterval(() => {
   alertar();
-}, 5501);
+}, 5600);

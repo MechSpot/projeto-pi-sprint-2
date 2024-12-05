@@ -42,11 +42,40 @@ function proximaPagina() {
     <label>Complemento:</label>
     <input type="text" placeholder="Complemento" id="input_complemento" />
     <label>Senha:</label>
+    <i id="olho2" class="fa-solid fa-eye" onclick="revelar('input_senha')"></i>
     <input type="text" placeholder="Senha" id="input_senha"/>
   `;
 
   div_botao.innerHTML =
     '<button onclick="cadastrar()" class="btn">CADASTRAR</button>';
+}
+
+function revelar(campo) {
+  if (campo == "input_senha_login" && input_senha_login.type == "password") {
+    input_senha_login.type = "text";
+    olho1.classList.remove("fa-eye");
+    olho1.classList.add("fa-eye-slash");
+  } else if (campo == "input_senha_login" && input_senha_login.type == "text") {
+    input_senha_login.type = "password";
+    olho1.classList.add("fa-eye");
+    olho1.classList.remove("fa-eye-slash");
+  }
+
+  if (
+    campo == "input_senha" &&
+    input_senha.type == "password"
+  ) {
+    input_senha.type = "text";
+    olho2.classList.remove("fa-eye");
+    olho2.classList.add("fa-eye-slash");
+  } else if (
+    campo == "input_senha" &&
+    input_senha.type == "text"
+  ) {
+    input_senha.type = "password";
+    olho2.classList.add("fa-eye");
+    olho2.classList.remove("fa-eye-slash");
+  }
 }
 
 function cadastrar() {
